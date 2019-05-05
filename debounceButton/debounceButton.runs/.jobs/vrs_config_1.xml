@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="Mydesign_processing_system7_0_0_synth_1" LaunchDir="D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_processing_system7_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Mydesign_proc_sys_reset_0_0_synth_1" LaunchDir="D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_proc_sys_reset_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Mydesign_ledController_0_0_synth_1" LaunchDir="D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_ledController_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="Mydesign_processing_system7_0_0_synth_1"/>
+		<Parent Id="Mydesign_proc_sys_reset_0_0_synth_1"/>
+		<Parent Id="Mydesign_ledController_0_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+
