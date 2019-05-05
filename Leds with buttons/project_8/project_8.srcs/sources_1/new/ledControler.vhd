@@ -41,8 +41,14 @@ architecture Behavioral of ledControler is
 
 begin
 
-led(0) <= setled(0);
-led(1) <= '1';
+u0 : process(setLed)
+begin
 
+led(0) <= setLed(0);
+led(1) <= setLed(1);
+led(2) <= setLed(2);
+led(3) <= setLed(3);
+
+end process;
 
 end Behavioral;

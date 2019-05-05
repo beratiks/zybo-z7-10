@@ -8,3 +8,5 @@ set_property src_info {type:XDC file:2 line:8 export:INPUT save:INPUT read:READ}
 set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports { sysclk }]; #IO_L12P_T1_MRCC_35 Sch=sysclk
 set_property src_info {type:XDC file:2 line:9 export:INPUT save:INPUT read:READ} [current_design]
 create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports { sysclk }];
+set_property src_info {type:XDC file:2 line:20 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports { btn[0] }]; #IO_L12N_T1_MRCC_35 Sch=btn[0]

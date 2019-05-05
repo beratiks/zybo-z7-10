@@ -44,11 +44,12 @@ begin
 u1 : process(btn)
 begin
 
-u0 : for i in 0 to 3 loop
 
-    getButton(0) <= btn(i);
+    getButton(0) <= btn(0);
+    getButton(1) <= btn(1);
+    getButton(2) <= btn(2);
+    getButton(3) <= btn(3);
 
-end loop;
 
 end process;
 

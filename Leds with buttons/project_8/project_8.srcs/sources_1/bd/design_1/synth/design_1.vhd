@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Sun May  5 18:20:25 2019
+--Date        : Sun May  5 19:55:25 2019
 --Host        : BERAT running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -89,18 +89,18 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_proc_sys_reset_0_0;
-  component design_1_ledControler_0_0 is
-  port (
-    led : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    setLed : in STD_LOGIC_VECTOR ( 3 downto 0 )
-  );
-  end component design_1_ledControler_0_0;
   component design_1_buttons_0_0 is
   port (
     btn : in STD_LOGIC_VECTOR ( 3 downto 0 );
     getButton : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component design_1_buttons_0_0;
+  component design_1_ledControler_0_1 is
+  port (
+    led : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    setLed : in STD_LOGIC_VECTOR ( 3 downto 0 )
+  );
+  end component design_1_ledControler_0_1;
   signal btn_0_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal buttons_0_getButton : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ledControler_0_led : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -171,7 +171,7 @@ buttons_0: component design_1_buttons_0_0
       btn(3 downto 0) => btn_0_1(3 downto 0),
       getButton(3 downto 0) => buttons_0_getButton(3 downto 0)
     );
-ledControler_0: component design_1_ledControler_0_0
+ledControler_0: component design_1_ledControler_0_1
      port map (
       led(3 downto 0) => ledControler_0_led(3 downto 0),
       setLed(3 downto 0) => buttons_0_getButton(3 downto 0)

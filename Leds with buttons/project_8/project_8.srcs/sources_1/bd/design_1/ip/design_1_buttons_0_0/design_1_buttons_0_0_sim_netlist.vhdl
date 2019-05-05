@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Sun May  5 18:21:03 2019
+-- Date        : Sun May  5 19:34:44 2019
 -- Host        : BERAT running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_buttons_0_0/design_1_buttons_0_0_sim_netlist.vhdl
@@ -34,9 +34,6 @@ end design_1_buttons_0_0;
 architecture STRUCTURE of design_1_buttons_0_0 is
   signal \^btn\ : STD_LOGIC_VECTOR ( 3 downto 0 );
 begin
-  \^btn\(3) <= btn(3);
-  getButton(0) <= \^btn\(3);
-  getButton(1) <= 'Z';
-  getButton(2) <= 'Z';
-  getButton(3) <= 'Z';
+  \^btn\(3 downto 0) <= btn(3 downto 0);
+  getButton(3 downto 0) <= \^btn\(3 downto 0);
 end STRUCTURE;

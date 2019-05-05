@@ -11,8 +11,8 @@
     "design_tree": {
       "processing_system7_0": "",
       "proc_sys_reset_0": "",
-      "ledControler_0": "",
-      "buttons_0": ""
+      "buttons_0": "",
+      "ledControler_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -94,13 +94,13 @@
           }
         }
       },
-      "led": {
-        "direction": "O",
+      "btn": {
+        "direction": "I",
         "left": "3",
         "right": "0"
       },
-      "btn": {
-        "direction": "I",
+      "led": {
+        "direction": "O",
         "left": "3",
         "right": "0"
       }
@@ -1112,27 +1112,6 @@
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "design_1_proc_sys_reset_0_0"
       },
-      "ledControler_0": {
-        "vlnv": "xilinx.com:module_ref:ledControler:1.0",
-        "xci_name": "design_1_ledControler_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "ledControler",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "led": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "setLed": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          }
-        }
-      },
       "buttons_0": {
         "vlnv": "xilinx.com:module_ref:buttons:1.0",
         "xci_name": "design_1_buttons_0_0",
@@ -1149,6 +1128,27 @@
           },
           "getButton": {
             "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "ledControler_0": {
+        "vlnv": "xilinx.com:module_ref:ledControler:1.0",
+        "xci_name": "design_1_ledControler_0_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ledControler",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "led": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "setLed": {
+            "direction": "I",
             "left": "3",
             "right": "0"
           }
@@ -1182,16 +1182,16 @@
           "proc_sys_reset_0/ext_reset_in"
         ]
       },
-      "ledControler_0_led": {
-        "ports": [
-          "ledControler_0/led",
-          "led"
-        ]
-      },
       "btn_0_1": {
         "ports": [
           "btn",
           "buttons_0/btn"
+        ]
+      },
+      "ledControler_0_led": {
+        "ports": [
+          "ledControler_0/led",
+          "led"
         ]
       },
       "buttons_0_getButton": {

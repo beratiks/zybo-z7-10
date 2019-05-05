@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun May  5 18:21:41 2019
+| Date         : Sun May  5 19:56:36 2019
 | Host         : BERAT running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
@@ -159,7 +159,7 @@ Table of Contents
 +---------------------------------+------+
 | design_1_processing_system7_0_0 |    1 |
 | design_1_proc_sys_reset_0_0     |    1 |
-| design_1_ledControler_0_0       |    1 |
+| design_1_ledControler_0_1       |    1 |
 | design_1_buttons_0_0            |    1 |
 +---------------------------------+------+
 

@@ -1804,3 +1804,1010 @@ INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
 INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
 ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+update_module_reference design_1_ledControler_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '../../../new/ledControler.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'ledControler'.
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+update_module_reference design_1_buttons_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_buttons_0_0 from buttons_v1_0 1.0 to buttons_v1_0 1.0
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:44]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "loop". [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/ledControler.vhd:46]
+update_module_reference design_1_ledControler_0_0
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttons_0 .
+Exporting to file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May  5 19:02:14 2019] Launched design_1_buttons_0_0_synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/design_1_buttons_0_0_synth_1/runme.log
+[Sun May  5 19:02:14 2019] Launched synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 4163.465 ; gain = 40.109
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sun May  5 19:03:37 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun May  5 19:04:46 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+update_module_reference design_1_ledControler_0_0
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design -force
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttons_0 .
+Exporting to file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May  5 19:08:21 2019] Launched synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sun May  5 19:09:05 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun May  5 19:10:15 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 4335.195 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
+INFO: [Synth 8-3491] module 'design_1' declared at 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:14' bound to instance 'design_1_i' of component 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:73]
+INFO: [Synth 8-638] synthesizing module 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
+INFO: [Synth 8-3491] module 'design_1_buttons_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:5' bound to instance 'buttons_0' of component 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_ledControler_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:5' bound to instance 'ledControler_0' of component 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:174]
+INFO: [Synth 8-638] synthesizing module 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:179]
+INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:192]
+INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:37]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (1#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (2#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 4632.824 ; gain = 297.629
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 4633.762 ; gain = 298.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 4633.762 ; gain = 298.566
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_buttons_0_0/design_1_buttons_0_0.dcp' for cell 'design_1_i/buttons_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_ledControler_0_0/design_1_ledControler_0_0.dcp' for cell 'design_1_i/ledControler_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.dcp' for cell 'design_1_i/proc_sys_reset_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp' for cell 'design_1_i/processing_system7_0'
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 2 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4649.836 ; gain = 0.000
+Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:8]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:9]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal btn[0] cannot be placed on K18 (IOB_X0Y75) because the pad is already occupied by terminal led[0] possibly due to user constraint [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:20]
+Finished Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/design_1_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4649.836 ; gain = 0.000
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+INFO: [Common 17-14] Message 'Designutils 20-3303' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+refresh_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 4649.836 ; gain = 318.648
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 4649.836 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
+INFO: [Synth 8-3491] module 'design_1' declared at 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:14' bound to instance 'design_1_i' of component 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:73]
+INFO: [Synth 8-638] synthesizing module 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
+INFO: [Synth 8-3491] module 'design_1_buttons_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:5' bound to instance 'buttons_0' of component 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_ledControler_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:5' bound to instance 'ledControler_0' of component 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:174]
+INFO: [Synth 8-638] synthesizing module 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:179]
+INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:192]
+INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:37]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (1#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (2#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 4649.836 ; gain = 0.000
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 4649.836 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 4649.836 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_buttons_0_0/design_1_buttons_0_0.dcp' for cell 'design_1_i/buttons_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_ledControler_0_0/design_1_ledControler_0_0.dcp' for cell 'design_1_i/ledControler_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.dcp' for cell 'design_1_i/proc_sys_reset_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp' for cell 'design_1_i/processing_system7_0'
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 2 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4649.836 ; gain = 0.000
+Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:8]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:9]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal btn[0] cannot be placed on K18 (IOB_X0Y75) because the pad is already occupied by terminal led[0] possibly due to user constraint [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:20]
+Finished Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/design_1_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4649.836 ; gain = 0.000
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+INFO: [Common 17-14] Message 'Designutils 20-3303' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+refresh_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 4649.836 ; gain = 0.000
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_buttons_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_buttons_0_0 from buttons_v1_0 1.0 to buttons_v1_0 1.0
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttons_0 .
+Exporting to file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May  5 19:16:57 2019] Launched design_1_buttons_0_0_synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/design_1_buttons_0_0_synth_1/runme.log
+[Sun May  5 19:16:57 2019] Launched synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sun May  5 19:18:11 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun May  5 19:19:18 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+update_module_reference design_1_buttons_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_buttons_0_0 from buttons_v1_0 1.0 to buttons_v1_0 1.0
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+INFO: [Vivado 12-5777] IP Instance 'design_1_buttons_0_0' cannot be used in a module reference: IP components that are IPI-only are not supported for module references.
+delete_bd_objs [get_bd_nets buttons_0_getButton] [get_bd_nets btn_0_1] [get_bd_cells buttons_0]
+delete_bd_objs [get_bd_ports btn]
+update_compile_order -fileset sources_1
+validate_bd_design
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/ledControler_0/setLed
+
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/ledControler_0/setLed
+
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_module_reference design_1_ledControler_0_0
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference buttons buttons_0
+validate_bd_design
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/ledControler_0/setLed
+/buttons_0/btn
+
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/ledControler_0/setLed
+/buttons_0/btn
+
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_compile_order -fileset sources_1
+INFO: [Vivado 12-5777] IP Instance 'design_1_buttons_0_0' cannot be used in a module reference: IP components that are IPI-only are not supported for module references.
+INFO: [Vivado 12-5777] IP Instance 'design_1_buttons_0_0' cannot be used in a module reference: IP components that are IPI-only are not supported for module references.
+INFO: [Vivado 12-5777] IP Instance 'design_1_buttons_0_0' cannot be used in a module reference: IP components that are IPI-only are not supported for module references.
+startgroup
+make_bd_pins_external  [get_bd_pins buttons_0/btn]
+endgroup
+startgroup
+connect_bd_net [get_bd_pins buttons_0/getButton] [get_bd_pins ledControler_0/setLed]
+endgroup
+save_bd_design
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttons_0 .
+Exporting to file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May  5 19:23:48 2019] Launched design_1_buttons_0_0_synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/design_1_buttons_0_0_synth_1/runme.log
+[Sun May  5 19:23:49 2019] Launched synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+set_property name btn [get_bd_ports btn_0]
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_module_reference design_1_buttons_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_buttons_0_0 from buttons_v1_0 1.0 to buttons_v1_0 1.0
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttons_0 .
+Exporting to file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May  5 19:28:59 2019] Launched design_1_buttons_0_0_synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/design_1_buttons_0_0_synth_1/runme.log
+[Sun May  5 19:28:59 2019] Launched synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sun May  5 19:30:15 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun May  5 19:31:26 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_buttons_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_buttons_0_0 from buttons_v1_0 1.0 to buttons_v1_0 1.0
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttons_0 .
+Exporting to file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May  5 19:34:14 2019] Launched design_1_buttons_0_0_synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/design_1_buttons_0_0_synth_1/runme.log
+[Sun May  5 19:34:14 2019] Launched synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 4803.336 ; gain = 37.902
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sun May  5 19:35:30 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun May  5 19:36:40 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 5301.535 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
+INFO: [Synth 8-3491] module 'design_1' declared at 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:14' bound to instance 'design_1_i' of component 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:73]
+INFO: [Synth 8-638] synthesizing module 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
+INFO: [Synth 8-3491] module 'design_1_buttons_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:5' bound to instance 'buttons_0' of component 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_ledControler_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:5' bound to instance 'ledControler_0' of component 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:174]
+INFO: [Synth 8-638] synthesizing module 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:179]
+INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:192]
+INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/.Xil/Vivado-75248-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:37]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (1#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (2#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 5303.691 ; gain = 2.156
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 5304.277 ; gain = 2.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 5304.277 ; gain = 2.742
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_buttons_0_0/design_1_buttons_0_0.dcp' for cell 'design_1_i/buttons_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_ledControler_0_0/design_1_ledControler_0_0.dcp' for cell 'design_1_i/ledControler_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.dcp' for cell 'design_1_i/proc_sys_reset_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp' for cell 'design_1_i/processing_system7_0'
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 2 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5320.348 ; gain = 0.000
+Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:8]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:9]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal btn[0] cannot be placed on K18 (IOB_X0Y75) because the pad is already occupied by terminal led[0] possibly due to user constraint [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:20]
+Finished Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/design_1_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5320.348 ; gain = 0.000
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+INFO: [Common 17-14] Message 'Designutils 20-3303' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+refresh_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 5320.348 ; gain = 22.816
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+open_run impl_1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.543 . Memory (MB): peak = 5320.348 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.543 . Memory (MB): peak = 5320.348 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5320.348 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets buttons_0_getButton] [get_bd_nets ledControler_0_led] [get_bd_cells ledControler_0]
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference ledControler ledControler_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+delete_bd_objs [get_bd_ports led]
+startgroup
+make_bd_pins_external  [get_bd_pins ledControler_0/led]
+endgroup
+set_property name led [get_bd_ports led_0]
+connect_bd_net [get_bd_pins ledControler_0/setLed] [get_bd_pins buttons_0/getButton]
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\zybo-z10_workspace\project_8\project_8.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_compile_order -fileset sources_1
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttons_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ledControler_0 .
+Exporting to file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Sun May  5 19:55:30 2019] Launched design_1_ledControler_0_1_synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/design_1_ledControler_0_1_synth_1/runme.log
+[Sun May  5 19:55:30 2019] Launched synth_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sun May  5 19:56:44 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun May  5 19:58:07 2019] Launched impl_1...
+Run output will be captured here: D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun May  5 20:00:57 2019...

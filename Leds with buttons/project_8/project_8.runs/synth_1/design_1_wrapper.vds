@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May  5 18:21:06 2019
-# Process ID: 30900
+# Start of session at: Sun May  5 19:56:02 2019
+# Process ID: 61392
 # Current directory: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/design_1_wrapper.vds
@@ -13,31 +13,31 @@ source design_1_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
-add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 323.418 ; gain = 48.336
+add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 324.090 ; gain = 49.891
 Command: synth_design -top design_1_wrapper -part xc7z010clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 62964 
+INFO: Helper process launched with PID 62132 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 428.977 ; gain = 98.211
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 428.941 ; gain = 97.504
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
 INFO: [Synth 8-3491] module 'design_1' declared at 'D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:14' bound to instance 'design_1_i' of component 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:73]
 INFO: [Synth 8-638] synthesizing module 'design_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
-INFO: [Synth 8-3491] module 'design_1_buttons_0_0' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:5' bound to instance 'buttons_0' of component 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:169]
-INFO: [Synth 8-638] synthesizing module 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:13]
-INFO: [Synth 8-3491] module 'design_1_ledControler_0_0' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:5' bound to instance 'ledControler_0' of component 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:174]
-INFO: [Synth 8-638] synthesizing module 'design_1_ledControler_0_0' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_ledControler_0_0_stub.vhdl:13]
-INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:179]
-INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:192]
-INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-30900-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:37]
+INFO: [Synth 8-3491] module 'design_1_buttons_0_0' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:5' bound to instance 'buttons_0' of component 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'design_1_buttons_0_0' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_buttons_0_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_ledControler_0_1' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_ledControler_0_1_stub.vhdl:5' bound to instance 'ledControler_0' of component 'design_1_ledControler_0_1' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:174]
+INFO: [Synth 8-638] synthesizing module 'design_1_ledControler_0_1' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_ledControler_0_1_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:179]
+INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:192]
+INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/.Xil/Vivado-61392-BERAT/realtime/design_1_processing_system7_0_0_stub.vhdl:37]
 INFO: [Synth 8-256] done synthesizing module 'design_1' (1#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/synth/design_1.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (2#1) [D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 484.855 ; gain = 154.090
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 485.211 ; gain = 153.773
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -50,10 +50,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 484.855 ; gain = 154.090
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 485.211 ; gain = 153.773
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 484.855 ; gain = 154.090
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 485.211 ; gain = 153.773
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -64,10 +64,10 @@ Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/de
 Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0/design_1_processing_system7_0_0_in_context.xdc] for cell 'design_1_i/processing_system7_0'
 Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_in_context.xdc] for cell 'design_1_i/proc_sys_reset_0'
 Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_in_context.xdc] for cell 'design_1_i/proc_sys_reset_0'
-Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_ledControler_0_0/design_1_ledControler_0_0/design_1_ledControler_0_0_in_context.xdc] for cell 'design_1_i/ledControler_0'
-Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_ledControler_0_0/design_1_ledControler_0_0/design_1_ledControler_0_0_in_context.xdc] for cell 'design_1_i/ledControler_0'
 Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_buttons_0_0/design_1_buttons_0_0/design_1_buttons_0_0_in_context.xdc] for cell 'design_1_i/buttons_0'
 Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_buttons_0_0/design_1_buttons_0_0/design_1_buttons_0_0_in_context.xdc] for cell 'design_1_i/buttons_0'
+Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_ledControler_0_1/design_1_ledControler_0_1/design_1_ledControler_0_1_in_context.xdc] for cell 'design_1_i/ledControler_0'
+Finished Parsing XDC File [d:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/ip/design_1_ledControler_0_1/design_1_ledControler_0_1/design_1_ledControler_0_1_in_context.xdc] for cell 'design_1_i/ledControler_0'
 Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc]
 WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:8]
 WARNING: [Vivado 12-584] No ports matched 'sysclk'. [D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc:9]
@@ -77,24 +77,24 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/dont_touch.xdc]
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 757.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 757.547 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 757.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 757.547 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 757.297 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 757.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 757.547 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 757.547 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 757.297 ; gain = 426.531
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 757.547 ; gain = 426.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 757.297 ; gain = 426.531
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 757.547 ; gain = 426.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -362,13 +362,13 @@ Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ps_srstb. (constraint
 Applied set_property DONT_TOUCH = true for design_1_i. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/processing_system7_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/proc_sys_reset_0. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/ledControler_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/buttons_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/ledControler_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 757.297 ; gain = 426.531
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 757.547 ; gain = 426.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 757.297 ; gain = 426.531
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 757.547 ; gain = 426.109
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -404,7 +404,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 757.297 ; gain = 426.531
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 757.547 ; gain = 426.109
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -418,13 +418,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'design_1_i/processing_system7_0/FCLK_CLK0' to pin 'design_1_i/processing_system7_0/bbstub_FCLK_CLK0/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 794.086 ; gain = 463.320
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 791.664 ; gain = 460.227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 794.086 ; gain = 463.320
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 791.738 ; gain = 460.301
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -436,7 +436,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -460,7 +460,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -473,7 +473,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -485,25 +485,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -514,7 +514,7 @@ Report BlackBoxes:
 |      |BlackBox name                   |Instances |
 +------+--------------------------------+----------+
 |1     |design_1_buttons_0_0            |         1|
-|2     |design_1_ledControler_0_0       |         1|
+|2     |design_1_ledControler_0_1       |         1|
 |3     |design_1_proc_sys_reset_0_0     |         1|
 |4     |design_1_processing_system7_0_0 |         1|
 +------+--------------------------------+----------+
@@ -524,7 +524,7 @@ Report Cell Usage:
 |      |Cell                                   |Count |
 +------+---------------------------------------+------+
 |1     |design_1_buttons_0_0_bbox_0            |     1|
-|2     |design_1_ledControler_0_0_bbox_1       |     1|
+|2     |design_1_ledControler_0_1_bbox_1       |     1|
 |3     |design_1_proc_sys_reset_0_0_bbox_2     |     1|
 |4     |design_1_processing_system7_0_0_bbox_3 |     1|
 |5     |IBUF                                   |     5|
@@ -539,25 +539,25 @@ Report Instance Areas:
 |2     |  design_1_i |design_1 |    18|
 +------+-------------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 803.613 ; gain = 200.406
-Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 803.613 ; gain = 472.848
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 801.266 ; gain = 197.492
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 801.266 ; gain = 469.828
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 815.059 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 814.969 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 28 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 815.063 ; gain = 491.645
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 815.063 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 814.992 ; gain = 490.902
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 814.992 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/zybo-z10_workspace/project_8/project_8.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May  5 18:21:41 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun May  5 19:56:36 2019...

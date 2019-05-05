@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Sun May  5 18:21:03 2019
+-- Date        : Sun May  5 19:34:44 2019
 -- Host        : BERAT running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_buttons_0_0_sim_netlist.vhdl
@@ -34,9 +34,6 @@ end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   signal \^btn\ : STD_LOGIC_VECTOR ( 3 downto 0 );
 begin
-  \^btn\(3) <= btn(3);
-  getButton(0) <= \^btn\(3);
-  getButton(1) <= 'Z';
-  getButton(2) <= 'Z';
-  getButton(3) <= 'Z';
+  \^btn\(3 downto 0) <= btn(3 downto 0);
+  getButton(3 downto 0) <= \^btn\(3 downto 0);
 end STRUCTURE;

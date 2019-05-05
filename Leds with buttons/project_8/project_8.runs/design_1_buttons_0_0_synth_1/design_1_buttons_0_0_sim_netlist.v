@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sun May  5 18:21:03 2019
+// Date        : Sun May  5 19:34:44 2019
 // Host        : BERAT running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_buttons_0_0_sim_netlist.v
@@ -23,7 +23,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
 
   wire [3:0]btn;
 
-  assign getButton[0] = btn[3];
+  assign getButton[3:0] = btn;
 endmodule
 `ifndef GLBL
 `define GLBL

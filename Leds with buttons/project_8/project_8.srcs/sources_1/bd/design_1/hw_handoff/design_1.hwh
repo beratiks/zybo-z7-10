@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun May  5 18:20:25 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun May  5 19:55:25 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo-z7-10:part0:1.0" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -114,14 +114,14 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="3" NAME="led" RIGHT="0" SIGIS="undef" SIGNAME="ledControler_0_led">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="ledControler_0" PORT="led"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" LEFT="3" NAME="btn" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_btn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="buttons_0" PORT="btn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="led" RIGHT="0" SIGIS="undef" SIGNAME="ledControler_0_led">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ledControler_0" PORT="led"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -197,7 +197,7 @@
     <MODULE COREREVISION="1" FULLNAME="/ledControler_0" HWVERSION="1.0" INSTANCE="ledControler_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ledControler" VLNV="xilinx.com:module_ref:ledControler:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_ledControler_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_ledControler_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
