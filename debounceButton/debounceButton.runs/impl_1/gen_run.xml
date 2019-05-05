@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1557082416">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1557084382">
   <File Type="BITSTR-BMM" Name="Mydesign_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="Mydesign_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="Mydesign_wrapper_timing_summary_init.rpt"/>
@@ -130,9 +130,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -145,7 +143,7 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_proc_sys_reset_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Mydesign_ledController_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Mydesign_buttonController_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_deBouncer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Mydesign_buttonController_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Mydesign_ledController_0_0"/>
 </GenRun>

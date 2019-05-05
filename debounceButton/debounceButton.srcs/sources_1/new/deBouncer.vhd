@@ -33,21 +33,24 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity deBouncer is
 Port (
-    setLed : out std_logic_vector(3 downto 0);
-    getButton : in std_logic_vector(3 downto 0)
+    setLed : out std_logic;
+    getButton : in std_logic
  );
 end deBouncer;
 
 architecture Behavioral of deBouncer is
 
+
+
 begin
 
-    u0 : for i in 0 to 3 generate
-    begin
-    
-    setLed(i) <= getButton(i);
-    
-    end generate;
+--u0 : process(sys_clock)
+--variable counter : integer := 0;
+--begin
 
+setLed <= getButton;
+
+
+--end process;
 
 end Behavioral;

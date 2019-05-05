@@ -1,0 +1,213 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun May  5 22:02:38 2019
+# Process ID: 75516
+# Current directory: D:/github_repository/zybo-z10/debounceButton
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11452 D:\github_repository\zybo-z10\debounceButton\debounceButton.xpr
+# Log file: D:/github_repository/zybo-z10/debounceButton/vivado.log
+# Journal file: D:/github_repository/zybo-z10/debounceButton\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z10/debounceButton/debounceButton.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 760.719 ; gain = 180.258
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+open_hw_target: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1728.797 ; gain = 629.211
+set_property PROGRAM.FILE {D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/Mydesign_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/Mydesign_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+update_compile_order -fileset sources_1
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+open_bd_design {D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding cell -- xilinx.com:module_ref:ledController:1.0 - ledController_0
+Adding cell -- xilinx.com:module_ref:buttonController:1.0 - buttonController_0
+Adding cell -- xilinx.com:module_ref:deBouncer:1.0 - deBouncer_0
+Successfully read diagram <Mydesign> from BD file <D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd>
+open_bd_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1895.617 ; gain = 113.613
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+update_module_reference Mydesign_deBouncer_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [d:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '../../../new/deBouncer.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file 'd:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'deBouncer'.
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+validate_bd_design -force
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+delete_bd_objs [get_bd_nets btn_0_1] [get_bd_ports btn]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+delete_bd_objs [get_bd_nets ledController_0_led] [get_bd_ports led]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "getButton". [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:37]
+update_module_reference Mydesign_deBouncer_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'sys_clock' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'sys_clock': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1
+
+INFO: [IP_Flow 19-1972] Upgraded Mydesign_deBouncer_0_0 from deBouncer_v1_0 1.0 to deBouncer_v1_0 1.0
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'sys_clock' (xilinx.com:signal:clock:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'Mydesign_deBouncer_0_0'.
+WARNING: [IP_Flow 19-4706] Upgraded port 'getButton' width 1 differs from original width 4
+WARNING: [IP_Flow 19-4706] Upgraded port 'setLed' width 1 differs from original width 4
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'sys_clock'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'Mydesign_deBouncer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'Mydesign_deBouncer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+Wrote  : <D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ui/bd_10971baa.ui> 
+update_module_reference Mydesign_deBouncer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd'
+INFO: [IP_Flow 19-1972] Upgraded Mydesign_deBouncer_0_0 from deBouncer_v1_0 1.0 to deBouncer_v1_0 1.0
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'sys_clock'
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'Mydesign_deBouncer_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'sys_clock'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'Mydesign_deBouncer_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'Mydesign_deBouncer_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+startgroup
+make_bd_pins_external  [get_bd_pins buttonController_0/btn]
+endgroup
+undo
+INFO: [Common 17-17] undo 'endgroup'
+INFO: [Common 17-17] undo 'make_bd_pins_external  [get_bd_pins buttonController_0/btn]'
+INFO: [Common 17-17] undo 'startgroup'
+regenerate_bd_layout
+update_module_reference Mydesign_buttonController_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_buttonController_0_0_synth_1
+
+INFO: [IP_Flow 19-1972] Upgraded Mydesign_buttonController_0_0 from buttonController_v1_0 1.0 to buttonController_v1_0 1.0
+WARNING: [IP_Flow 19-4706] Upgraded port 'btn' width 1 differs from original width 4
+WARNING: [IP_Flow 19-4706] Upgraded port 'getButton' width 1 differs from original width 4
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'Mydesign_buttonController_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'Mydesign_buttonController_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+Wrote  : <D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ui/bd_10971baa.ui> 
+update_module_reference Mydesign_deBouncer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd'
+INFO: [IP_Flow 19-1972] Upgraded Mydesign_deBouncer_0_0 from deBouncer_v1_0 1.0 to deBouncer_v1_0 1.0
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+update_module_reference Mydesign_ledController_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_ledController_0_0_synth_1
+
+INFO: [IP_Flow 19-1972] Upgraded Mydesign_ledController_0_0 from ledController_v1_0 1.0 to ledController_v1_0 1.0
+WARNING: [IP_Flow 19-4706] Upgraded port 'led' width 1 differs from original width 4
+WARNING: [IP_Flow 19-4706] Upgraded port 'setLed' width 1 differs from original width 4
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'Mydesign_ledController_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'Mydesign_ledController_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+startgroup
+make_bd_pins_external  [get_bd_pins buttonController_0/btn]
+endgroup
+set_property name btn [get_bd_ports btn_0]
+startgroup
+make_bd_pins_external  [get_bd_pins ledController_0/led]
+endgroup
+set_property name led [get_bd_ports led_0]
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd] -top
+INFO: [BD 41-1662] The design 'Mydesign.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+Wrote  : <D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ui/bd_10971baa.ui> 
+VHDL Output written to : D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/synth/Mydesign.vhd
+VHDL Output written to : D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/sim/Mydesign.vhd
+VHDL Output written to : D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/hdl/Mydesign_wrapper.vhd
+update_module_reference Mydesign_deBouncer_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd'
+INFO: [IP_Flow 19-1972] Upgraded Mydesign_deBouncer_0_0 from deBouncer_v1_0 1.0 to deBouncer_v1_0 1.0
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+validate_bd_design
+save_bd_design
+Wrote  : <D:\github_repository\zybo-z10\debounceButton\debounceButton.srcs\sources_1\bd\Mydesign\Mydesign.bd> 
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'Mydesign.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/synth/Mydesign.vhd
+VHDL Output written to : D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/sim/Mydesign.vhd
+VHDL Output written to : D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/hdl/Mydesign_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block proc_sys_reset_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ledController_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block buttonController_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block deBouncer_0 .
+Exporting to file D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/hw_handoff/Mydesign.hwh
+Generated Block Design Tcl file D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/hw_handoff/Mydesign_bd.tcl
+Generated Hardware Definition File D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/synth/Mydesign.hwdef
+[Sun May  5 22:23:59 2019] Launched Mydesign_deBouncer_0_0_synth_1, Mydesign_buttonController_0_0_synth_1, Mydesign_ledController_0_0_synth_1...
+Run output will be captured here:
+Mydesign_deBouncer_0_0_synth_1: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1/runme.log
+Mydesign_buttonController_0_0_synth_1: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_buttonController_0_0_synth_1/runme.log
+Mydesign_ledController_0_0_synth_1: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_ledController_0_0_synth_1/runme.log
+[Sun May  5 22:23:59 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 2071.934 ; gain = 49.090
+launch_runs impl_1 -jobs 4
+[Sun May  5 22:26:22 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun May  5 22:27:33 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/Mydesign_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A

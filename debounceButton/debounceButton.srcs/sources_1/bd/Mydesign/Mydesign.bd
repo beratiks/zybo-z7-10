@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x381445288D8BCF19",
+      "boundary_crc": "0x328E646E6B199E06",
       "device": "xc7z010clg400-1",
       "name": "Mydesign",
       "synth_flow_mode": "Hierarchical",
@@ -11,8 +11,8 @@
     "design_tree": {
       "processing_system7_0": "",
       "proc_sys_reset_0": "",
-      "ledController_0": "",
       "buttonController_0": "",
+      "ledController_0": "",
       "deBouncer_0": ""
     },
     "interface_ports": {
@@ -95,15 +95,11 @@
           }
         }
       },
-      "led": {
-        "direction": "O",
-        "left": "3",
-        "right": "0"
-      },
       "btn": {
-        "direction": "I",
-        "left": "3",
-        "right": "0"
+        "direction": "I"
+      },
+      "led": {
+        "direction": "O"
       }
     },
     "components": {
@@ -1113,27 +1109,6 @@
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "Mydesign_proc_sys_reset_0_0"
       },
-      "ledController_0": {
-        "vlnv": "xilinx.com:module_ref:ledController:1.0",
-        "xci_name": "Mydesign_ledController_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "ledController",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "led": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "setLed": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          }
-        }
-      },
       "buttonController_0": {
         "vlnv": "xilinx.com:module_ref:buttonController:1.0",
         "xci_name": "Mydesign_buttonController_0_0",
@@ -1144,14 +1119,27 @@
         },
         "ports": {
           "btn": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
+            "direction": "I"
           },
           "getButton": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
+            "direction": "O"
+          }
+        }
+      },
+      "ledController_0": {
+        "vlnv": "xilinx.com:module_ref:ledController:1.0",
+        "xci_name": "Mydesign_ledController_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ledController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "led": {
+            "direction": "O"
+          },
+          "setLed": {
+            "direction": "I"
           }
         }
       },
@@ -1165,14 +1153,10 @@
         },
         "ports": {
           "setLed": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
+            "direction": "O"
           },
           "getButton": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
+            "direction": "I"
           }
         }
       }
@@ -1204,18 +1188,6 @@
           "proc_sys_reset_0/ext_reset_in"
         ]
       },
-      "ledController_0_led": {
-        "ports": [
-          "ledController_0/led",
-          "led"
-        ]
-      },
-      "btn_0_1": {
-        "ports": [
-          "btn",
-          "buttonController_0/btn"
-        ]
-      },
       "buttonController_0_getButton": {
         "ports": [
           "buttonController_0/getButton",
@@ -1226,6 +1198,18 @@
         "ports": [
           "deBouncer_0/setLed",
           "ledController_0/setLed"
+        ]
+      },
+      "btn_0_1": {
+        "ports": [
+          "btn",
+          "buttonController_0/btn"
+        ]
+      },
+      "ledController_0_led": {
+        "ports": [
+          "ledController_0/led",
+          "led"
         ]
       }
     }

@@ -55,8 +55,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY Mydesign_buttonController_0_0 IS
   PORT (
-    btn : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    getButton : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    btn : IN STD_LOGIC;
+    getButton : OUT STD_LOGIC
   );
 END Mydesign_buttonController_0_0;
 
@@ -65,8 +65,8 @@ ARCHITECTURE Mydesign_buttonController_0_0_arch OF Mydesign_buttonController_0_0
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF Mydesign_buttonController_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT buttonController IS
     PORT (
-      btn : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-      getButton : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+      btn : IN STD_LOGIC;
+      getButton : OUT STD_LOGIC
     );
   END COMPONENT buttonController;
   ATTRIBUTE X_CORE_INFO : STRING;

@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May  5 21:52:18 2019
-# Process ID: 73756
+# Start of session at: Sun May  5 22:24:01 2019
+# Process ID: 78468
 # Current directory: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1
 # Command line: vivado.exe -log Mydesign_deBouncer_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Mydesign_deBouncer_0_0.tcl
 # Log file: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1/Mydesign_deBouncer_0_0.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 38188 
+INFO: Helper process launched with PID 58492 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 419.934 ; gain = 102.609
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 419.801 ; gain = 102.047
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Mydesign_deBouncer_0_0' [d:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ip/Mydesign_deBouncer_0_0/synth/Mydesign_deBouncer_0_0.vhd:63]
 INFO: [Synth 8-3491] module 'deBouncer' declared at 'D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:34' bound to instance 'U0' of component 'deBouncer' [d:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ip/Mydesign_deBouncer_0_0/synth/Mydesign_deBouncer_0_0.vhd:81]
@@ -25,21 +25,21 @@ INFO: [Synth 8-638] synthesizing module 'deBouncer' [D:/github_repository/zybo-z
 INFO: [Synth 8-256] done synthesizing module 'deBouncer' (1#1) [D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/new/deBouncer.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'Mydesign_deBouncer_0_0' (2#1) [d:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ip/Mydesign_deBouncer_0_0/synth/Mydesign_deBouncer_0_0.vhd:63]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 476.086 ; gain = 158.762
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 474.852 ; gain = 157.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 476.086 ; gain = 158.762
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 474.852 ; gain = 157.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 476.086 ; gain = 158.762
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 474.852 ; gain = 157.098
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 476.086 ; gain = 158.762
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 474.852 ; gain = 157.098
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -78,7 +78,7 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 WARNING: [Synth 8-3330] design Mydesign_deBouncer_0_0 has an empty top module
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 579.758 ; gain = 262.434
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 578.391 ; gain = 260.637
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -91,7 +91,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 579.758 ; gain = 262.434
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 578.391 ; gain = 260.637
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -103,7 +103,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -127,7 +127,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -140,7 +140,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -152,25 +152,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -195,31 +195,31 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
-Synthesis Optimization Complete : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 588.047 ; gain = 270.723
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 585.715 ; gain = 267.961
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 701.621 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 701.715 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 12 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 701.621 ; gain = 397.410
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 701.621 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 701.715 ; gain = 397.078
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 701.715 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Common 17-1381] The checkpoint 'D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1/Mydesign_deBouncer_0_0.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1126.477 ; gain = 424.855
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1126.477 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1128.422 ; gain = 426.707
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1128.422 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1/Mydesign_deBouncer_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Mydesign_deBouncer_0_0_utilization_synth.rpt -pb Mydesign_deBouncer_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May  5 21:52:48 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun May  5 22:24:44 2019...

@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Sun May  5 21:29:01 2019
+-- Date        : Sun May  5 22:24:43 2019
 -- Host        : BERAT running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ Mydesign_ledController_0_0_sim_netlist.vhdl
@@ -16,8 +16,8 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   port (
-    led : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    setLed : in STD_LOGIC_VECTOR ( 3 downto 0 )
+    led : out STD_LOGIC;
+    setLed : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is true;
@@ -32,8 +32,8 @@ entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
 end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
 
 architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
-  signal \^setled\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \^setled\ : STD_LOGIC;
 begin
-  \^setled\(3 downto 0) <= setLed(3 downto 0);
-  led(3 downto 0) <= \^setled\(3 downto 0);
+  \^setled\ <= setLed;
+  led <= \^setled\;
 end STRUCTURE;

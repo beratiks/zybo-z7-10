@@ -55,8 +55,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY Mydesign_ledController_0_0 IS
   PORT (
-    led : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    setLed : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+    led : OUT STD_LOGIC;
+    setLed : IN STD_LOGIC
   );
 END Mydesign_ledController_0_0;
 
@@ -65,8 +65,8 @@ ARCHITECTURE Mydesign_ledController_0_0_arch OF Mydesign_ledController_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF Mydesign_ledController_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT ledController IS
     PORT (
-      led : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-      setLed : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+      led : OUT STD_LOGIC;
+      setLed : IN STD_LOGIC
     );
   END COMPONENT ledController;
   ATTRIBUTE X_CORE_INFO : STRING;

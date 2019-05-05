@@ -55,8 +55,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY Mydesign_deBouncer_0_0 IS
   PORT (
-    setLed : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    getButton : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+    setLed : OUT STD_LOGIC;
+    getButton : IN STD_LOGIC
   );
 END Mydesign_deBouncer_0_0;
 
@@ -65,8 +65,8 @@ ARCHITECTURE Mydesign_deBouncer_0_0_arch OF Mydesign_deBouncer_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF Mydesign_deBouncer_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT deBouncer IS
     PORT (
-      setLed : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-      getButton : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+      setLed : OUT STD_LOGIC;
+      getButton : IN STD_LOGIC
     );
   END COMPONENT deBouncer;
   ATTRIBUTE X_CORE_INFO : STRING;

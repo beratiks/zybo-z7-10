@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun May  5 21:52:10 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun May  5 22:23:49 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo-z7-10:part0:1.0" DEVICE="7z010" NAME="Mydesign" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
+    <PORT DIR="I" NAME="reset_rtl" SIGIS="rst" SIGNAME="External_Ports_reset_rtl">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="proc_sys_reset_0" PORT="ext_reset_in"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="IO" NAME="DDR_cas_n" SIGIS="undef" SIGNAME="processing_system7_0_DDR_CAS_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_CAS_n"/>
@@ -109,19 +114,14 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="reset_rtl" SIGIS="rst" SIGNAME="External_Ports_reset_rtl">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="proc_sys_reset_0" PORT="ext_reset_in"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="3" NAME="led" RIGHT="0" SIGIS="undef" SIGNAME="ledController_0_led">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="ledController_0" PORT="led"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="3" NAME="btn" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_btn">
+    <PORT DIR="I" NAME="btn" SIGIS="undef" SIGNAME="External_Ports_btn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="buttonController_0" PORT="btn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led" SIGIS="undef" SIGNAME="ledController_0_led">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ledController_0" PORT="led"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -181,12 +181,12 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="3" NAME="btn" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_btn">
+        <PORT DIR="I" NAME="btn" SIGIS="undef" SIGNAME="External_Ports_btn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="btn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="getButton" RIGHT="0" SIGIS="undef" SIGNAME="buttonController_0_getButton">
+        <PORT DIR="O" NAME="getButton" SIGIS="undef" SIGNAME="buttonController_0_getButton">
           <CONNECTIONS>
             <CONNECTION INSTANCE="deBouncer_0" PORT="getButton"/>
           </CONNECTIONS>
@@ -201,12 +201,12 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="3" NAME="setLed" RIGHT="0" SIGIS="undef" SIGNAME="deBouncer_0_setLed">
+        <PORT DIR="O" NAME="setLed" SIGIS="undef" SIGNAME="deBouncer_0_setLed">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ledController_0" PORT="setLed"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="getButton" RIGHT="0" SIGIS="undef" SIGNAME="buttonController_0_getButton">
+        <PORT DIR="I" NAME="getButton" SIGIS="undef" SIGNAME="buttonController_0_getButton">
           <CONNECTIONS>
             <CONNECTION INSTANCE="buttonController_0" PORT="getButton"/>
           </CONNECTIONS>
@@ -221,12 +221,12 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="3" NAME="led" RIGHT="0" SIGIS="undef" SIGNAME="ledController_0_led">
+        <PORT DIR="O" NAME="led" SIGIS="undef" SIGNAME="ledController_0_led">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="led"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="setLed" RIGHT="0" SIGIS="undef" SIGNAME="deBouncer_0_setLed">
+        <PORT DIR="I" NAME="setLed" SIGIS="undef" SIGNAME="deBouncer_0_setLed">
           <CONNECTIONS>
             <CONNECTION INSTANCE="deBouncer_0" PORT="setLed"/>
           </CONNECTIONS>

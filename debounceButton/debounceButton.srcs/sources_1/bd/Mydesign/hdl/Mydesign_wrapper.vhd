@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Sun May  5 21:52:10 2019
+--Date        : Sun May  5 22:23:49 2019
 --Host        : BERAT running 64-bit major release  (build 9200)
 --Command     : generate_target Mydesign_wrapper.bd
 --Design      : Mydesign_wrapper
@@ -34,8 +34,8 @@ entity Mydesign_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    btn : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    led : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    btn : in STD_LOGIC;
+    led : out STD_LOGIC;
     reset_rtl : in STD_LOGIC
   );
 end Mydesign_wrapper;
@@ -43,6 +43,7 @@ end Mydesign_wrapper;
 architecture STRUCTURE of Mydesign_wrapper is
   component Mydesign is
   port (
+    reset_rtl : in STD_LOGIC;
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -64,9 +65,8 @@ architecture STRUCTURE of Mydesign_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    reset_rtl : in STD_LOGIC;
-    led : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    btn : in STD_LOGIC_VECTOR ( 3 downto 0 )
+    btn : in STD_LOGIC;
+    led : out STD_LOGIC
   );
   end component Mydesign;
 begin
@@ -93,8 +93,8 @@ Mydesign_i: component Mydesign
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
-      btn(3 downto 0) => btn(3 downto 0),
-      led(3 downto 0) => led(3 downto 0),
+      btn => btn,
+      led => led,
       reset_rtl => reset_rtl
     );
 end STRUCTURE;

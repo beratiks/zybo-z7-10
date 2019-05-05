@@ -32,8 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity ledController is
-    Port ( led : out STD_LOGIC_VECTOR (3 downto 0);
-            setLed : in STD_LOGIC_VECTOR (3 downto 0)
+    Port ( led : out STD_LOGIC;
+            setLed : in STD_LOGIC
     );
 end ledController;
 
@@ -41,12 +41,10 @@ architecture Behavioral of ledController is
 
 begin
 
-    u0 : for i in 0 to 3 generate
-    begin
+
     
-    led(i) <= setLed(i);
+    led <= setLed;
     
-    end generate;
 
 
 end Behavioral;

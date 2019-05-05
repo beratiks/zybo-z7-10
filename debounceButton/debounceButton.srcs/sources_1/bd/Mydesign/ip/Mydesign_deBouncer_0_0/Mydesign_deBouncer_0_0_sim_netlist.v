@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sun May  5 21:52:47 2019
+// Date        : Sun May  5 22:24:44 2019
 // Host        : BERAT running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               d:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ip/Mydesign_deBouncer_0_0/Mydesign_deBouncer_0_0_sim_netlist.v
+//               D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/ip/Mydesign_deBouncer_0_0/Mydesign_deBouncer_0_0_sim_netlist.v
 // Design      : Mydesign_deBouncer_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -18,12 +18,12 @@
 module Mydesign_deBouncer_0_0
    (setLed,
     getButton);
-  output [3:0]setLed;
-  input [3:0]getButton;
+  output setLed;
+  input getButton;
 
-  wire [3:0]getButton;
+  wire getButton;
 
-  assign setLed[3:0] = getButton;
+  assign setLed = getButton;
 endmodule
 `ifndef GLBL
 `define GLBL

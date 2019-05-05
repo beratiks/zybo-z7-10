@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="Mydesign_ledController_0_0_synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1557080902">
+<GenRun Id="Mydesign_ledController_0_0_synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1557084238">
   <File Type="PA-TCL" Name="Mydesign_ledController_0_0.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="Mydesign_ledController_0_0_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Mydesign_ledController_0_0_reports.tcl"/>
@@ -12,9 +12,11 @@
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Mydesign_ledController_0_0">
     <File Path="$PSRCDIR/sources_1/bd/Mydesign/ip/Mydesign_ledController_0_0/Mydesign_ledController_0_0.xci">
       <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="ProcessingOrder" Val="EARLY"/>
       </FileInfo>
     </File>
     <Config>
@@ -25,9 +27,11 @@
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Mydesign_ledController_0_0">
     <File Path="$PSRCDIR/sources_1/bd/Mydesign/ip/Mydesign_ledController_0_0/Mydesign_ledController_0_0.xci">
       <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="ProcessingOrder" Val="EARLY"/>
       </FileInfo>
     </File>
     <Config>

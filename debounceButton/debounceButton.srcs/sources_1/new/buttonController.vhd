@@ -32,8 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity buttonController is
-    Port ( btn : in STD_LOGIC_VECTOR (3 downto 0);
-           getButton : out STD_LOGIC_VECTOR(3 downto 0)
+    Port ( btn : in STD_LOGIC;
+           getButton : out STD_LOGIC
     );
 end buttonController;
 
@@ -41,11 +41,10 @@ architecture Behavioral of buttonController is
 
 begin
 
-u0 : for i in 0 to 3 generate
-begin
 
-getButton(i) <= btn(i);
 
-end generate;
+getButton <= btn;
+
+
 
 end Behavioral;

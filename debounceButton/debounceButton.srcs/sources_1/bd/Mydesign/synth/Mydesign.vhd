@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Sun May  5 21:52:09 2019
+--Date        : Sun May  5 22:23:49 2019
 --Host        : BERAT running 64-bit major release  (build 9200)
 --Command     : generate_target Mydesign.bd
 --Design      : Mydesign
@@ -34,8 +34,8 @@ entity Mydesign is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    btn : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    led : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    btn : in STD_LOGIC;
+    led : out STD_LOGIC;
     reset_rtl : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
@@ -89,28 +89,28 @@ architecture STRUCTURE of Mydesign is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component Mydesign_proc_sys_reset_0_0;
-  component Mydesign_ledController_0_0 is
-  port (
-    led : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    setLed : in STD_LOGIC_VECTOR ( 3 downto 0 )
-  );
-  end component Mydesign_ledController_0_0;
   component Mydesign_buttonController_0_0 is
   port (
-    btn : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    getButton : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    btn : in STD_LOGIC;
+    getButton : out STD_LOGIC
   );
   end component Mydesign_buttonController_0_0;
+  component Mydesign_ledController_0_0 is
+  port (
+    led : out STD_LOGIC;
+    setLed : in STD_LOGIC
+  );
+  end component Mydesign_ledController_0_0;
   component Mydesign_deBouncer_0_0 is
   port (
-    setLed : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    getButton : in STD_LOGIC_VECTOR ( 3 downto 0 )
+    setLed : out STD_LOGIC;
+    getButton : in STD_LOGIC
   );
   end component Mydesign_deBouncer_0_0;
-  signal btn_0_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal buttonController_0_getButton : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal deBouncer_0_setLed : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal ledController_0_led : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal btn_0_1 : STD_LOGIC;
+  signal buttonController_0_getButton : STD_LOGIC;
+  signal deBouncer_0_setLed : STD_LOGIC;
+  signal ledController_0_led : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal processing_system7_0_DDR_CAS_N : STD_LOGIC;
@@ -170,23 +170,23 @@ architecture STRUCTURE of Mydesign is
   attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
   attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
 begin
-  btn_0_1(3 downto 0) <= btn(3 downto 0);
-  led(3 downto 0) <= ledController_0_led(3 downto 0);
+  btn_0_1 <= btn;
+  led <= ledController_0_led;
   reset_rtl_1 <= reset_rtl;
 buttonController_0: component Mydesign_buttonController_0_0
      port map (
-      btn(3 downto 0) => btn_0_1(3 downto 0),
-      getButton(3 downto 0) => buttonController_0_getButton(3 downto 0)
+      btn => btn_0_1,
+      getButton => buttonController_0_getButton
     );
 deBouncer_0: component Mydesign_deBouncer_0_0
      port map (
-      getButton(3 downto 0) => buttonController_0_getButton(3 downto 0),
-      setLed(3 downto 0) => deBouncer_0_setLed(3 downto 0)
+      getButton => buttonController_0_getButton,
+      setLed => deBouncer_0_setLed
     );
 ledController_0: component Mydesign_ledController_0_0
      port map (
-      led(3 downto 0) => ledController_0_led(3 downto 0),
-      setLed(3 downto 0) => deBouncer_0_setLed(3 downto 0)
+      led => ledController_0_led,
+      setLed => deBouncer_0_setLed
     );
 proc_sys_reset_0: component Mydesign_proc_sys_reset_0_0
      port map (

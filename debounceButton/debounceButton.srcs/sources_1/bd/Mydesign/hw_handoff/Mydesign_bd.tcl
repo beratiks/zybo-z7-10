@@ -167,8 +167,8 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
-  set btn [ create_bd_port -dir I -from 3 -to 0 btn ]
-  set led [ create_bd_port -dir O -from 3 -to 0 led ]
+  set btn [ create_bd_port -dir I btn ]
+  set led [ create_bd_port -dir O led ]
   set reset_rtl [ create_bd_port -dir I -type rst reset_rtl ]
   set_property -dict [ list \
    CONFIG.POLARITY {ACTIVE_LOW} \

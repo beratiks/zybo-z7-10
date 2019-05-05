@@ -1,0 +1,65 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun May  5 22:02:38 2019
+# Process ID: 75516
+# Current directory: D:/github_repository/zybo-z10/debounceButton
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11452 D:\github_repository\zybo-z10\debounceButton\debounceButton.xpr
+# Log file: D:/github_repository/zybo-z10/debounceButton/vivado.log
+# Journal file: D:/github_repository/zybo-z10/debounceButton\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z10/debounceButton/debounceButton.xpr
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/Mydesign_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/Mydesign_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+update_compile_order -fileset sources_1
+open_bd_design {D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd}
+update_module_reference Mydesign_deBouncer_0_0
+validate_bd_design -force
+delete_bd_objs [get_bd_nets btn_0_1] [get_bd_ports btn]
+delete_bd_objs [get_bd_nets ledController_0_led] [get_bd_ports led]
+update_module_reference Mydesign_deBouncer_0_0
+update_module_reference Mydesign_deBouncer_0_0
+startgroup
+make_bd_pins_external  [get_bd_pins buttonController_0/btn]
+endgroup
+undo
+regenerate_bd_layout
+update_module_reference Mydesign_buttonController_0_0
+update_module_reference Mydesign_deBouncer_0_0
+update_module_reference Mydesign_ledController_0_0
+startgroup
+make_bd_pins_external  [get_bd_pins buttonController_0/btn]
+endgroup
+set_property name btn [get_bd_ports btn_0]
+startgroup
+make_bd_pins_external  [get_bd_pins ledController_0/led]
+endgroup
+set_property name led [get_bd_ports led_0]
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z10/debounceButton/debounceButton.srcs/sources_1/bd/Mydesign/Mydesign.bd] -top
+update_module_reference Mydesign_deBouncer_0_0
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/impl_1/Mydesign_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
