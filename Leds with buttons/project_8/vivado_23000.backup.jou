@@ -1,0 +1,410 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun May  5 02:45:54 2019
+# Process ID: 23000
+# Current directory: D:/zybo-z10_workspace/project_8
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent65616 D:\zybo-z10_workspace\project_8\project_8.xpr
+# Log file: D:/zybo-z10_workspace/project_8/vivado.log
+# Journal file: D:/zybo-z10_workspace/project_8\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zybo-z10_workspace/project_8/project_8.xpr
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+update_compile_order -fileset sources_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets btn_0_1] [get_bd_cells buttons_0]
+delete_bd_objs [get_bd_ports btn_0]
+validate_bd_design
+update_compile_order -fileset sources_1
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_leds_0_0
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_leds_0_0
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_compile_order -fileset sources_1
+update_module_reference design_1_leds_0_0
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+update_module_reference design_1_leds_0_0
+update_compile_order -fileset sources_1
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/clk_wiz_0/clk_out1 (100 MHz)" }  [get_bd_pins leds_0/clock]
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {5} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {25.500} CONFIG.MMCM_CLKIN2_PERIOD {10.0} CONFIG.MMCM_CLKOUT0_DIVIDE_F {127.500} CONFIG.CLKOUT1_JITTER {529.616} CONFIG.CLKOUT1_PHASE_ERROR {319.966}] [get_bd_cells clk_wiz_0]
+endgroup
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+reset_run design_1_clk_wiz_0_0_synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+launch_simulation
+source design_1_wrapper.tcl
+remove_forces { {/design_1_wrapper/DDR_addr} }
+remove_forces { {/design_1_wrapper/DDR_addr} }
+run 1000 ms
+add_bp {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd} 55
+remove_bps -file {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd} -line 55
+add_bp {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd} 55
+add_bp {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd} 56
+run 1000 ms
+remove_bps -file {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd} -line 55
+remove_bps -file {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd} -line 56
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+export_ip_user_files -of_objects  [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc
+file delete -force D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc
+add_files -fileset constrs_1 -norecurse D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+import_files -fileset constrs_1 D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top design_1_wrapper [current_fileset]
+set_property top_arch STRUCTURE [current_fileset]
+set_property top_file {} [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.USE_LOCKED {false} CONFIG.USE_RESET {false}] [get_bd_cells clk_wiz_0]
+delete_bd_objs [get_bd_nets reset_rtl_0_1]
+endgroup
+delete_bd_objs [get_bd_ports reset_rtl_0]
+delete_bd_objs [get_bd_nets leds_0_led] [get_bd_ports led]
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+reset_run design_1_clk_wiz_0_0_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top leds [current_fileset]
+set_property top_lib xil_defaultlib [current_fileset]
+set_property top_arch Behavioral [current_fileset]
+set_property top_file D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd] -no_script -reset -force -quiet
+remove_files  D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+export_ip_user_files -of_objects  [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc
+file delete -force D:/zybo-z10_workspace/project_8/project_8.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc
+add_files -fileset constrs_1 -norecurse D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+import_files -fileset constrs_1 D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top design_1_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+validate_bd_design -force
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+export_ip_user_files -of_objects  [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd] -no_script -reset -force -quiet
+remove_files  D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+file delete -force D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+validate_bd_design -force
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top_lib xil_defaultlib [current_fileset]
+set_property top_arch STRUCTURE [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v] -no_script -reset -force -quiet
+remove_files  D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+file delete -force D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+update_module_reference design_1_leds_0_0
+update_module_reference design_1_leds_0_0
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+make_bd_pins_external  [get_bd_pins leds_0/led]
+endgroup
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property name led [get_bd_ports led_0]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+close_design
+open_run impl_1
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets leds_0_led]
+delete_bd_objs [get_bd_ports led]
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1] [get_bd_cells leds_0]
+update_compile_order -fileset sources_1
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+create_bd_cell -type module -reference leds leds_0
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/sys_clock (125 MHz)" }  [get_bd_pins leds_0/sys_clock]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/clk_wiz_0/clk_out1 (5 MHz)" }  [get_bd_pins leds_0/clock]
+endgroup
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run impl_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd]
+synth_design -rtl -name rtl_1
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1] [get_bd_cells leds_0]
+delete_bd_objs [get_bd_nets sys_clock_1] [get_bd_cells clk_wiz_0]
+validate_bd_design
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+set_property is_enabled false [get_files  D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/buttons.vhd]
+create_bd_cell -type module -reference leds leds_0
+delete_bd_objs [get_bd_cells leds_0]
+create_bd_cell -type module -reference leds leds_0
+delete_bd_objs [get_bd_cells leds_0]
+export_ip_user_files -of_objects  [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd] -no_script -reset -force -quiet
+remove_files  D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd
+file delete -force D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/leds.vhd
+update_module_reference design_1_leds_0_0
+close [ open D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/deneme23.vhd w ]
+add_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/new/deneme23.vhd
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference deneme23 deneme23_0
+validate_bd_design
+make_wrapper -files [get_files D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd] -top
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+file mkdir D:/zybo-z10_workspace/project_8/project_8.sdk
+file copy -force D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.sysdef D:/zybo-z10_workspace/project_8/project_8.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace D:/zybo-z10_workspace/project_8/project_8.sdk -hwspec D:/zybo-z10_workspace/project_8/project_8.sdk/design_1_wrapper.hdf
+current_design impl_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+open_bd_design {D:/zybo-z10_workspace/project_8/project_8.srcs/sources_1/bd/design_1/design_1.bd}
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_8/project_8.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+close_sim
+create_project project_9 D:/zybo-z10_workspace/project_9 -part xc7z010clg400-1
+set_property board_part digilentinc.com:zybo-z7-10:part0:1.0 [current_project]
+set_property coreContainer.enable 1 [current_project]
+add_files -fileset constrs_1 -norecurse D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+import_files -fileset constrs_1 D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+set_property target_language VHDL [current_project]
+file mkdir D:/zybo-z10_workspace/project_9/project_9.srcs/sources_1/new
+close [ open D:/zybo-z10_workspace/project_9/project_9.srcs/sources_1/new/ledler.vhd w ]
+add_files D:/zybo-z10_workspace/project_9/project_9.srcs/sources_1/new/ledler.vhd
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_9/project_9.runs/impl_1/ledler.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/zybo-z10_workspace/project_9/project_9.runs/impl_1/ledler.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+create_bd_design "design_1"
+update_compile_order -fileset sources_1
+close_project
