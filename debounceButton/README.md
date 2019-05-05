@@ -1,3 +1,3 @@
 Toggle led with button.
 Debounce control.
-Led is toggle when press button during 100ms to debounce. 
+Led is toggle when press button during 100ms. 
