@@ -68,6 +68,7 @@ set rc [catch {
   set_param xicom.use_bs_reader 1
   open_checkpoint Mydesign_wrapper_routed.dcp
   set_property webtalk.parent_dir D:/github_repository/zybo-z10/debounceButton/debounceButton.cache/wt [current_project]
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
   catch { write_mem_info -force Mydesign_wrapper.mmi }
   write_bitstream -force Mydesign_wrapper.bit 
   catch { write_sysdef -hwdef Mydesign_wrapper.hwdef -bitfile Mydesign_wrapper.bit -meminfo Mydesign_wrapper.mmi -file Mydesign_wrapper.sysdef }

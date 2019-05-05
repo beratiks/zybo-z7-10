@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x328E646E6B199E06",
+      "boundary_crc": "0x9490FB4F5796FCBC",
       "device": "xc7z010clg400-1",
       "name": "Mydesign",
       "synth_flow_mode": "Hierarchical",
@@ -13,6 +13,7 @@
       "proc_sys_reset_0": "",
       "buttonController_0": "",
       "ledController_0": "",
+      "clk_wiz_0": "",
       "deBouncer_0": ""
     },
     "interface_ports": {
@@ -100,6 +101,26 @@
       },
       "led": {
         "direction": "O"
+      },
+      "sys_clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "Mydesign_sys_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "125000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000"
+          }
+        }
       }
     },
     "components": {
@@ -1143,6 +1164,24 @@
           }
         }
       },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Mydesign_clk_wiz_0_0",
+        "parameters": {
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          },
+          "USE_LOCKED": {
+            "value": "false"
+          },
+          "USE_RESET": {
+            "value": "false"
+          }
+        }
+      },
       "deBouncer_0": {
         "vlnv": "xilinx.com:module_ref:deBouncer:1.0",
         "xci_name": "Mydesign_deBouncer_0_0",
@@ -1152,6 +1191,24 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "sys_clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "Mydesign_sys_clock",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "125000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.000",
+                "value_src": "user_prop"
+              }
+            }
+          },
           "setLed": {
             "direction": "O"
           },
@@ -1210,6 +1267,13 @@
         "ports": [
           "ledController_0/led",
           "led"
+        ]
+      },
+      "sys_clock_1": {
+        "ports": [
+          "sys_clock",
+          "clk_wiz_0/clk_in1",
+          "deBouncer_0/sys_clock"
         ]
       }
     }

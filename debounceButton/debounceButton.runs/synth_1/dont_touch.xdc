@@ -21,4 +21,7 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Mydesign_button
 # IP: bd/Mydesign/ip/Mydesign_deBouncer_0_0/Mydesign_deBouncer_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Mydesign_deBouncer_0_0 || ORIG_REF_NAME==Mydesign_deBouncer_0_0} -quiet] -quiet
 
+# IP: bd/Mydesign/ip/Mydesign_clk_wiz_0_0/Mydesign_clk_wiz_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Mydesign_clk_wiz_0_0 || ORIG_REF_NAME==Mydesign_clk_wiz_0_0} -quiet] -quiet
+
 # XDC: bd/Mydesign/Mydesign_ooc.xdc

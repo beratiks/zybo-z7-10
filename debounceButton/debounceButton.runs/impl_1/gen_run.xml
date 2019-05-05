@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1557084382">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1557086676">
   <File Type="BITSTR-BMM" Name="Mydesign_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="Mydesign_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="Mydesign_wrapper_timing_summary_init.rpt"/>
@@ -143,7 +143,8 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_proc_sys_reset_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="Mydesign_deBouncer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_buttonController_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_ledController_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Mydesign_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Mydesign_deBouncer_0_0"/>
 </GenRun>

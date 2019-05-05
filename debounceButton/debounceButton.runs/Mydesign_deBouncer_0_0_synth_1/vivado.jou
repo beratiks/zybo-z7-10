@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May  5 22:24:01 2019
-# Process ID: 78468
+# Start of session at: Sun May  5 23:03:19 2019
+# Process ID: 24560
 # Current directory: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1
 # Command line: vivado.exe -log Mydesign_deBouncer_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Mydesign_deBouncer_0_0.tcl
 # Log file: D:/github_repository/zybo-z10/debounceButton/debounceButton.runs/Mydesign_deBouncer_0_0_synth_1/Mydesign_deBouncer_0_0.vds

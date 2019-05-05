@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Sun May  5 22:24:43 2019
+-- Date        : Sun May  5 23:03:48 2019
 -- Host        : BERAT running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ Mydesign_deBouncer_0_0_stub.vhdl
@@ -15,7 +15,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   Port ( 
     setLed : out STD_LOGIC;
-    getButton : in STD_LOGIC
+    getButton : in STD_LOGIC;
+    sys_clock : in STD_LOGIC
   );
 
 end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
@@ -24,7 +25,7 @@ architecture stub of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "setLed,getButton";
+attribute black_box_pad_pin of stub : architecture is "setLed,getButton,sys_clock";
 attribute x_core_info : string;
 attribute x_core_info of stub : architecture is "deBouncer,Vivado 2018.3";
 begin

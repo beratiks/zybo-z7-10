@@ -56,7 +56,8 @@ USE ieee.numeric_std.ALL;
 ENTITY Mydesign_deBouncer_0_0 IS
   PORT (
     setLed : OUT STD_LOGIC;
-    getButton : IN STD_LOGIC
+    getButton : IN STD_LOGIC;
+    sys_clock : IN STD_LOGIC
   );
 END Mydesign_deBouncer_0_0;
 
@@ -66,7 +67,8 @@ ARCHITECTURE Mydesign_deBouncer_0_0_arch OF Mydesign_deBouncer_0_0 IS
   COMPONENT deBouncer IS
     PORT (
       setLed : OUT STD_LOGIC;
-      getButton : IN STD_LOGIC
+      getButton : IN STD_LOGIC;
+      sys_clock : IN STD_LOGIC
     );
   END COMPONENT deBouncer;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -77,10 +79,15 @@ ARCHITECTURE Mydesign_deBouncer_0_0_arch OF Mydesign_deBouncer_0_0 IS
   ATTRIBUTE CORE_GENERATION_INFO OF Mydesign_deBouncer_0_0_arch: ARCHITECTURE IS "Mydesign_deBouncer_0_0,deBouncer,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=deBouncer,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF Mydesign_deBouncer_0_0_arch: ARCHITECTURE IS "module_ref";
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF sys_clock: SIGNAL IS "XIL_INTERFACENAME sys_clock, FREQ_HZ 125000000, PHASE 0.000, CLK_DOMAIN Mydesign_sys_clock, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF sys_clock: SIGNAL IS "xilinx.com:signal:clock:1.0 sys_clock CLK";
 BEGIN
   U0 : deBouncer
     PORT MAP (
       setLed => setLed,
-      getButton => getButton
+      getButton => getButton,
+      sys_clock => sys_clock
     );
 END Mydesign_deBouncer_0_0_arch;

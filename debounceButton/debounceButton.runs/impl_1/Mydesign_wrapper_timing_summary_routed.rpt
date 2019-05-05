@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun May  5 22:27:26 2019
+| Date         : Sun May  5 23:05:40 2019
 | Host         : BERAT running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file Mydesign_wrapper_timing_summary_routed.rpt -pb Mydesign_wrapper_timing_summary_routed.pb -rpx Mydesign_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : Mydesign_wrapper
@@ -74,14 +74,14 @@ Table of Contents
 
 5. checking no_input_delay
 --------------------------
- There are 0 input ports with no input delay specified.
+ There is 1 input port with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 0 ports with no output delay specified.
+ There is 1 port with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -126,7 +126,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-         NA           NA                     NA                   NA           NA           NA                     NA                   NA           NA           NA                      NA                    NA  
+      4.827        0.000                      0                   36        0.212        0.000                      0                   36        3.500        0.000                       0                    19  
 
 
 All user specified timing constraints are met.
@@ -137,9 +137,10 @@ All user specified timing constraints are met.
 | -------------
 ------------------------------------------------------------------------------------------------
 
-Clock       Waveform(ns)       Period(ns)      Frequency(MHz)
------       ------------       ----------      --------------
-clk_fpga_0  {0.000 10.000}     20.000          50.000          
+Clock       Waveform(ns)         Period(ns)      Frequency(MHz)
+-----       ------------         ----------      --------------
+clk_fpga_0  {0.000 10.000}       20.000          50.000          
+sys_clock   {0.000 4.000}        8.000           125.000         
 
 
 ------------------------------------------------------------------------------------------------
@@ -149,6 +150,7 @@ clk_fpga_0  {0.000 10.000}     20.000          50.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clock           4.827        0.000                      0                   36        0.212        0.000                      0                   36        3.500        0.000                       0                    19  
 
 
 ------------------------------------------------------------------------------------------------
@@ -173,5 +175,1112 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 | Timing Details
 | --------------
 ------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  sys_clock
+  To Clock:  sys_clock
+
+Setup :            0  Failing Endpoints,  Worst Slack        4.827ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.212ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             4.827ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[12]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.648ns  (logic 0.766ns (28.931%)  route 1.882ns (71.069%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.320ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.697ns = ( 10.697 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.630     5.813    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[12]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.276    10.697    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[12]/C
+                         clock pessimism              0.148    10.845    
+                         clock uncertainty           -0.035    10.810    
+    SLICE_X42Y54         FDRE (Setup_fdre_C_CE)      -0.169    10.641    Mydesign_i/deBouncer_0/U0/counter_reg[12]
+  -------------------------------------------------------------------
+                         required time                         10.641    
+                         arrival time                          -5.813    
+  -------------------------------------------------------------------
+                         slack                                  4.827    
+
+Slack (MET) :             4.827ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[13]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.648ns  (logic 0.766ns (28.931%)  route 1.882ns (71.069%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.320ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.697ns = ( 10.697 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.630     5.813    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[13]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.276    10.697    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[13]/C
+                         clock pessimism              0.148    10.845    
+                         clock uncertainty           -0.035    10.810    
+    SLICE_X42Y54         FDRE (Setup_fdre_C_CE)      -0.169    10.641    Mydesign_i/deBouncer_0/U0/counter_reg[13]
+  -------------------------------------------------------------------
+                         required time                         10.641    
+                         arrival time                          -5.813    
+  -------------------------------------------------------------------
+                         slack                                  4.827    
+
+Slack (MET) :             4.827ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[14]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.648ns  (logic 0.766ns (28.931%)  route 1.882ns (71.069%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.320ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.697ns = ( 10.697 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.630     5.813    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[14]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.276    10.697    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[14]/C
+                         clock pessimism              0.148    10.845    
+                         clock uncertainty           -0.035    10.810    
+    SLICE_X42Y54         FDRE (Setup_fdre_C_CE)      -0.169    10.641    Mydesign_i/deBouncer_0/U0/counter_reg[14]
+  -------------------------------------------------------------------
+                         required time                         10.641    
+                         arrival time                          -5.813    
+  -------------------------------------------------------------------
+                         slack                                  4.827    
+
+Slack (MET) :             4.827ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[15]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.648ns  (logic 0.766ns (28.931%)  route 1.882ns (71.069%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.320ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.697ns = ( 10.697 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.630     5.813    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[15]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.276    10.697    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[15]/C
+                         clock pessimism              0.148    10.845    
+                         clock uncertainty           -0.035    10.810    
+    SLICE_X42Y54         FDRE (Setup_fdre_C_CE)      -0.169    10.641    Mydesign_i/deBouncer_0/U0/counter_reg[15]
+  -------------------------------------------------------------------
+                         required time                         10.641    
+                         arrival time                          -5.813    
+  -------------------------------------------------------------------
+                         slack                                  4.827    
+
+Slack (MET) :             4.900ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[16]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.598ns  (logic 0.766ns (29.481%)  route 1.832ns (70.519%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.297ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.745ns = ( 10.745 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.123ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.580     5.764    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y55         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[16]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.324    10.745    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y55         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[16]/C
+                         clock pessimism              0.123    10.868    
+                         clock uncertainty           -0.035    10.833    
+    SLICE_X42Y55         FDRE (Setup_fdre_C_CE)      -0.169    10.664    Mydesign_i/deBouncer_0/U0/counter_reg[16]
+  -------------------------------------------------------------------
+                         required time                         10.664    
+                         arrival time                          -5.764    
+  -------------------------------------------------------------------
+                         slack                                  4.900    
+
+Slack (MET) :             4.954ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[0]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.652ns  (logic 0.766ns (28.884%)  route 1.886ns (71.116%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.189ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.854ns = ( 10.854 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.123ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.634     5.817    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.432    10.854    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[0]/C
+                         clock pessimism              0.123    10.976    
+                         clock uncertainty           -0.035    10.941    
+    SLICE_X42Y51         FDRE (Setup_fdre_C_CE)      -0.169    10.772    Mydesign_i/deBouncer_0/U0/counter_reg[0]
+  -------------------------------------------------------------------
+                         required time                         10.772    
+                         arrival time                          -5.817    
+  -------------------------------------------------------------------
+                         slack                                  4.954    
+
+Slack (MET) :             4.954ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[1]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.652ns  (logic 0.766ns (28.884%)  route 1.886ns (71.116%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.189ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.854ns = ( 10.854 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.123ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.634     5.817    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.432    10.854    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[1]/C
+                         clock pessimism              0.123    10.976    
+                         clock uncertainty           -0.035    10.941    
+    SLICE_X42Y51         FDRE (Setup_fdre_C_CE)      -0.169    10.772    Mydesign_i/deBouncer_0/U0/counter_reg[1]
+  -------------------------------------------------------------------
+                         required time                         10.772    
+                         arrival time                          -5.817    
+  -------------------------------------------------------------------
+                         slack                                  4.954    
+
+Slack (MET) :             4.954ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[2]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.652ns  (logic 0.766ns (28.884%)  route 1.886ns (71.116%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.189ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.854ns = ( 10.854 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.123ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.634     5.817    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.432    10.854    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/C
+                         clock pessimism              0.123    10.976    
+                         clock uncertainty           -0.035    10.941    
+    SLICE_X42Y51         FDRE (Setup_fdre_C_CE)      -0.169    10.772    Mydesign_i/deBouncer_0/U0/counter_reg[2]
+  -------------------------------------------------------------------
+                         required time                         10.772    
+                         arrival time                          -5.817    
+  -------------------------------------------------------------------
+                         slack                                  4.954    
+
+Slack (MET) :             4.954ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[3]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.652ns  (logic 0.766ns (28.884%)  route 1.886ns (71.116%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.189ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.854ns = ( 10.854 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.123ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.634     5.817    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.432    10.854    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[3]/C
+                         clock pessimism              0.123    10.976    
+                         clock uncertainty           -0.035    10.941    
+    SLICE_X42Y51         FDRE (Setup_fdre_C_CE)      -0.169    10.772    Mydesign_i/deBouncer_0/U0/counter_reg[3]
+  -------------------------------------------------------------------
+                         required time                         10.772    
+                         arrival time                          -5.817    
+  -------------------------------------------------------------------
+                         slack                                  4.954    
+
+Slack (MET) :             4.977ns  (required time - arrival time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[4]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clock rise@8.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        2.511ns  (logic 0.766ns (30.504%)  route 1.745ns (69.496%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.307ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.736ns = ( 10.736 - 8.000 ) 
+    Source Clock Delay      (SCD):    3.165ns
+    Clock Pessimism Removal (CPR):    0.123ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.674     3.165    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y53         FDRE (Prop_fdre_C_Q)         0.518     3.683 f  Mydesign_i/deBouncer_0/U0/counter_reg[11]/Q
+                         net (fo=2, routed)           0.807     4.491    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+    SLICE_X43Y54         LUT4 (Prop_lut4_I2_O)        0.124     4.615 r  Mydesign_i/deBouncer_0/U0/ledState_i_5/O
+                         net (fo=3, routed)           0.445     5.059    Mydesign_i/deBouncer_0/U0/ledState_i_5_n_0
+    SLICE_X43Y54         LUT5 (Prop_lut5_I4_O)        0.124     5.183 r  Mydesign_i/deBouncer_0/U0/counter[0]_i_2/O
+                         net (fo=17, routed)          0.493     5.677    Mydesign_i/deBouncer_0/U0/counter0
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[4]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      8.000     8.000 r  
+    K17                                               0.000     8.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     8.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         1.421     9.421 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          1.315    10.736    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[4]/C
+                         clock pessimism              0.123    10.858    
+                         clock uncertainty           -0.035    10.823    
+    SLICE_X42Y52         FDRE (Setup_fdre_C_CE)      -0.169    10.654    Mydesign_i/deBouncer_0/U0/counter_reg[4]
+  -------------------------------------------------------------------
+                         required time                         10.654    
+                         arrival time                          -5.677    
+  -------------------------------------------------------------------
+                         slack                                  4.977    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.212ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.498ns  (logic 0.373ns (74.827%)  route 0.125ns (25.173%))
+  Logic Levels:           2  (CARRY4=2)
+  Clock Path Skew:        0.152ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.263ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.219ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.633     0.892    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y52         FDRE (Prop_fdre_C_Q)         0.164     1.056 r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/Q
+                         net (fo=2, routed)           0.125     1.182    Mydesign_i/deBouncer_0/U0/counter_reg[6]
+    SLICE_X42Y52         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.156     1.338 r  Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.338    Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1_n_0
+    SLICE_X42Y53         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.053     1.391 r  Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1/O[0]
+                         net (fo=1, routed)           0.000     1.391    Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1_n_7
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.816     1.263    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[8]/C
+                         clock pessimism             -0.219     1.044    
+    SLICE_X42Y53         FDRE (Hold_fdre_C_D)         0.134     1.178    Mydesign_i/deBouncer_0/U0/counter_reg[8]
+  -------------------------------------------------------------------
+                         required time                         -1.178    
+                         arrival time                           1.391    
+  -------------------------------------------------------------------
+                         slack                                  0.212    
+
+Slack (MET) :             0.225ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[10]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.511ns  (logic 0.386ns (75.467%)  route 0.125ns (24.533%))
+  Logic Levels:           2  (CARRY4=2)
+  Clock Path Skew:        0.152ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.263ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.219ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.633     0.892    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y52         FDRE (Prop_fdre_C_Q)         0.164     1.056 r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/Q
+                         net (fo=2, routed)           0.125     1.182    Mydesign_i/deBouncer_0/U0/counter_reg[6]
+    SLICE_X42Y52         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.156     1.338 r  Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.338    Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1_n_0
+    SLICE_X42Y53         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.066     1.404 r  Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.404    Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1_n_5
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.816     1.263    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[10]/C
+                         clock pessimism             -0.219     1.044    
+    SLICE_X42Y53         FDRE (Hold_fdre_C_D)         0.134     1.178    Mydesign_i/deBouncer_0/U0/counter_reg[10]
+  -------------------------------------------------------------------
+                         required time                         -1.178    
+                         arrival time                           1.404    
+  -------------------------------------------------------------------
+                         slack                                  0.225    
+
+Slack (MET) :             0.226ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[15]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/startCheck_reg/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.473ns  (logic 0.254ns (53.726%)  route 0.219ns (46.274%))
+  Logic Levels:           2  (LUT2=1 LUT6=1)
+  Clock Path Skew:        0.154ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.263ns
+    Source Clock Delay      (SCD):    0.878ns
+    Clock Pessimism Removal (CPR):    0.231ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.618     0.878    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[15]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y54         FDRE (Prop_fdre_C_Q)         0.164     1.042 r  Mydesign_i/deBouncer_0/U0/counter_reg[15]/Q
+                         net (fo=3, routed)           0.105     1.147    Mydesign_i/deBouncer_0/U0/counter_reg[15]
+    SLICE_X43Y54         LUT2 (Prop_lut2_I0_O)        0.045     1.192 f  Mydesign_i/deBouncer_0/U0/ledState_i_4/O
+                         net (fo=2, routed)           0.113     1.305    Mydesign_i/deBouncer_0/U0/ledState_i_4_n_0
+    SLICE_X43Y53         LUT6 (Prop_lut6_I2_O)        0.045     1.350 r  Mydesign_i/deBouncer_0/U0/startCheck_i_1/O
+                         net (fo=1, routed)           0.000     1.350    Mydesign_i/deBouncer_0/U0/startCheck_i_1_n_0
+    SLICE_X43Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/startCheck_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.816     1.263    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X43Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/startCheck_reg/C
+                         clock pessimism             -0.231     1.032    
+    SLICE_X43Y53         FDRE (Hold_fdre_C_D)         0.092     1.124    Mydesign_i/deBouncer_0/U0/startCheck_reg
+  -------------------------------------------------------------------
+                         required time                         -1.124    
+                         arrival time                           1.350    
+  -------------------------------------------------------------------
+                         slack                                  0.226    
+
+Slack (MET) :             0.228ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[15]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/ledState_reg/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.474ns  (logic 0.254ns (53.613%)  route 0.220ns (46.387%))
+  Logic Levels:           2  (LUT2=1 LUT6=1)
+  Clock Path Skew:        0.154ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.263ns
+    Source Clock Delay      (SCD):    0.878ns
+    Clock Pessimism Removal (CPR):    0.231ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.618     0.878    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y54         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[15]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y54         FDRE (Prop_fdre_C_Q)         0.164     1.042 f  Mydesign_i/deBouncer_0/U0/counter_reg[15]/Q
+                         net (fo=3, routed)           0.105     1.147    Mydesign_i/deBouncer_0/U0/counter_reg[15]
+    SLICE_X43Y54         LUT2 (Prop_lut2_I0_O)        0.045     1.192 r  Mydesign_i/deBouncer_0/U0/ledState_i_4/O
+                         net (fo=2, routed)           0.114     1.306    Mydesign_i/deBouncer_0/U0/ledState_i_4_n_0
+    SLICE_X43Y53         LUT6 (Prop_lut6_I2_O)        0.045     1.351 r  Mydesign_i/deBouncer_0/U0/ledState_i_1/O
+                         net (fo=1, routed)           0.000     1.351    Mydesign_i/deBouncer_0/U0/ledState_i_1_n_0
+    SLICE_X43Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/ledState_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.816     1.263    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X43Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/ledState_reg/C
+                         clock pessimism             -0.231     1.032    
+    SLICE_X43Y53         FDRE (Hold_fdre_C_D)         0.091     1.123    Mydesign_i/deBouncer_0/U0/ledState_reg
+  -------------------------------------------------------------------
+                         required time                         -1.123    
+                         arrival time                           1.351    
+  -------------------------------------------------------------------
+                         slack                                  0.228    
+
+Slack (MET) :             0.248ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[9]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.534ns  (logic 0.409ns (76.522%)  route 0.125ns (23.478%))
+  Logic Levels:           2  (CARRY4=2)
+  Clock Path Skew:        0.152ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.263ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.219ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.633     0.892    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y52         FDRE (Prop_fdre_C_Q)         0.164     1.056 r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/Q
+                         net (fo=2, routed)           0.125     1.182    Mydesign_i/deBouncer_0/U0/counter_reg[6]
+    SLICE_X42Y52         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.156     1.338 r  Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.338    Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1_n_0
+    SLICE_X42Y53         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.089     1.427 r  Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1/O[1]
+                         net (fo=1, routed)           0.000     1.427    Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1_n_6
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.816     1.263    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[9]/C
+                         clock pessimism             -0.219     1.044    
+    SLICE_X42Y53         FDRE (Hold_fdre_C_D)         0.134     1.178    Mydesign_i/deBouncer_0/U0/counter_reg[9]
+  -------------------------------------------------------------------
+                         required time                         -1.178    
+                         arrival time                           1.427    
+  -------------------------------------------------------------------
+                         slack                                  0.248    
+
+Slack (MET) :             0.250ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.536ns  (logic 0.411ns (76.610%)  route 0.125ns (23.390%))
+  Logic Levels:           2  (CARRY4=2)
+  Clock Path Skew:        0.152ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.263ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.219ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.633     0.892    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y52         FDRE (Prop_fdre_C_Q)         0.164     1.056 r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/Q
+                         net (fo=2, routed)           0.125     1.182    Mydesign_i/deBouncer_0/U0/counter_reg[6]
+    SLICE_X42Y52         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.156     1.338 r  Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.338    Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1_n_0
+    SLICE_X42Y53         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.091     1.429 r  Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1/O[3]
+                         net (fo=1, routed)           0.000     1.429    Mydesign_i/deBouncer_0/U0/counter_reg[8]_i_1_n_4
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.816     1.263    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y53         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+                         clock pessimism             -0.219     1.044    
+    SLICE_X42Y53         FDRE (Hold_fdre_C_D)         0.134     1.178    Mydesign_i/deBouncer_0/U0/counter_reg[11]
+  -------------------------------------------------------------------
+                         required time                         -1.178    
+                         arrival time                           1.429    
+  -------------------------------------------------------------------
+                         slack                                  0.250    
+
+Slack (MET) :             0.254ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.388ns  (logic 0.274ns (70.550%)  route 0.114ns (29.450%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.253ns
+    Source Clock Delay      (SCD):    0.946ns
+    Clock Pessimism Removal (CPR):    0.307ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.686     0.946    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y51         FDRE (Prop_fdre_C_Q)         0.164     1.110 r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/Q
+                         net (fo=1, routed)           0.114     1.224    Mydesign_i/deBouncer_0/U0/counter_reg_n_0_[2]
+    SLICE_X42Y51         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.110     1.334 r  Mydesign_i/deBouncer_0/U0/counter_reg[0]_i_3/O[2]
+                         net (fo=1, routed)           0.000     1.334    Mydesign_i/deBouncer_0/U0/counter_reg[0]_i_3_n_5
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.805     1.253    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/C
+                         clock pessimism             -0.307     0.946    
+    SLICE_X42Y51         FDRE (Hold_fdre_C_D)         0.134     1.080    Mydesign_i/deBouncer_0/U0/counter_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -1.080    
+                         arrival time                           1.334    
+  -------------------------------------------------------------------
+                         slack                                  0.254    
+
+Slack (MET) :             0.265ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.399ns  (logic 0.274ns (68.589%)  route 0.125ns (31.411%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.189ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.297ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.633     0.892    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y52         FDRE (Prop_fdre_C_Q)         0.164     1.056 r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/Q
+                         net (fo=2, routed)           0.125     1.182    Mydesign_i/deBouncer_0/U0/counter_reg[6]
+    SLICE_X42Y52         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.110     1.292 r  Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.292    Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1_n_5
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.742     1.189    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+                         clock pessimism             -0.297     0.892    
+    SLICE_X42Y52         FDRE (Hold_fdre_C_D)         0.134     1.026    Mydesign_i/deBouncer_0/U0/counter_reg[6]
+  -------------------------------------------------------------------
+                         required time                         -1.026    
+                         arrival time                           1.292    
+  -------------------------------------------------------------------
+                         slack                                  0.265    
+
+Slack (MET) :             0.290ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.424ns  (logic 0.310ns (73.048%)  route 0.114ns (26.952%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.253ns
+    Source Clock Delay      (SCD):    0.946ns
+    Clock Pessimism Removal (CPR):    0.307ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.686     0.946    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y51         FDRE (Prop_fdre_C_Q)         0.164     1.110 r  Mydesign_i/deBouncer_0/U0/counter_reg[2]/Q
+                         net (fo=1, routed)           0.114     1.224    Mydesign_i/deBouncer_0/U0/counter_reg_n_0_[2]
+    SLICE_X42Y51         CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.146     1.370 r  Mydesign_i/deBouncer_0/U0/counter_reg[0]_i_3/O[3]
+                         net (fo=1, routed)           0.000     1.370    Mydesign_i/deBouncer_0/U0/counter_reg[0]_i_3_n_4
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.805     1.253    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y51         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[3]/C
+                         clock pessimism             -0.307     0.946    
+    SLICE_X42Y51         FDRE (Hold_fdre_C_D)         0.134     1.080    Mydesign_i/deBouncer_0/U0/counter_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -1.080    
+                         arrival time                           1.370    
+  -------------------------------------------------------------------
+                         slack                                  0.290    
+
+Slack (MET) :             0.301ns  (arrival time - required time)
+  Source:                 Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            Mydesign_i/deBouncer_0/U0/counter_reg[7]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clock rise@0.000ns - sys_clock rise@0.000ns)
+  Data Path Delay:        0.435ns  (logic 0.310ns (71.185%)  route 0.125ns (28.815%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.189ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.297ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.633     0.892    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y52         FDRE (Prop_fdre_C_Q)         0.164     1.056 r  Mydesign_i/deBouncer_0/U0/counter_reg[6]/Q
+                         net (fo=2, routed)           0.125     1.182    Mydesign_i/deBouncer_0/U0/counter_reg[6]
+    SLICE_X42Y52         CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.146     1.328 r  Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1/O[3]
+                         net (fo=1, routed)           0.000     1.328    Mydesign_i/deBouncer_0/U0/counter_reg[4]_i_1_n_4
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    K17                                               0.000     0.000 r  sys_clock (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock
+    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  sys_clock_IBUF_inst/O
+                         net (fo=19, routed)          0.742     1.189    Mydesign_i/deBouncer_0/U0/sys_clock
+    SLICE_X42Y52         FDRE                                         r  Mydesign_i/deBouncer_0/U0/counter_reg[7]/C
+                         clock pessimism             -0.297     0.892    
+    SLICE_X42Y52         FDRE (Hold_fdre_C_D)         0.134     1.026    Mydesign_i/deBouncer_0/U0/counter_reg[7]
+  -------------------------------------------------------------------
+                         required time                         -1.026    
+                         arrival time                           1.328    
+  -------------------------------------------------------------------
+                         slack                                  0.301    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         sys_clock
+Waveform(ns):       { 0.000 4.000 }
+Period(ns):         8.000
+Sources:            { sys_clock }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y51  Mydesign_i/deBouncer_0/U0/counter_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[10]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[12]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[13]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[14]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[15]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y52  Mydesign_i/deBouncer_0/U0/counter_reg[5]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y52  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+Min Period        n/a     FDRE/C   n/a            1.000         8.000       7.000      SLICE_X42Y52  Mydesign_i/deBouncer_0/U0/counter_reg[7]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y51  Mydesign_i/deBouncer_0/U0/counter_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y51  Mydesign_i/deBouncer_0/U0/counter_reg[0]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[10]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[10]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[12]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[13]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[14]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y54  Mydesign_i/deBouncer_0/U0/counter_reg[15]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y51  Mydesign_i/deBouncer_0/U0/counter_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[10]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[10]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[11]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y52  Mydesign_i/deBouncer_0/U0/counter_reg[5]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y52  Mydesign_i/deBouncer_0/U0/counter_reg[6]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y52  Mydesign_i/deBouncer_0/U0/counter_reg[7]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[8]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         4.000       3.500      SLICE_X42Y53  Mydesign_i/deBouncer_0/U0/counter_reg[8]/C
+
 
 

@@ -173,6 +173,11 @@ proc create_root_design { parentCell } {
   set_property -dict [ list \
    CONFIG.POLARITY {ACTIVE_LOW} \
  ] $reset_rtl
+  set sys_clock [ create_bd_port -dir I -type clk sys_clock ]
+  set_property -dict [ list \
+   CONFIG.FREQ_HZ {125000000} \
+   CONFIG.PHASE {0.000} \
+ ] $sys_clock
 
   # Create instance: buttonController_0, and set properties
   set block_name buttonController
@@ -185,6 +190,15 @@ proc create_root_design { parentCell } {
      return 1
    }
   
+  # Create instance: clk_wiz_0, and set properties
+  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
+  set_property -dict [ list \
+   CONFIG.CLK_IN1_BOARD_INTERFACE {sys_clock} \
+   CONFIG.USE_BOARD_FLOW {true} \
+   CONFIG.USE_LOCKED {false} \
+   CONFIG.USE_RESET {false} \
+ ] $clk_wiz_0
+
   # Create instance: deBouncer_0, and set properties
   set block_name deBouncer
   set block_cell_name deBouncer_0
@@ -694,6 +708,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net ledController_0_led [get_bd_ports led] [get_bd_pins ledController_0/led]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
   connect_bd_net -net reset_rtl_1 [get_bd_ports reset_rtl] [get_bd_pins proc_sys_reset_0/ext_reset_in]
+  connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins deBouncer_0/sys_clock]
 
   # Create address segments
 

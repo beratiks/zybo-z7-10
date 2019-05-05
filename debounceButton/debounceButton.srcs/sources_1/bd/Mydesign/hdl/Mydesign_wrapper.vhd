@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Sun May  5 22:23:49 2019
+--Date        : Sun May  5 23:03:12 2019
 --Host        : BERAT running 64-bit major release  (build 9200)
 --Command     : generate_target Mydesign_wrapper.bd
 --Design      : Mydesign_wrapper
@@ -36,7 +36,8 @@ entity Mydesign_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     btn : in STD_LOGIC;
     led : out STD_LOGIC;
-    reset_rtl : in STD_LOGIC
+    reset_rtl : in STD_LOGIC;
+    sys_clock : in STD_LOGIC
   );
 end Mydesign_wrapper;
 
@@ -66,7 +67,8 @@ architecture STRUCTURE of Mydesign_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     btn : in STD_LOGIC;
-    led : out STD_LOGIC
+    led : out STD_LOGIC;
+    sys_clock : in STD_LOGIC
   );
   end component Mydesign;
 begin
@@ -95,6 +97,7 @@ Mydesign_i: component Mydesign
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
       btn => btn,
       led => led,
-      reset_rtl => reset_rtl
+      reset_rtl => reset_rtl,
+      sys_clock => sys_clock
     );
 end STRUCTURE;

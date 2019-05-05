@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun May  5 22:27:26 2019
+| Date         : Sun May  5 23:05:39 2019
 | Host         : BERAT running 64-bit major release  (build 9200)
 | Command      : report_methodology -file Mydesign_wrapper_methodology_drc_routed.rpt -pb Mydesign_wrapper_methodology_drc_routed.pb -rpx Mydesign_wrapper_methodology_drc_routed.rpx
 | Design       : Mydesign_wrapper
@@ -23,12 +23,29 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 0
-+------+----------+-------------+------------+
-| Rule | Severity | Description | Violations |
-+------+----------+-------------+------------+
-+------+----------+-------------+------------+
+             Violations found: 3
++-----------+----------+------------------------------------------------------------------+------------+
+| Rule      | Severity | Description                                                      | Violations |
++-----------+----------+------------------------------------------------------------------+------------+
+| CKLD-2    | Warning  | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
+| TIMING-18 | Warning  | Missing input or output delay                                    | 2          |
++-----------+----------+------------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+CKLD-2#1 Warning
+Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads  
+Clock net sys_clock_IBUF is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): sys_clock_IBUF_inst/O, Mydesign_i/sys_clock
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on btn relative to clock(s) sys_clock
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An output delay is missing on led relative to clock(s) sys_clock
+Related violations: <none>
+
 
