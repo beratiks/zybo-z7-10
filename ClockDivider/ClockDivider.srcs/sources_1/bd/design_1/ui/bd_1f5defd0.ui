@@ -1,0 +1,17 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port sys_clock -pg 1 -y -210 -defaultsOSRD
+preplace portBus led -pg 1 -y -210 -defaultsOSRD
+preplace inst clockDivider_0 -pg 1 -lvl 1 -y -210 -defaultsOSRD
+preplace netloc sys_clock_1 1 0 1 N
+preplace netloc clockDivider_0_led 1 1 1 N
+levelinfo -pg 1 0 330 470 -top -480 -bot 40
+"
+}
+{
+   "da_board_cnt":"5",
+   "da_clkrst_cnt":"1",
+   "da_ps7_cnt":"1"
+}

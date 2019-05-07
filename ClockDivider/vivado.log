@@ -1,0 +1,88 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue May  7 21:24:18 2019
+# Process ID: 9780
+# Current directory: D:/github_repository/zybo-z7-10/ClockDivider
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10164 D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.xpr
+# Log file: D:/github_repository/zybo-z7-10/ClockDivider/vivado.log
+# Journal file: D:/github_repository/zybo-z7-10/ClockDivider\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:07 . Memory (MB): peak = 725.168 ; gain = 127.055
+update_compile_order -fileset sources_1
+update_module_reference design_1_clockDivider_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Adding cell -- xilinx.com:module_ref:clockDivider:1.0 - clockDivider_0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /sys_clock(clk) and /clockDivider_0/sys_clk_pin(undef)
+Successfully read diagram <design_1> from BD file <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd>
+Upgrading 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_clockDivider_0_0 from clockDivider_v1_0 1.0 to clockDivider_v1_0 1.0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /sys_clock(clk) and /clockDivider_0_upgraded_ipi/sys_clk_pin(undef)
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+upgrade_ip: Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 874.781 ; gain = 112.980
+update_module_reference: Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 874.781 ; gain = 112.980
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clockDivider_0 .
+Exporting to file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Tue May  7 21:27:10 2019] Launched design_1_clockDivider_0_0_synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/design_1_clockDivider_0_0_synth_1/runme.log
+[Tue May  7 21:27:10 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 992.703 ; gain = 49.199
+launch_runs impl_1 -jobs 4
+[Tue May  7 21:28:38 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  7 21:29:50 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+open_hw_target: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1938.340 ; gain = 908.516
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue May  7 21:31:41 2019...

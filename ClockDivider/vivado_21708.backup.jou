@@ -1,0 +1,146 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue May  7 20:32:26 2019
+# Process ID: 21708
+# Current directory: D:/github_repository/zybo-z7-10/ClockDivider
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8548 D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.xpr
+# Log file: D:/github_repository/zybo-z7-10/ClockDivider/vivado.log
+# Journal file: D:/github_repository/zybo-z7-10/ClockDivider\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.xpr
+update_compile_order -fileset sources_1
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets sys_clock_1] [get_bd_ports sys_clock]
+delete_bd_objs [get_bd_nets reset_rtl_1] [get_bd_ports reset_rtl]
+delete_bd_objs [get_bd_cells clk_wiz_0]
+create_bd_intf_port -mode Master -vlnv xilinx.com:signal:clock_rtl:1.0 sys_clock
+set_property location {-301 -30} [get_bd_intf_ports sys_clock]
+set_property location {-416 -33} [get_bd_intf_ports sys_clock]
+delete_bd_objs [get_bd_intf_ports sys_clock]
+create_bd_port -dir O -type clk sys_clock
+set_property CONFIG.FREQ_HZ 125000000 [get_bd_ports /sys_clock]
+set_property location {61 -151} [get_bd_ports sys_clock]
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+add_files -fileset constrs_1 -norecurse D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+import_files -fileset constrs_1 D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+set_property target_language VHDL [current_project]
+file mkdir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/new
+close [ open D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/new/clockDivider.vhd w ]
+add_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/new/clockDivider.vhd
+update_compile_order -fileset sources_1
+generate_target Simulation [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -directory D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/sim_scripts -ip_user_files_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files -ipstatic_source_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/modelsim} {questa=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/questa} {riviera=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/riviera} {activehdl=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design -force
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_compile_order -fileset sources_1
+launch_simulation
+create_bd_cell -type module -reference clockDivider clockDivider_0
+set_property location {1 138 -214} [get_bd_cells clockDivider_0]
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+export_ip_user_files -of_objects  [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v] -no_script -reset -force -quiet
+remove_files  D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+file delete -force D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+set_property location {-13 -197} [get_bd_ports sys_clock]
+update_module_reference design_1_clockDivider_0_0
+update_compile_order -fileset sources_1
+set_property name sys_clock1 [get_bd_ports sys_clock]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+endgroup
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto} rst_polarity {ACTIVE_HIGH}}  [get_bd_pins clk_wiz_0/reset]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_clock ( System Clock ) } Manual_Source {Auto}}  [get_bd_pins clk_wiz_0/clk_in1]
+endgroup
+delete_bd_objs [get_bd_nets reset_rtl_1] [get_bd_nets sys_clock_1] [get_bd_cells clk_wiz_0]
+delete_bd_objs [get_bd_ports sys_clock]
+delete_bd_objs [get_bd_ports reset_rtl]
+delete_bd_objs [get_bd_ports sys_clock1]
+create_bd_intf_port -mode Master -vlnv xilinx.com:signal:clock_rtl:1.0 sys_clock
+set_property location {-45 -222} [get_bd_intf_ports sys_clock]
+set_property location {496 -304} [get_bd_intf_ports sys_clock]
+delete_bd_objs [get_bd_intf_ports sys_clock]
+startgroup
+create_bd_port -dir I -type clk sys_clock
+set_property CONFIG.FREQ_HZ 125000000 [get_bd_ports sys_clock]
+endgroup
+set_property location {-33 -223} [get_bd_ports sys_clock]
+connect_bd_net [get_bd_ports sys_clock] [get_bd_pins clockDivider_0/sys_clk_pin]
+set_property location {-24 -210} [get_bd_ports sys_clock]
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+generate_target Simulation [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -directory D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/sim_scripts -ip_user_files_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files -ipstatic_source_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/modelsim} {questa=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/questa} {riviera=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/riviera} {activehdl=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source design_1_wrapper.tcl
+run 1000 ms
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+make_bd_pins_external  [get_bd_pins clockDivider_0/led]
+endgroup
+set_property name led [get_bd_ports led_0]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+update_module_reference design_1_clockDivider_0_0
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+close_sim

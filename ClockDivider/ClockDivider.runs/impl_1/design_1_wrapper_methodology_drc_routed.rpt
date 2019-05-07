@@ -1,0 +1,61 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue May  7 21:29:33 2019
+| Host         : BERAT running 64-bit major release  (build 9200)
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xc7z010clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 5
++-----------+----------+------------------------------------------------------------------+------------+
+| Rule      | Severity | Description                                                      | Violations |
++-----------+----------+------------------------------------------------------------------+------------+
+| CKLD-2    | Warning  | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
+| TIMING-18 | Warning  | Missing input or output delay                                    | 4          |
++-----------+----------+------------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+CKLD-2#1 Warning
+Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads  
+Clock net sys_clock_IBUF is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): design_1_i/sys_clock, sys_clock_IBUF_inst/O
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An output delay is missing on led[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An output delay is missing on led[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on led[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on led[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+

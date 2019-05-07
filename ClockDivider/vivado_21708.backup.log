@@ -1,0 +1,453 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue May  7 20:32:26 2019
+# Process ID: 21708
+# Current directory: D:/github_repository/zybo-z7-10/ClockDivider
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8548 D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.xpr
+# Log file: D:/github_repository/zybo-z7-10/ClockDivider/vivado.log
+# Journal file: D:/github_repository/zybo-z7-10/ClockDivider\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 698.477 ; gain = 120.520
+update_compile_order -fileset sources_1
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Successfully read diagram <design_1> from BD file <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 800.770 ; gain = 74.719
+delete_bd_objs [get_bd_nets sys_clock_1] [get_bd_ports sys_clock]
+delete_bd_objs [get_bd_nets reset_rtl_1] [get_bd_ports reset_rtl]
+delete_bd_objs [get_bd_cells clk_wiz_0]
+create_bd_intf_port -mode Master -vlnv xilinx.com:signal:clock_rtl:1.0 sys_clock
+set_property location {-301 -30} [get_bd_intf_ports sys_clock]
+set_property location {-416 -33} [get_bd_intf_ports sys_clock]
+delete_bd_objs [get_bd_intf_ports sys_clock]
+create_bd_port -dir O -type clk sys_clock
+set_property CONFIG.FREQ_HZ 125000000 [get_bd_ports /sys_clock]
+set_property location {61 -151} [get_bd_ports sys_clock]
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.v
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+add_files -norecurse D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+add_files -fileset constrs_1 -norecurse D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+import_files -fileset constrs_1 D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+set_property target_language VHDL [current_project]
+file mkdir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/new
+close [ open D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/new/clockDivider.vhd w ]
+add_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/new/clockDivider.vhd
+update_compile_order -fileset sources_1
+generate_target Simulation [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd]
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+Exporting to file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+export_ip_user_files -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -directory D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/sim_scripts -ip_user_files_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files -ipstatic_source_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/modelsim} {questa=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/questa} {riviera=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/riviera} {activehdl=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'design_1_wrapper' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj design_1_wrapper_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+"xvhdl --incr --relax -prj design_1_wrapper_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/bd/design_1/sim/design_1.vhd" into library xil_defaultlib
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 08592320322447e9ba78f20320b274b4 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot design_1_wrapper_behav xil_defaultlib.design_1_wrapper xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-2063] Module <design_1> not found while processing module instance <design_1_i> [D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:18]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1050.770 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design -force
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+update_compile_order -fileset sources_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'design_1_wrapper' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj design_1_wrapper_vlog.prj"
+"xvhdl --incr --relax -prj design_1_wrapper_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 08592320322447e9ba78f20320b274b4 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot design_1_wrapper_behav xil_defaultlib.design_1_wrapper xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-2063] Module <design_1> not found while processing module instance <design_1_i> [D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:18]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+create_bd_cell -type module -reference clockDivider clockDivider_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+set_property location {1 138 -214} [get_bd_cells clockDivider_0]
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+export_ip_user_files -of_objects  [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v] -no_script -reset -force -quiet
+remove_files  D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+file delete -force D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+set_property location {-13 -197} [get_bd_ports sys_clock]
+update_module_reference design_1_clockDivider_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-1972] Upgraded design_1_clockDivider_0_0 from clockDivider_v1_0 1.0 to clockDivider_v1_0 1.0
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_compile_order -fileset sources_1
+set_property name sys_clock1 [get_bd_ports sys_clock]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+endgroup
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/reset'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/reset'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/reset'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/reset'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto} rst_polarity {ACTIVE_HIGH}}  [get_bd_pins clk_wiz_0/reset]
+INFO: [board_rule 100-100] create_bd_port -dir I reset_rtl -type rst
+INFO: [board_rule 100-100] set_property CONFIG.POLARITY  /reset_rtl
+INFO: [board_rule 100-100] connect_bd_net /reset_rtl /clk_wiz_0/reset
+INFO: [board_rule 100-100] set_property CONFIG.POLARITY ACTIVE_HIGH /reset_rtl
+WARNING: [board_rule 100-100] Board automation did not generate location constraint for /clk_wiz_0/reset. Users may need to specify the location constraint manually.
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_clock ( System Clock ) } Manual_Source {Auto}}  [get_bd_pins clk_wiz_0/clk_in1]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /clk_wiz_0]
+INFO: [board_rule 100-100] set_property CONFIG.CLK_IN1_BOARD_INTERFACE sys_clock [get_bd_cells /clk_wiz_0]
+INFO: [board_rule 100-100] create_bd_port -dir I sys_clock -type clk
+INFO: [board_rule 100-100] set_property CONFIG.FREQ_HZ 100000000 /sys_clock
+INFO: [board_rule 100-100] set_property CONFIG.PHASE 0.000 /sys_clock
+INFO: [board_rule 100-100] connect_bd_net /sys_clock /clk_wiz_0/clk_in1
+INFO: [board_rule 100-100] set_property CONFIG.FREQ_HZ 125000000 /sys_clock
+endgroup
+delete_bd_objs [get_bd_nets reset_rtl_1] [get_bd_nets sys_clock_1] [get_bd_cells clk_wiz_0]
+delete_bd_objs [get_bd_ports sys_clock]
+delete_bd_objs [get_bd_ports reset_rtl]
+delete_bd_objs [get_bd_ports sys_clock1]
+create_bd_intf_port -mode Master -vlnv xilinx.com:signal:clock_rtl:1.0 sys_clock
+set_property location {-45 -222} [get_bd_intf_ports sys_clock]
+set_property location {496 -304} [get_bd_intf_ports sys_clock]
+delete_bd_objs [get_bd_intf_ports sys_clock]
+startgroup
+create_bd_port -dir I -type clk sys_clock
+set_property CONFIG.FREQ_HZ 125000000 [get_bd_ports sys_clock]
+endgroup
+set_property location {-33 -223} [get_bd_ports sys_clock]
+connect_bd_net [get_bd_ports sys_clock] [get_bd_pins clockDivider_0/sys_clk_pin]
+WARNING: [BD 41-1731] Type mismatch between connected pins: /sys_clock(clk) and /clockDivider_0/sys_clk_pin(undef)
+set_property location {-24 -210} [get_bd_ports sys_clock]
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+generate_target Simulation [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd]
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clockDivider_0 .
+Exporting to file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+export_ip_user_files -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -directory D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/sim_scripts -ip_user_files_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files -ipstatic_source_dir D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/modelsim} {questa=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/questa} {riviera=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/riviera} {activehdl=D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.3/data/xsim/xsim.ini' copied to run dir:'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'design_1_wrapper' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj design_1_wrapper_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/new/clockDivider.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'clockDivider'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/bd/design_1/sim/design_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.ip_user_files/bd/design_1/ip/design_1_clockDivider_0_0/sim/design_1_clockDivider_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_clockDivider_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1_wrapper'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 08592320322447e9ba78f20320b274b4 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot design_1_wrapper_behav xil_defaultlib.design_1_wrapper -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling architecture behavioral of entity xil_defaultlib.clockDivider [clockdivider_default]
+Compiling architecture design_1_clockdivider_0_0_arch of entity xil_defaultlib.design_1_clockDivider_0_0 [design_1_clockdivider_0_0_defaul...]
+Compiling architecture structure of entity xil_defaultlib.design_1 [design_1_default]
+Compiling architecture structure of entity xil_defaultlib.design_1_wrapper
+Built simulation snapshot design_1_wrapper_behav
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 84.438 ; gain = 0.496
+INFO: [Common 17-206] Exiting Webtalk at Tue May  7 20:52:08 2019...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:13 . Memory (MB): peak = 1322.195 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '13' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "design_1_wrapper_behav -key {Behavioral:sim_1:Functional:design_1_wrapper} -tclbatch {design_1_wrapper.tcl} -protoinst "protoinst_files/design_1.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/design_1.protoinst
+Time resolution is 1 ps
+source design_1_wrapper.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'design_1_wrapper_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:22 . Memory (MB): peak = 1345.785 ; gain = 23.590
+run 1000 ms
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clockDivider_0 .
+[Tue May  7 20:54:10 2019] Launched design_1_clockDivider_0_0_synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/design_1_clockDivider_0_0_synth_1/runme.log
+[Tue May  7 20:54:10 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  7 20:55:46 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+make_bd_pins_external  [get_bd_pins clockDivider_0/led]
+endgroup
+set_property name led [get_bd_ports led_0]
+save_bd_design
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clockDivider_0 .
+Exporting to file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Tue May  7 20:57:05 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1389.719 ; gain = 12.227
+launch_runs impl_1 -jobs 4
+[Tue May  7 20:58:33 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  7 20:59:55 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 2168.070 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 2168.070 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2168.070 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:26 ; elapsed = 00:00:20 . Memory (MB): peak = 2437.891 ; gain = 804.117
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue May  7 21:01:53 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  7 21:02:57 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  7 21:04:15 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2446.953 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+open_hw_target: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 3344.613 ; gain = 897.660
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+update_module_reference design_1_clockDivider_0_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading 'D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd'
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/design_1_clockDivider_0_0_synth_1
+
+INFO: [IP_Flow 19-1972] Upgraded design_1_clockDivider_0_0 from clockDivider_v1_0 1.0 to clockDivider_v1_0 1.0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /sys_clock(clk) and /clockDivider_0_upgraded_ipi/sys_clk_pin(undef)
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design
+make_wrapper -files [get_files D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/design_1.bd] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\github_repository\zybo-z7-10\ClockDivider\ClockDivider.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clockDivider_0 .
+Exporting to file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Tue May  7 21:07:12 2019] Launched design_1_clockDivider_0_0_synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/design_1_clockDivider_0_0_synth_1/runme.log
+[Tue May  7 21:07:13 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 3461.008 ; gain = 37.887
+launch_runs impl_1 -jobs 4
+[Tue May  7 21:08:42 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Tue May  7 21:08:58 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  7 21:09:40 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  7 21:10:42 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/runme.log
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z010 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/ClockDivider/ClockDivider.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 3464.762 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue May  7 21:13:02 2019...
