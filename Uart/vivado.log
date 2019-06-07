@@ -1,0 +1,199 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Jun  4 22:38:50 2019
+# Process ID: 9432
+# Current directory: C:/Users/yildi/Desktop/Uart
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2532 C:\Users\yildi\Desktop\Uart\Uart.xpr
+# Log file: C:/Users/yildi/Desktop/Uart/vivado.log
+# Journal file: C:/Users/yildi/Desktop/Uart\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/yildi/Desktop/Uart/Uart.xpr
+INFO: [Project 1-313] Project file moved from 'D:/zybo-z10_workspace/Uart' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'C:/Users/yildi/Desktop/Uart/Uart.ip_user_files', nor could it be found using path 'D:/zybo-z10_workspace/Uart/Uart.ip_user_files'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:15 . Memory (MB): peak = 671.059 ; gain = 111.473
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Jun  4 22:45:02 2019] Launched synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Tue Jun  4 22:46:05 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property top UartReceiver [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Jun  4 22:48:43 2019] Launched synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Tue Jun  4 22:49:52 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Tue Jun  4 22:52:35 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+update_compile_order -fileset sources_1
+set_property top UartReceiver [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Jun  4 22:55:00 2019] Launched synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Tue Jun  4 22:56:24 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Jun  4 22:59:02 2019] Launched synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Tue Jun  4 23:00:03 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/yildi/Desktop/Uart/Uart.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'UartReceiver' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/yildi/Desktop/Uart/Uart.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj UartReceiver_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/ClockDivider.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ClockDivider'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/UartReceiver.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'UartReceiver'
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 877.641 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '13' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/yildi/Desktop/Uart/Uart.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 6fb0e5fd8e364d948e0d520942d53d4e --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot UartReceiver_behav xil_defaultlib.UartReceiver -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.ClockDivider [clockdivider_default]
+Compiling architecture behavioral of entity xil_defaultlib.uartreceiver
+Built simulation snapshot UartReceiver_behav
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/yildi/Desktop/Uart/Uart.sim/sim_1/behav/xsim/xsim.dir/UartReceiver_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/yildi/Desktop/Uart/Uart.sim/sim_1/behav/xsim/xsim.dir/UartReceiver_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Tue Jun  4 23:11:17 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.3/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Tue Jun  4 23:11:17 2019...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:21 . Memory (MB): peak = 877.641 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '21' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/yildi/Desktop/Uart/Uart.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "UartReceiver_behav -key {Behavioral:sim_1:Functional:UartReceiver} -tclbatch {UartReceiver.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source UartReceiver.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+xsim: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 909.648 ; gain = 32.008
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'UartReceiver_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:13 ; elapsed = 00:00:42 . Memory (MB): peak = 909.648 ; gain = 32.008
+create_fileset -blockset -define_from ClockDivider ClockDivider
+INFO: [Vivado 12-2924] Moving file 'C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/ClockDivider.vhd' from fileset 'sources_1' to fileset 'ClockDivider'.
+file mkdir C:/Users/yildi/Desktop/Uart/Uart.srcs/ClockDivider/new
+close [ open C:/Users/yildi/Desktop/Uart/Uart.srcs/ClockDivider/new/ClockDivider_ooc.xdc w ]
+add_files -fileset ClockDivider C:/Users/yildi/Desktop/Uart/Uart.srcs/ClockDivider/new/ClockDivider_ooc.xdc
+set data {# (c) Copyright 2014 Xilinx, Inc. All rights reserved.
+
+# Add in a clock definition for each input clock to the out-of-context module.
+# The module will be synthesized as top so reference the clock origin using get_ports.
+# You will need to define a clock on each input clock port, no top level clock information
+# is provided to the module when set as out-of-context.
+# Here is an example:
+# create_clock -name clk_200 -period 5 [get_ports clk]
+}
+# (c) Copyright 2014 Xilinx, Inc. All rights reserved.
+
+# Add in a clock definition for each input clock to the out-of-context module.
+# The module will be synthesized as top so reference the clock origin using get_ports.
+# You will need to define a clock on each input clock port, no top level clock information
+# is provided to the module when set as out-of-context.
+# Here is an example:
+# create_clock -name clk_200 -period 5 [get_ports clk]
+set filename "C:/Users/yildi/Desktop/Uart/Uart.srcs/ClockDivider/new/ClockDivider_ooc.xdc"
+C:/Users/yildi/Desktop/Uart/Uart.srcs/ClockDivider/new/ClockDivider_ooc.xdc
+set fileId [open $filename "w"]
+file29895cc60b0
+puts -nonewline $fileId $data
+close $fileId
+set_property USED_IN {out_of_context synthesis implementation}  [get_files  C:/Users/yildi/Desktop/Uart/Uart.srcs/ClockDivider/new/ClockDivider_ooc.xdc]
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1
+
+launch_runs synth_1 -jobs 2
+[Tue Jun  4 23:12:42 2019] Launched ClockDivider_synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/ClockDivider_synth_1/runme.log
+[Tue Jun  4 23:12:42 2019] Launched synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Tue Jun  4 23:19:32 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1
+
+launch_runs synth_1 -jobs 2
+[Wed Jun  5 00:09:33 2019] Launched synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1
+
+launch_runs synth_1 -jobs 2
+[Wed Jun  5 00:12:47 2019] Launched synth_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Wed Jun  5 00:13:54 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Jun  5 00:15:51 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+WARNING: [Vivado 12-1017] Problems encountered:
+1. PID not specified
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Wed Jun  5 00:28:48 2019] Launched impl_1...
+Run output will be captured here: C:/Users/yildi/Desktop/Uart/Uart.runs/impl_1/runme.log
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 909.648 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Jun  5 03:21:40 2019...
