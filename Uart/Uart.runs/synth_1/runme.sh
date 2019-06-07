@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/zybo-z10_workspace/Uart/Uart.runs/synth_1'
+HD_PWD='C:/Users/yildi/Desktop/Uart/Uart.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log UartReceiver.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source UartReceiver.tcl
+EAStep vivado -log UartTop.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source UartTop.tcl

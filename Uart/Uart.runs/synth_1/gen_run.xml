@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1559155730">
-  <File Type="PA-TCL" Name="UartReceiver.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="UartReceiver_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="UartReceiver_reports.tcl"/>
-  <File Type="RDS-RDS" Name="UartReceiver.vds"/>
-  <File Type="RDS-UTIL" Name="UartReceiver_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="UartReceiver_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="UartReceiver.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="UartReceiver_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="UartReceiver_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1559926470">
+  <File Type="PA-TCL" Name="UartTop.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="UartTop_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="UartTop_reports.tcl"/>
+  <File Type="RDS-RDS" Name="UartTop.vds"/>
+  <File Type="RDS-UTIL" Name="UartTop_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="UartTop_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="UartTop.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="UartTop_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="UartTop_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/ClockDivider.vhd">
+    <File Path="$PSRCDIR/sources_1/new/UartReceiver.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/UartReceiver.vhd">
+    <File Path="$PSRCDIR/sources_1/new/uartTransmitter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/UartTop.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -25,7 +31,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="UartReceiver"/>
+      <Option Name="TopModule" Val="UartTop"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
