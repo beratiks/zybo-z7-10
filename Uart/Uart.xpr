@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="D:/zybo-z10_workspace/Uart/Uart.xpr">
+<Project Version="7" Minor="39" Path="D:/github_repository/zybo-z7-10/Uart/Uart.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="6fb0e5fd8e364d948e0d520942d53d4e"/>
@@ -82,7 +82,7 @@
       <Filter Type="Constrs"/>
       <File Path="$PSRCDIR/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Zybo-Z7-Master.xdc"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../zybo-z10_workspace/Zybo-Z7-Master.xdc"/>
           <Attr Name="ImportTime" Val="1552324744"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

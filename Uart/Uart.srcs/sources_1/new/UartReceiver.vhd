@@ -66,6 +66,7 @@ signal bitIterator : integer range 0 to 7 := 0;
 type receiveEnumeration is (Idle,StartBit,DataBits,StopBits,Clean);
 signal receiveEnum : receiveEnumeration := Idle;
 
+signal recData : std_logic_vector(7 downto 0) := (others => '0');
 
 begin
 
@@ -77,13 +78,81 @@ port map (
 
 ledproc : process(clockIn)
 begin
-
-
-
-
+    if(rising_edge(clockIn)) then
+        case receiveEnum is
+        
+            when Idle =>
+            
+            receiving <= '0';   -- not receiving data
+           
+            if(rxPin = '0') then
+                receiveEnum <= StartBit;
+                receiving <= '1';
+            else
+                 receiveEnum <= Idle;
+                 receiving <= '0';
+            end if;
+            
+            when StartBit =>
+                if(clock_per_bit_counter = (clocks_per_bit-1)/2) then
+                    if(rxPin = '0') then
+                        clock_per_bit_counter <= 0;
+                        receiveEnum <= DataBits;
+                    else
+                        clock_per_bit_counter <= 0;
+                        receiveEnum <= Idle;
+                    end if;
+                else
+                    clock_per_bit_counter <= clock_per_bit_counter + 1;
+                    receiveEnum <= StartBit;
+                end if;
+            
+            when DataBits =>
+                if(clock_per_bit_counter = (clocks_per_bit - 1)) then
+                    receivedData(bitIterator) <= rxPin;
+                    clock_per_bit_counter <= 0;
+                    if(bitIterator < 7) then
+                        bitIterator <= bitIterator + 1;
+                        receiveEnum <= DataBits;
+                    else
+                        receiveEnum <= StopBits;
+                        bitIterator <= 0;
+                    end if;
+                else
+                    clock_per_bit_counter <= clock_per_bit_counter + 1;
+                    receiveEnum <= DataBits;
+                end if;
+            
+            when StopBits =>
+                if(clock_per_bit_counter = clocks_per_bit - 1) then
+                  clock_per_bit_counter <= 0;
+                  receiveEnum <= Clean;
+                  receiveInterrupt <= '1';
+                else
+                    clock_per_bit_counter <= clock_per_bit_counter + 1;
+                    receiveEnum <= StopBits;
+                end if;
+            when Clean =>
+                receiveInterrupt <= '0';
+                receiveEnum <= Idle;
+            when others =>
+                receiveEnum <= Idle;
+        end case;
+     end if;
+     
+     
+     
+     if(recData = "00000001") then
+        led <= "0001";
+     elsif(recData = "00000010") then
+        led <= "0010";
+     elsif(recData = "00000011") then
+        led <= "0100";
+     elsif(recData = "00000100") then
+        led <= "1000";
+     else
+        led <= "0000";
+     end if;
 end process;
-
-
-
 
 end Behavioral;

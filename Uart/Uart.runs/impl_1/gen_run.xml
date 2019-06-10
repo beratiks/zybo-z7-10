@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1559155784">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1559257151">
   <File Type="BITSTR-BMM" Name="UartReceiver_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="UartReceiver_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="UartReceiver_timing_summary_init.rpt"/>
@@ -92,7 +92,7 @@
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../Zybo-Z7-Master.xdc"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../zybo-z10_workspace/Zybo-Z7-Master.xdc"/>
         <Attr Name="ImportTime" Val="1552324744"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

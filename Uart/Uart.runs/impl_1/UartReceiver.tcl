@@ -60,28 +60,93 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
-start_step write_bitstream
-set ACTIVE_STEP write_bitstream
+start_step init_design
+set ACTIVE_STEP init_design
 set rc [catch {
-  create_msg_db write_bitstream.pb
-  set_param synth.incrementalSynthesisCache D:/zybo-z10_workspace/Uart/.Xil/Vivado-18164-BERAT/incrSyn
-  set_param xicom.use_bs_reader 1
-  open_checkpoint UartReceiver_routed.dcp
-  set_property webtalk.parent_dir D:/zybo-z10_workspace/Uart/Uart.cache/wt [current_project]
-  catch { write_mem_info -force UartReceiver.mmi }
-  write_bitstream -force UartReceiver.bit 
-  catch {write_debug_probes -quiet -force UartReceiver}
-  catch {file copy -force UartReceiver.ltx debug_nets.ltx}
-  close_msg_db -file write_bitstream.pb
+  create_msg_db init_design.pb
+  create_project -in_memory -part xc7z010clg400-1
+  set_property board_part digilentinc.com:zybo-z7-10:part0:1.0 [current_project]
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir D:/github_repository/zybo-z7-10/Uart/Uart.cache/wt [current_project]
+  set_property parent.project_path D:/github_repository/zybo-z7-10/Uart/Uart.xpr [current_project]
+  set_property ip_output_repo D:/github_repository/zybo-z7-10/Uart/Uart.cache/ip [current_project]
+  set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet D:/github_repository/zybo-z7-10/Uart/Uart.runs/synth_1/UartReceiver.dcp
+  read_xdc D:/github_repository/zybo-z7-10/Uart/Uart.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc
+  link_design -top UartReceiver -part xc7z010clg400-1
+  close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
-  step_failed write_bitstream
+  step_failed init_design
   return -code error $RESULT
 } else {
-  end_step write_bitstream
+  end_step init_design
+  unset ACTIVE_STEP 
+}
+
+start_step opt_design
+set ACTIVE_STEP opt_design
+set rc [catch {
+  create_msg_db opt_design.pb
+  opt_design 
+  write_checkpoint -force UartReceiver_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file UartReceiver_drc_opted.rpt -pb UartReceiver_drc_opted.pb -rpx UartReceiver_drc_opted.rpx"
+  close_msg_db -file opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed opt_design
+  return -code error $RESULT
+} else {
+  end_step opt_design
+  unset ACTIVE_STEP 
+}
+
+start_step place_design
+set ACTIVE_STEP place_design
+set rc [catch {
+  create_msg_db place_design.pb
+  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
+    implement_debug_core 
+  } 
+  place_design 
+  write_checkpoint -force UartReceiver_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file UartReceiver_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file UartReceiver_utilization_placed.rpt -pb UartReceiver_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file UartReceiver_control_sets_placed.rpt"
+  close_msg_db -file place_design.pb
+} RESULT]
+if {$rc} {
+  step_failed place_design
+  return -code error $RESULT
+} else {
+  end_step place_design
+  unset ACTIVE_STEP 
+}
+
+start_step route_design
+set ACTIVE_STEP route_design
+set rc [catch {
+  create_msg_db route_design.pb
+  route_design 
+  write_checkpoint -force UartReceiver_routed.dcp
+  create_report "impl_1_route_report_drc_0" "report_drc -file UartReceiver_drc_routed.rpt -pb UartReceiver_drc_routed.pb -rpx UartReceiver_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file UartReceiver_methodology_drc_routed.rpt -pb UartReceiver_methodology_drc_routed.pb -rpx UartReceiver_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file UartReceiver_power_routed.rpt -pb UartReceiver_power_summary_routed.pb -rpx UartReceiver_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file UartReceiver_route_status.rpt -pb UartReceiver_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file UartReceiver_timing_summary_routed.rpt -pb UartReceiver_timing_summary_routed.pb -rpx UartReceiver_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file UartReceiver_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file UartReceiver_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file UartReceiver_bus_skew_routed.rpt -pb UartReceiver_bus_skew_routed.pb -rpx UartReceiver_bus_skew_routed.rpx"
+  close_msg_db -file route_design.pb
+} RESULT]
+if {$rc} {
+  write_checkpoint -force UartReceiver_routed_error.dcp
+  step_failed route_design
+  return -code error $RESULT
+} else {
+  end_step route_design
   unset ACTIVE_STEP 
 }
 
