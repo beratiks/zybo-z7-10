@@ -36,7 +36,17 @@ generic (
     system_clock_speed : integer := 125000000;  -- system clock is 125 MHZ
     i2c_bus_speed : integer := 100000           -- i2c run normal mode as 100 kHz
 );
-    Port ( sys_clock : in STD_LOGIC);
+    Port ( 
+        sys_clock : in STD_LOGIC;
+        sda_pin   : inout std_logic;
+        scl_pin   : out std_logic;
+        writeEnable : in std_logic;
+        deviceId    : in std_logic_vector(6 downto 0);
+        commandType : in std_logic;
+        writeData   : in std_logic_vector(7 downto 0);
+        writing     : out std_logic;
+        wroteIt     : out std_logic
+    );
 end I2CMaster;
 
 architecture Behavioral of I2CMaster is
@@ -55,17 +65,29 @@ signal scl_clock_prev : std_logic;
 signal scl : std_logic := '1';
 signal sda : std_logic := '1';
 
-signal deviceId : std_logic_vector(6 downto 0) := "1101010";
+signal deviceIdSig : std_logic_vector(6 downto 0);
 
-signal commandType : std_logic := '0';
+signal commandTypeSig : std_logic;
 
-signal txData : std_logic_vector(7 downto 0) := "01010101";
+signal txData : std_logic_vector(7 downto 0);
 
-signal Send : std_logic := '1';
+signal writeEnableSig : std_logic := '0';
 
 signal firstSend : std_logic := '0';
 
+signal writingSig : std_logic := '0';
+signal wroteItSig : std_logic := '0';
+
 begin
+
+sda_pin <= sda;
+scl_pin <= scl;
+writeEnableSig <= writeEnable;
+deviceIdSig <= deviceId;
+commandTypeSig <= commandType;
+txData <= writeData;
+writing <= writingSig;
+wroteIt <= wroteItSig;
 
 clockProcess : process(sys_clock)
 
@@ -122,10 +144,12 @@ begin
             when Idle =>
                 sda <= '1';
                 scl <= '1';
-                if(Send = '1') then
+                writing <= '0';
+                if(writeEnableSig = '1') then
                     if(data_clock_prev = '0' and data_clock = '1') then
                         sda <= '0';
                         state <= Start;
+                        writing <= '1';
                     end if;
                 end if;
             when Start =>
@@ -133,7 +157,7 @@ begin
                 if(scl_clock = '1' and scl_clock_prev = '0') then
                     scl <= '0';
                 elsif(scl_clock = '0' and scl_clock_prev = '1') then
-                    sda <= deviceId(deviceIdIterator); 
+                    sda <= deviceIdSig(deviceIdIterator); 
                     state <= SendDeviceId;
                     firstSend <= '1';
                 end if;
@@ -145,9 +169,9 @@ begin
                         if(deviceIdIterator /= 0) then
                             deviceIdIterator := deviceIdIterator -1;   
                         end if;    
-                        sda <= deviceId(deviceIdIterator);   
+                        sda <= deviceIdSig(deviceIdIterator);   
                     else
-                        sda <= commandType;
+                        sda <= commandTypeSig;
                         state <= command;       
                         deviceIdIterator := 6;
                     end if;
@@ -179,7 +203,6 @@ begin
                         end if;
                         sda <= txData(txDataIterator);
                     else
-                        
                         txDataIterator := 7;
                         sda <= 'Z';
                         state <= SlaveAck2; 
@@ -205,10 +228,12 @@ begin
                 elsif(scl_clock_prev = '0' and scl_clock = '1') then
                     scl <= '1';
                     sda <= '0';
+                    wroteItSig <= '1';
                 elsif(data_clock_prev = '1' and data_clock = '0') then
                     scl <= '1';
                     sda <= '1';
                     state <= Idle;
+                    wroteItSig <= '0';
                 end if;
             when others =>
                 state <= Idle;
