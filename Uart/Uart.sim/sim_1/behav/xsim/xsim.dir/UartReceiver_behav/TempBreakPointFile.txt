@@ -1,0 +1,7 @@
+Breakpoint File Version 1.0
+146 true C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/UartReceiver.vhd
+147 true C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/UartReceiver.vhd
+152 true C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/UartReceiver.vhd
+145 true C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/UartReceiver.vhd
+153 true C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/UartReceiver.vhd
+155 true C:/Users/yildi/Desktop/Uart/Uart.srcs/sources_1/new/UartReceiver.vhd

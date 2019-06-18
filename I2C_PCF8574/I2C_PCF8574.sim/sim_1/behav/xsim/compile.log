@@ -1,0 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/zybo-z10_workspace/I2C_PCF8574/I2C_PCF8574.srcs/sources_1/new/I2CMaster.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'I2CMaster'
+WARNING: [VRFC 10-471] case choice must be a locally static expression [D:/zybo-z10_workspace/I2C_PCF8574/I2C_PCF8574.srcs/sources_1/new/I2CMaster.vhd:112]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [D:/zybo-z10_workspace/I2C_PCF8574/I2C_PCF8574.srcs/sources_1/new/I2CMaster.vhd:117]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [D:/zybo-z10_workspace/I2C_PCF8574/I2C_PCF8574.srcs/sources_1/new/I2CMaster.vhd:122]

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Uart.srcs/sources_1/new/ClockDivider.vhd" \
+"../../../../Uart.srcs/sources_1/new/UartReceiver.vhd" \
+
+# Do not sort compile order
+nosort
