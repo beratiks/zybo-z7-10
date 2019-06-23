@@ -1,0 +1,1 @@
+-wto "a84cccbac12a43d7b250102e0927bc24" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "SPIMaster_behav" "xil_defaultlib.SPIMaster" -log "elaborate.log" 

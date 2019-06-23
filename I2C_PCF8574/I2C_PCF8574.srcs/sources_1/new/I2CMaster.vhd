@@ -128,7 +128,7 @@ begin
                 
                 scl_clock <= '1';
                 data_clock <= '0';            
-        
+			
         end case;
         
         scl_clock_prev <= scl_clock;

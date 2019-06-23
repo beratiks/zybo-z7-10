@@ -1,0 +1,7 @@
+Running: xsim.dir/SPIMaster_behav/xsimk.exe -simmode gui -wdb SPIMaster_behav.wdb -simrunnum 0 -socket 55775
+Design successfully loaded
+Design Loading Memory Usage: 4852 KB (Peak: 4852 KB)
+Design Loading CPU Usage: 61 ms
+Simulation completed
+Simulation Memory Usage: 5524 KB (Peak: 5524 KB)
+Simulation CPU Usage: 187 ms
