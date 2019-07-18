@@ -1,0 +1,12 @@
+
+{ 
+    crc :  5554331884740030442  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto 7d67abebf766473d9d50a0a067a61b3d --incr --debug typical --relax --mt 2 -L lib_cdc_v1_0_2 -L blk_mem_gen_v8_4_3 -L lib_bmg_v1_0_12 -L can_v5_0_22 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot AxiController_behav xil_defaultlib.AxiController xil_defaultlib.glbl" , 
+    buildDate : "Jun 29 2019" , 
+    buildTime : "08:46:09" , 
+    linkCmd : "C:\\Xilinx\\Vivado\\2019.1\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/AxiController_behav/xsimk.exe\"   \"xsim.dir/AxiController_behav/obj/xsim_0.win64.obj\" \"xsim.dir/AxiController_behav/obj/xsim_1.win64.obj\" -L\"C:\\Xilinx\\Vivado\\2019.1\\lib\\win64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../CanMaster.srcs/sources_1/ip/can_0/sim/can_0.vhd" \
+"../../../../CanMaster.srcs/sources_1/new/AxiController.vhd" \
+
+# Do not sort compile order
+nosort
