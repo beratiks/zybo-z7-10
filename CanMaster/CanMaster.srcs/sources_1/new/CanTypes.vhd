@@ -28,7 +28,7 @@ package CanTypes is
   constant  BAUDRATE_PRESCALER      : integer   :=  3;
   constant  TIME_SEGMENT_1          : integer   :=  13;
   constant  TIME_SEGMENT_2          : integer   :=  2;
-  constant  SYNC_SEGMENT            : integer   :=  1;
+  constant  TIME_SYNC_SEGMENT       : integer   :=  1;
   
 
 type Data is array (7 downto 0) of std_logic_vector(7 downto 0);

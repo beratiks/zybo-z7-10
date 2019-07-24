@@ -1,6 +1,6 @@
 Vivado Simulator 2019.1
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 7d67abebf766473d9d50a0a067a61b3d --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot CanMaster_behav xil_defaultlib.CanMaster xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto 7d67abebf766473d9d50a0a067a61b3d --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot BitTimeLogic_behav xil_defaultlib.BitTimeLogic xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,13 +11,6 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package xil_defaultlib.cantypes
-Compiling package vl.vl_types
 Compiling module xil_defaultlib.glbl
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=39.0,...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
-Compiling module xil_defaultlib.clk_wiz_0
-Compiling architecture behavioral of entity xil_defaultlib.CanClockGenerator [canclockgenerator_default]
-Compiling architecture behavioral of entity xil_defaultlib.canmaster
-Built simulation snapshot CanMaster_behav
+Compiling architecture behavioral of entity xil_defaultlib.bittimelogic
+Built simulation snapshot BitTimeLogic_behav
