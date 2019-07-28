@@ -194,6 +194,7 @@ begin
         
             when IDLE =>       
             
+                sig_TxPin <= '1';
                 
             when SYNC_SEGMENT =>
             
