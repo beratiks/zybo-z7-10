@@ -32,7 +32,8 @@ entity BitTimeLogic is
            write_order : in STD_LOGIC;          -- order of write.
            write_valid : out STD_LOGIC;         -- write is complete.  Accept falling edge
            read_valid : out STD_LOGIC;          -- read is complete.   Accept rising edge
-           check_arbitration : in std_logic     -- bit stream processor set, because arbitration must check only message identifier phase
+           check_arbitration : in std_logic;    -- bit stream processor set, because arbitration must check only message identifier phase
+           sample_start      :  in std_logic    -- BSP check starf of frame and set sample start
            ); 
            
 end BitTimeLogic;
@@ -43,13 +44,14 @@ signal sig_time_segment_1 : integer := TIME_SEGMENT_1;
 signal sig_time_segment_2 : integer := TIME_SEGMENT_2;
 
 -- signal of ports
-signal sig_TxPin        : STD_LOGIC := '0';     
+signal sig_TxPin        : STD_LOGIC;     
 signal sig_RxPin        : STD_LOGIC;       
 signal sig_TxBit        : STD_LOGIC;        
 signal sig_RxBit        : STD_LOGIC := '0';              
-signal sig_write_order  : STD_LOGIC := '0';  
+signal sig_write_order  : STD_LOGIC;  
 signal sig_write_valid  : STD_LOGIC := '0'; 
 signal sig_read_valid   : STD_LOGIC := '0';  
+-- end of ports
 
 signal sig_startSample  : STD_LOGIC := '0';  
 
@@ -70,7 +72,7 @@ RxBit <= sig_RxBit;
 sig_write_order <= write_order;  
 write_valid <= sig_write_valid;
 read_valid <= sig_read_valid;
-
+sig_startSample <= sample_start;
 
 -- calculate time quanta on every bit time
 timeQuantaProcess : process(clk_in,sig_write_valid)
@@ -140,14 +142,11 @@ begin
         
             when IDLE =>    
             
-                   if(sig_rxPin = '0') then             -- hard synchronisation
-                   
-                    sig_startSample <= '1';
-                   
-                   end if;
+
             
                 
             when SYNC_SEGMENT =>
+            
                              
                 
             when PHASE_SEGMENT_1 =>
@@ -189,49 +188,51 @@ end process;
 transmitBitProcess : process(clk_in)
 begin
 
-        if(rising_edge(clk_in)) then
+   if(rising_edge(clk_in)) then
     
         case(bitState) is
         
             when IDLE =>       
             
-            sig_txPin <= '1';
                 
             when SYNC_SEGMENT =>
             
-                sig_write_valid <= '0';
-                if(sig_txBit = '1' and falling_edge(sig_rxPin) and check_arbitration = '1') then        -- arbitration lose when rx change recessive to dominant
+                if(sig_write_order = '1') then
+                    sig_write_valid <= '0';
+                    if(sig_txBit = '1' and falling_edge(sig_rxPin) and check_arbitration = '1') then        -- arbitration lose when rx change recessive to dominant
+                        
+                        sig_bitArbitrationLose <= '1';
+                        sig_txPin <= '0';
+                        
+                    else
                     
-                    sig_bitArbitrationLose <= '1';
-                    sig_txPin <= '0';
-                    
-                else
-                
-                sig_txPin <= sig_txBit;  
-                   
-                end if;      
-                
+                        sig_txPin <= sig_txBit;  
+                       
+                    end if;      
+                end if;
                 
                 
             when PHASE_SEGMENT_1 =>
             
-                                
-                if(timeQuantaCounter = (TIME_SYNC_SEGMENT + time_segment_1 - 1)) then
+               if(sig_write_order = '1') then                 
+                    if(timeQuantaCounter = (TIME_SYNC_SEGMENT + time_segment_1 - 1)) then
+                        
+                        sig_write_valid <= '1';
                     
-                    sig_write_valid <= '1';
-                
+                    end if;
                 end if;
-            
             
             when PHASE_SEGMENT_2 => 
             
-                sig_bitArbitrationLose <= '0';
-                if(timeQuantaCounter = oneBitQuantaTime -1) then
-                
-                    sig_write_valid <= '0';
-                
+                if(sig_write_order = '1') then
+                    sig_bitArbitrationLose <= '0';
+                    if(timeQuantaCounter = oneBitQuantaTime -1) then
+                    
+                        sig_write_valid <= '0';
+                    
+                    end if;
                 end if;
-
+                
             when others =>
            
         
