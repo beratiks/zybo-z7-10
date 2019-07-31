@@ -56,17 +56,14 @@
       signal    sig_check_arbitration   :   std_logic   :=  '0';    
       -- end component signals
       
-      signal sig_receiving : std_logic      := '0';
-     
       type FrameEnumType is (IDLE,SOF,ID,RTR,IDE,DLC,RESERVE,DATA,CRC,CRC_DELIMITER,ACK,ACK_DELIMITER,EOF,IFS,STUFFING);  -- enum types for parse and transmit frame
       signal receiveFrameEnum       : FrameEnumType  := Idle;         -- receive enum 
       signal receiveFrameEnumPrev   : FrameEnumType  := Idle;         -- receive enum
-      signal transmitFrameEnum      : FrameEnumType := Idle;         -- transmit enum 
       
       signal sig_start_sample : std_logic := '0';   -- check rx pin falling edge and set start sample to BTL
       
       signal receiveFrame : CanFrame;                   -- receive frame for collection all received bits
-      signal receivePackageCounter : integer := 0;      -- counter to get all bits of stage frame
+      signal receivePackageCounter  : integer := 0;      -- counter to get all bits of stage frame
       signal receiveDataByteCounter : integer := 0;     -- counter to get all bits data stage
       signal receveDataByteSize     : integer := 0;     -- stroge to received dlc as integer format
       
@@ -81,7 +78,22 @@
       signal bitStuffingCounter   : integer := 0;
       signal bitStuffingWaitBit   : std_logic;
       
-      signal errorStates          : std_logic_vector(SIZE_OF_ERRORS - 1 downto 0) := "000000";
+      signal errorStates          : std_logic_vector(SIZE_OF_ERRORS - 1 downto 0) := "000000";  -- storage error states.
+      
+      signal sig_receiving : std_logic      := '0';
+      
+      signal transmitFrameEnum      : FrameEnumType := Idle;         -- transmit enum 
+      signal transmitFrameEnumPrev      : FrameEnumType := Idle;
+      
+      signal transmitOrder          : std_logic     := '0';
+      signal transmitFrame          : CanFrame;
+      signal transmitPackageCounter : integer := 0;
+      signal transmitDataCounter    : integer := 0;
+      
+      signal transmitEOF            : std_logic_vector(SIZE_OF_EOF - 1 downto 0) := "1111111";
+      signal transmitIFS            : std_logic_vector(SIZE_OF_IFS - 1 downto 0) := "111"; 
+      
+      signal bitStuffingWillSendBit   : std_logic;
     
     begin
     
@@ -106,13 +118,15 @@
         case(receiveFrameEnum) is
     
             when IDLE =>
-            
+                
+                sig_receiving <= '0';
+                sig_start_sample <= '0'; 
                 if(falling_edge(Rx_Pin)) then           -- if rx pin falling edge transmit start
                 
                     sig_start_sample <= '1';            --  say to BTL  start to sample received bits
                     receiveFrameEnum <= SOF;
                     receiveFrameEnumPrev <= receiveFrameEnum;
-                    
+                    sig_receiving <= '1';
                 end if;
             
             when SOF =>                                 --  start of frame must be '0'
@@ -122,18 +136,20 @@
                     if(sig_RxBit = '0') then            -- sof must be recessive to start of frame
                         
                         receiveFrameEnum <= ID;         --  change state to recieve std id
-                        sig_check_arbitration <= '1';   -- frame enter to arbitration stage. Arbitration stage is only std id and rtr stages
-                        receivePackageCounter <= 0;     -- receivePackageCounter reset to collect std id bits
+                        sig_check_arbitration <= '1';   -- frame enter to arbitration stage. Arbitration stage consist only std id and rtr stages
+                        receivePackageCounter <= SIZE_OF_STD_ID - 1;     -- receivePackageCounter reset to collect std id bits
                         receiveFrame.Sof <= sig_RxBit;  -- storage Sof bit
-                        bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                        bitStuffingCounter <= bitStuffingCounter + 1;
+                        
                         receiveFrameEnumPrev <= receiveFrameEnum;
+                        bitStuffingCounter <= 0;
+                        bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
+                        bitStuffingCounter <= bitStuffingCounter + 1; 
+                        
                     else
                     
-                        errorStates(Location_Error_Sof) <= '1';
+                        errorStates(Location_Error_Sof) <= '1';     -- TODO add error because rx Pin trigged to low and start SOF state but not keep low at sample point
                         receiveFrameEnum <= IDLE;
-                        -- TODO add error because rx Pin trigged to low and start SOF state but not keep low at sample point
-                    
+                                    
                     end if;
                 
                 end if;
@@ -143,22 +159,22 @@
                 if(rising_edge(sig_read_valid)) then
                 
                     receiveFrame.StdId(receivePackageCounter) <= sig_RxBit;     -- storage all received bits until received bits counter reach to size of std
-                    if(receivePackageCounter = SIZE_OF_STD_ID) then             -- if counter reach to size of std set enum to rtr
-                        receivePackageCounter <= 0;
+                    receivePackageCounter <= receivePackageCounter - 1;
+                    if(receivePackageCounter = -1) then             -- if counter reach to size of std set enum to rtr
                         receiveFrameEnum <= RTR;
                     end if;
                             
-                    receivePackageCounter <= receivePackageCounter + 1;
+                    
                     -- check bit stuffing
                     receiveFrameEnumPrev <= receiveFrameEnum;       
                     bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                    bitStuffingCounter <= bitStuffingCounter + 1;
-                    if((receivePackageCounter >= 5) and (bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "00000" or bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "11111")) then
+                    if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
                     
-                        bitStuffingWaitBit <= not bitStuffingVector(receivePackageCounter - 1);
+                        bitStuffingWaitBit <= not bitStuffingVector(bitStuffingCounter - 1);
                         receiveFrameEnum <= STUFFING;
                     
                     end if;
+                    bitStuffingCounter <= bitStuffingCounter + 1;
                     -- end of check bit stuffing
                 end if;
             
@@ -173,12 +189,11 @@
                      -- check bit stuffing
                     receiveFrameEnumPrev <= receiveFrameEnum;       
                     bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                    bitStuffingCounter <= bitStuffingCounter + 1;
-                    if((receivePackageCounter >= 5) and (bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "00000" or bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "11111")) then
+                    if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
                     
-                        bitStuffingWaitBit <= not bitStuffingVector(receivePackageCounter - 1);
+                        bitStuffingWaitBit <= not bitStuffingVector(bitStuffingCounter - 1);
                         receiveFrameEnum <= STUFFING;
-                    
+                    bitStuffingCounter <= bitStuffingCounter + 1;                    
                     end if;
                     -- end of check bit stuffing                   
                 
@@ -188,76 +203,42 @@
             
                 if(rising_edge(sig_read_valid)) then
                 
-                    receiveFrameEnum <= DLC;        -- then check ; if rxBit = '0' stdID or rxBit = '1' extended id. now state machine not check extended frame. it can add in future.
+                    receiveFrameEnum <= RESERVE;       -- then check ; if rxBit = '0' stdID or rxBit = '1' extended id. now state machine not check extended frame. it can add in future.
                     receiveFrame.Ide <= sig_RxBit;
                     
                     -- check bit stuffing
                     receiveFrameEnumPrev <= receiveFrameEnum;       
                     bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                    bitStuffingCounter <= bitStuffingCounter + 1;
-                    if((receivePackageCounter >= 5) and (bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "00000" or bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "11111")) then
+                    if((receivePackageCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
                     
-                        bitStuffingWaitBit <= not bitStuffingVector(receivePackageCounter - 1);
+                        bitStuffingWaitBit <= not bitStuffingVector(bitStuffingCounter - 1);
                         receiveFrameEnum <= STUFFING;
                     
                     end if;
+                    bitStuffingCounter <= bitStuffingCounter + 1;
                     -- end of check bit stuffing        
                     
                 end if;
-            
-            when DLC =>                             -- collect data bits to receive enum. 
-            
-                if(rising_edge(sig_read_valid)) then        
                 
-                    receiveFrame.Dlc(receivePackageCounter) <= sig_RxBit;   
-                    receivePackageCounter <= receivePackageCounter + 1;
-                    if(receivePackageCounter = SIZE_OF_DLC) then
-                        receivePackageCounter <= 0;
-                        receiveFrameEnum <= RESERVE;
-                        receveDataByteSize <= to_integer(unsigned(receiveFrame.Dlc));          -- get dlc size as integer to use at another enums.
-                    end if;
-                    
-                    -- check bit stuffing
-                    receiveFrameEnumPrev <= receiveFrameEnum;       
-                    bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                    bitStuffingCounter <= bitStuffingCounter + 1;
-                    if((receivePackageCounter >= 5) and (bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "00000" or bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "11111")) then
-                    
-                        bitStuffingWaitBit <= not bitStuffingVector(receivePackageCounter - 1);
-                        receiveFrameEnum <= STUFFING;
-                    
-                    end if;
-                    -- end of check bit stuffing    
-                    
-                end if;            
-            
-            when RESERVE =>
+             when RESERVE =>
             
                 if(rising_edge(sig_read_valid)) then
-                
+                    
                     if(sig_RxBit = '0') then    
                         receiveFrame.Reserved <= sig_RxBit;
-                        
-                        if(receveDataByteSize = 0 or receiveFrame.Rtr = '1') then       -- if DLC is 0 or frame is remote skip data enum and go to crc field.
-                        
-                            receiveFrameEnum <= DATA; 
-                            
-                        else
-                        
-                            receiveFrameEnum <= CRC;       
-                        
-                        end if;
+                        receivePackageCounter <= SIZE_OF_DLC - 1;
+                        receiveFrameEnum <= DLC;
                         
                      -- check bit stuffing
                     receiveFrameEnumPrev <= receiveFrameEnum;       
                     bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                    bitStuffingCounter <= bitStuffingCounter + 1;
-                    if((receivePackageCounter >= 5) and (bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "00000" or bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "11111")) then
+                    if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
                     
-                        bitStuffingWaitBit <= not bitStuffingVector(receivePackageCounter - 1);
+                        bitStuffingWaitBit <= not bitStuffingVector(bitStuffingCounter - 1);
                         receiveFrameEnum <= STUFFING;
                     
                     end if;
+                    bitStuffingCounter <= bitStuffingCounter + 1;
                     -- end of check bit stuffing    
                                        
                     else
@@ -270,18 +251,52 @@
                               
                 end if;
             
+            when DLC =>                             -- collect data bits to receive enum. 
+            
+                if(rising_edge(sig_read_valid)) then        
+                
+                    receiveFrame.Dlc(receivePackageCounter) <= sig_RxBit;   
+                    receivePackageCounter <= receivePackageCounter - 1;
+                    if(receivePackageCounter = - 1) then
+                        
+                        receveDataByteSize <= to_integer(unsigned(receiveFrame.Dlc));          -- get dlc size as integer to use at another enums.
+                        if(receveDataByteSize /= 0  and receiveFrame.Rtr = '0') then       -- if DLC is 0 or frame is remote skip data enum and go to crc field.
+                             receiveDataByteCounter <= receveDataByteSize - 1;
+                             receivePackageCounter <= 7;
+                            receiveFrameEnum <= DATA;                       
+                        else                       
+                            receiveFrameEnum <= CRC;       
+                            receivePackageCounter <= SIZE_OF_CRC - 1;
+                        end if;
+                        
+                    end if;
+                    
+                    -- check bit stuffing
+                    receiveFrameEnumPrev <= receiveFrameEnum;       
+                    bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
+                    if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    
+                        bitStuffingWaitBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                        receiveFrameEnum <= STUFFING;
+                    
+                    end if;
+                    bitStuffingCounter <= bitStuffingCounter + 1;
+                    -- end of check bit stuffing    
+                    
+                end if;            
+            
             when DATA =>            -- collect data bits until received bits size reach to dlc size
             
                 if(rising_edge(sig_read_valid)) then
                 
                     receiveFrame.Data(receiveDataByteCounter)(receivePackageCounter) <= sig_RxBit;
-                    receivePackageCounter <= receivePackageCounter + 1;
-                    if(receivePackageCounter = to_integer(unsigned(receiveFrame.Dlc))) then
-                        receivePackageCounter <= 0;
-                        receiveDataByteCounter <= receiveDataByteCounter + 1;
-                        if(receiveDataByteCounter = receveDataByteSize) then
+                    receivePackageCounter <= receivePackageCounter - 1;
+                    if(receivePackageCounter = -1) then
+                        receivePackageCounter <= 7;
+                        receiveDataByteCounter <= receiveDataByteCounter - 1;
+                        if(receiveDataByteCounter = - 1) then
                             receiveDataByteCounter <= 0;
-                            receivePackageCounter <= 0;
+                            receivePackageCounter <= SIZE_OF_CRC - 1;
                             receiveFrameEnum <= CRC;
                         end if;
                         
@@ -290,13 +305,13 @@
                     -- check bit stuffing
                     receiveFrameEnumPrev <= receiveFrameEnum;       
                     bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                    bitStuffingCounter <= bitStuffingCounter + 1;
-                    if((receivePackageCounter >= 5) and (bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "00000" or bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "11111")) then
+                    if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
                     
-                        bitStuffingWaitBit <= not bitStuffingVector(receivePackageCounter - 1);
+                        bitStuffingWaitBit <= not bitStuffingVector(bitStuffingCounter - 1);
                         receiveFrameEnum <= STUFFING;
                     
                     end if;
+                    bitStuffingCounter <= bitStuffingCounter + 1;
                     -- end of check bit stuffing  
                     
                 end if;
@@ -306,12 +321,11 @@
                 if(rising_edge(sig_read_valid)) then
                     
                     receivedCrc(receivePackageCounter) <= sig_RxBit;
-                    receivePackageCounter <= receivePackageCounter + 1;
-                    if(receivePackageCounter = SIZE_OF_CRC) then                -- if received bits reach to size of crc compare receive crc and calculated crc
+                    receivePackageCounter <= receivePackageCounter - 1;
+                    if(receivePackageCounter = - 1) then                -- if received bits reach to size of crc compare receive crc and calculated crc
                         receivePackageCounter <= 0;
-                        receiveFrameEnum <= CRC_DELIMITER;
                         crcVectorToCalculate <= receiveFrame.Sof & receiveFrame.StdId & receiveFrame.Rtr & receiveFrame.Ide & receiveFrame.Dlc & receiveFrame.Reserved;     -- combine all crc fields.
-                        for i in 0 to to_integer(unsigned(receiveFrame.Dlc)) - 1 loop
+                        for i in to_integer(unsigned(receiveFrame.Dlc)) - 1 downto 0  loop
                         
                             crcVectorToCalculate <= crcVectorToCalculate & receiveFrame.Data(i);
                         
@@ -322,6 +336,8 @@
                         
                             sig_write_order <= '1';
                             sig_TxBit <= '0';
+                            receiveFrameEnum <= CRC_DELIMITER;
+                            
                         else
                                     
                             errorStates(Location_Error_Crc) <= '1';             -- crc error
@@ -333,13 +349,13 @@
                         -- check bit stuffing
                         receiveFrameEnumPrev <= receiveFrameEnum;       
                         bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
-                        bitStuffingCounter <= bitStuffingCounter + 1;
-                        if((receivePackageCounter >= 5) and (bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "00000" or bitStuffingVector(receivePackageCounter - 5 to receivePackageCounter - 1) = "11111")) then
+                        if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
                         
-                            bitStuffingWaitBit <= not bitStuffingVector(receivePackageCounter - 1);
+                            bitStuffingWaitBit <= not bitStuffingVector(bitStuffingCounter - 1);
                             receiveFrameEnum <= STUFFING;
                         
                         end if;
+                        bitStuffingCounter <= bitStuffingCounter + 1;
                         -- end of check bit stuffing  
 
                     end if;
@@ -348,23 +364,13 @@
             
             when CRC_DELIMITER =>           -- for crc delimeter send dominant bit to transmitter.
             
-                if(sig_write_order = '1') then
-                
                     if(falling_edge(sig_write_valid)) then
                     
                         sig_write_order <= '0';
                         receiveFrameEnum <= ACK;
                         
                     end if; 
-                else
-                    
-                    if(rising_edge(sig_read_valid)) then
-                    
-                        receiveFrameEnum <= ACK;
-                    
-                    end if;
-                      
-                end if;
+
                 
                 
             when ACK =>                 -- get ack bit and check if equal to '0'. if not occur error.
@@ -376,11 +382,11 @@
                         sig_write_order <= '1';
                         sig_TxBit <= '0';
                         receiveFrameEnum <= ACK_DELIMITER;
+                        
                     else
                     
                         -- TODO ADD ERROR
                         errorStates(Location_Error_Ack) <= '1';
-                        receiveFrameEnum <= ACK_DELIMITER;
                         receiveFrameEnum <= IDLE;
                         
                     end if;
@@ -390,24 +396,14 @@
             
             when ACK_DELIMITER =>               -- send ack and go to eof enum
             
-                if(sig_write_order = '1') then
-                
                     if(falling_edge(sig_write_valid)) then
                     
                         sig_write_order <= '0';
                         receiveFrameEnum <= EOF;
+                        receivePackageCounter <= SIZE_OF_EOF - 1;
                         
                     end if; 
-                    
-                else
-                    
-                   if(rising_edge(sig_read_valid)) then
                    
-                    receiveFrameEnum <= EOF;
-                   
-                   end if; 
-                
-                end if;
                 
                 
             when EOF =>                                                     -- collect all eof bits check all bits if equal to recessive bit.
@@ -415,17 +411,16 @@
                 if(rising_edge(sig_read_valid)) then
                    
                     receivedEOF(receivePackageCounter) <= sig_RxBit;
-                    receivePackageCounter <= receivePackageCounter + 1;
-                    if(receivePackageCounter = SIZE_OF_EOF) then
-                        receivePackageCounter <= 0;
+                    receivePackageCounter <= receivePackageCounter - 1;
+                    if(receivePackageCounter = - 1) then
                         if(receivedEOF = "1111111") then
                         
                             receiveFrameEnum <= IFS;
+                            receivePackageCounter <= SIZE_OF_IFS - 1;
                         
                         else
                         
                             errorStates(Location_Error_Eof) <= '1';            -- TODO add error because eof not received correctly as all bits '1'
-                            receiveFrameEnum <= IFS;
                             receiveFrameEnum <= IDLE;
                         end if;
                     
@@ -438,10 +433,8 @@
                 if(rising_edge(sig_read_valid)) then
                 
                     receivedIFS(receivePackageCounter) <= sig_RxBit;
-                    receivePackageCounter <= receivePackageCounter + 1;
-                    if(receivePackageCounter = SIZE_OF_IFS) then
-                    
-                        receivePackageCounter <= 0;
+                    receivePackageCounter <= receivePackageCounter - 1;
+                    if(receivePackageCounter = - 1) then
                         if(receivedIFS = "111") then
                         
                             receiveFrameEnum <= IDLE;
@@ -465,6 +458,8 @@
             
                 if(sig_rxBit = bitStuffingWaitBit) then
                 
+                    bitStuffingVector(bitStuffingCounter) <= sig_RxBit;
+                    bitStuffingCounter <= bitStuffingCounter + 1;
                     receiveFrameEnum <= receiveFrameEnumPrev;
                 
                 else
@@ -485,8 +480,344 @@
     -- transmit process to stream to BTL
     transmitProcess : process
     begin
+        case(transmitFrameEnum) is
         
+        when IDLE =>
+        
+            if(transmitOrder = '1' and sig_receiving = '0') then 
             
+                sig_TxBit <= '0';
+                sig_write_order <= '1';
+                transmitFrameEnum <= SOF;  
+                bitStuffingCounter <= 0;
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+                
+            end if;
+        
+        when SOF =>
+        
+            if(falling_edge(sig_write_valid)) then
+            
+                transmitPackageCounter <= SIZE_OF_STD_ID -1;
+                sig_TxBit <= transmitFrame.StdId(transmitPackageCounter);
+                transmitFrameEnum <= ID;
+                
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+                
+                
+            end if;
+        
+        when ID =>
+        
+            if(falling_edge(sig_write_valid)) then
+        
+                transmitPackageCounter <= transmitPackageCounter - 1;
+                if(transmitPackageCounter = -1) then
+                
+                    sig_TxBit <= transmitFrame.Rtr;         
+                    transmitFrameEnum <= RTR;
+                    
+                else
+                
+                    sig_TxBit <= transmitFrame.StdId(transmitPackageCounter);
+                
+                end if;
+                
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+                    
+        
+             end if;
+             
+         when RTR =>
+         
+            if(falling_edge(sig_write_valid)) then
+            
+                sig_TxBit <= '0';                               -- now can only send std id frame
+                transmitFrameEnum <= IDE;
+                
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+            
+            end if;
+            
+          when IDE =>
+          
+            if(falling_edge(sig_write_valid)) then
+                
+               sig_TxBit <= '0';       -- send dominant bit for reserved state.
+               transmitFrameEnum <= RESERVE;
+                
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+            
+            end if;
+            
+                        
+            
+          when RESERVE =>
+          
+           if(falling_edge(sig_write_valid)) then
+ 
+               transmitPackageCounter <= SIZE_OF_DLC - 1;
+               sig_TxBit <= transmitFrame.Dlc(transmitPackageCounter);                           
+               transmitFrameEnum <= DLC;
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+                          
+            end if;
+            
+            
+          when DLC =>
+          
+            if(falling_edge(sig_write_valid)) then
+                transmitPackageCounter <= transmitPackageCounter - 1;
+                if(transmitPackageCounter = -1) then   
+                   if(to_integer(unsigned(transmitFrame.Dlc)) /= 0  and transmitFrame.Rtr = '0') then       -- if DLC is 0 or frame is remote skip data enum and go to crc field.
+                        transmitDataCounter <= to_integer(unsigned(transmitFrame.Dlc)) - 1;
+                        transmitPackageCounter <= 7;
+                        sig_TxBit <= transmitFrame.Data(transmitDataCounter)(transmitPackageCounter);             
+                        transmitFrameEnum <= DATA;     
+                   else                       
+                       transmitFrameEnum <= CRC;       
+                       transmitDataCounter <= SIZE_OF_CRC - 1;
+                   end if;              
+                else
+                
+                    sig_TxBit <= transmitFrame.Dlc(transmitPackageCounter);
+                end if;
+                -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+           
+            end if;
+
+          
+          when DATA =>
+              if(falling_edge(sig_write_valid)) then
+                   if(transmitDataCounter /= -1) then
+                        transmitPackageCounter <= transmitPackageCounter - 1;
+                        if(transmitPackageCounter = -1) then
+                            transmitPackageCounter <= 7;
+                            transmitDataCounter <= transmitDataCounter - 1;
+                        end if;
+                        sig_TxBit <= transmitFrame.Data(transmitDataCounter)(transmitPackageCounter);
+                    else
+                            crcVectorToCalculate <= receiveFrame.Sof & receiveFrame.StdId & receiveFrame.Rtr & receiveFrame.Ide & receiveFrame.Dlc & receiveFrame.Reserved;     -- combine all crc fields.
+                            for i in to_integer(unsigned(receiveFrame.Dlc)) - 1  to 0 loop
+                            
+                                crcVectorToCalculate <= crcVectorToCalculate & receiveFrame.Data(i);
+                            
+                            end loop;
+                               
+                               calculatedCrc <= crc(crcVectorToCalculate,SIZE_OF_MIN_CRC_FIELD + to_integer(unsigned(receiveFrame.Dlc)));
+                               transmitPackageCounter <= SIZE_OF_CRC -1;
+                               sig_TxBit <=   calculatedCrc(transmitPackageCounter);
+                               transmitFrameEnum <= CRC; 
+                            
+                    end if;
+                    
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+                    
+              end if;
+                
+         when CRC =>
+         
+             if(falling_edge(sig_write_valid)) then
+             
+                transmitPackageCounter <= transmitPackageCounter - 1;
+                if(transmitPackageCounter = -1) then
+                
+                    transmitFrameEnum <= CRC_DELIMITER;
+                    sig_TxBit <= '1';           -- send recessive bit for crc delimiter
+                    sig_start_sample <= '1';
+                else
+                
+                    sig_TxBit <=   calculatedCrc(transmitPackageCounter);
+                
+                end if;
+             
+               -- check bit stuffing
+               transmitFrameEnumPrev <= transmitFrameEnum;       
+               if((bitStuffingCounter >= 5) and (bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "00000" or bitStuffingVector(bitStuffingCounter - 5 to bitStuffingCounter - 1) = "11111")) then
+                    bitStuffingWillSendBit <= sig_TxBit;
+                    sig_TxBit <= not bitStuffingVector(bitStuffingCounter - 1);
+                    transmitFrameEnum <= STUFFING;  
+               end if;
+               bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                bitStuffingCounter <= bitStuffingCounter + 1;
+               -- end of check bit stuffing                  
+             
+             end if;
+             
+             
+             when CRC_DELIMITER =>
+            
+                if(rising_edge(sig_read_valid)) then
+                    sig_start_sample <= '0';
+                    if(sig_RxBit = '0') then
+                    
+                        sig_TxBit <= '0';
+                        transmitFrameEnum <= ACK;
+                        
+                    
+                    else
+                    
+                            errorStates(Location_Error_Crc) <= '1';             -- crc error
+                            transmitFrameEnum <= IDLE;   
+                    
+                    end if;
+                
+                end if;
+                
+              when ACK =>
+              
+                if(falling_edge(sig_write_valid)) then
+                
+                    sig_TxBit <= '1';          -- send recessive bit for get ack from receiver
+                    transmitFrameEnum <= ACK_DELIMITER;
+                    sig_start_sample <= '1';    -- receive ack from recever
+              
+                end if; 
+                
+              when ACK_DELIMITER =>
+              
+                if(rising_edge(sig_read_valid)) then
+                    sig_start_sample <= '0';  
+                    if(sig_RxBit = '0') then
+                        
+                          transmitPackageCounter <= SIZE_OF_EOF - 1;
+                          sig_TxBit <= transmitEOF(transmitPackageCounter);
+                          transmitFrameEnum <= EOF;
+                    
+                    else
+                    
+                        errorStates(Location_Error_Ack) <= '1';
+                        transmitFrameEnum <= IDLE;
+                    
+                    end if;
+                
+                end if;
+                
+                
+              when EOF =>
+              
+                    if(falling_edge(sig_write_valid)) then
+                    
+                        transmitPackageCounter <= transmitPackageCounter - 1;
+                        
+                        if(transmitPackageCounter = -1) then
+                        
+                            transmitPackageCounter <= SIZE_OF_IFS - 1;
+                            sig_TxBit <= transmitIFS(transmitPackageCounter);
+                            transmitFrameEnum <= IFS;
+                        
+                        else
+                        
+                            sig_TxBit <= transmitEOF(transmitPackageCounter);
+                        
+                        end if;    
+                    
+                    end if;
+                    
+              when IFS =>
+              
+                     if(falling_edge(sig_write_valid)) then
+                    
+                        transmitPackageCounter <= transmitPackageCounter - 1;
+                        
+                        if(transmitPackageCounter = -1) then
+                        
+                            transmitFrameEnum <= IDLE;
+                        
+                        else
+                        
+                            sig_TxBit <= transmitIFS(transmitPackageCounter);
+                        
+                        end if;    
+                    
+                    end if;
+                    
+            when STUFFING =>
+          
+                 if(falling_edge(sig_write_valid)) then
+
+                        sig_TxBit <= bitStuffingWillSendBit;
+                        bitStuffingVector(bitStuffingCounter) <= sig_TxBit;
+                        bitStuffingCounter <= bitStuffingCounter + 1;
+                        transmitFrameEnum <= transmitFrameEnumPrev;
+                    
+                end if;
+
+              
+        end case;
+                    
     end process;
     
     end Behavioral;
