@@ -1,0 +1,12 @@
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                  sig_transmitITPrev_reg/D|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                   sig_transmitOrder_reg/D|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                                led0_reg/D|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][1][0]/CE|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][3][0]/CE|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][2][0]/CE|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][0][0]/CE|
+|              sys_clk_pin |       clkfbout_clk_wiz_0 |                                                         u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][12]/D|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

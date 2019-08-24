@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.1 (64-bit)
+# SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
+# IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+# Start of session at: Wed Aug 21 20:46:53 2019
+# Process ID: 3780
+# Current directory: D:/github_repository/zybo-z7-10/SPI-Master
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8240 D:\github_repository\zybo-z7-10\SPI-Master\SPI-Master.xpr
+# Log file: D:/github_repository/zybo-z7-10/SPI-Master/vivado.log
+# Journal file: D:/github_repository/zybo-z7-10/SPI-Master\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z7-10/SPI-Master/SPI-Master.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [Project 1-230] Project 'SPI-Master.xpr' upgraded for this version of Vivado.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:05 . Memory (MB): peak = 739.906 ; gain = 123.457
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Wed Aug 21 20:48:40 2019] Launched synth_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/SPI-Master/SPI-Master.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Wed Aug 21 20:49:26 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/SPI-Master/SPI-Master.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Aug 21 20:50:28 2019] Launched impl_1...
+Run output will be captured here: D:/github_repository/zybo-z7-10/SPI-Master/SPI-Master.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
+open_hw_target: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1895.090 ; gain = 1136.570
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/SPI-Master/SPI-Master.runs/impl_1/Top_Module.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {D:/github_repository/zybo-z7-10/SPI-Master/SPI-Master.runs/impl_1/Top_Module.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 21 21:00:28 2019...

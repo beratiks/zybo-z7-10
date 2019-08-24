@@ -1,8 +1,8 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Jun 18 00:44:53 2019
-| Host         : BERAT running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2019.1.1 (win64) Build 2580384 Sat Jun 29 08:12:21 MDT 2019
+| Date         : Wed Aug 21 20:36:56 2019
+| Host         : DESKTOP-254I58R running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file I2CTopModule_control_sets_placed.rpt
 | Design       : I2CTopModule
 | Device       : xc7z010
@@ -23,21 +23,33 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     6 |
-| Unused register locations in slices containing registers |    30 |
+| Total control sets                                       |     3 |
+|    Minimum number of control sets                        |     3 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    11 |
 +----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
 
 
 2. Histogram
 ------------
 
-+--------+--------------+
-| Fanout | Control Sets |
-+--------+--------------+
-|      1 |            2 |
-|      4 |            2 |
-|    16+ |            2 |
-+--------+--------------+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |     3 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     1 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
 
 
 3. Flip-Flop Distribution
@@ -46,27 +58,24 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              27 |           14 |
+| No           | No                    | No                     |              24 |           12 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              21 |            6 |
-| Yes          | No                    | No                     |               8 |            3 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               4 |            2 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               2 |            2 |
+| Yes          | Yes                   | No                     |               1 |            1 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+-----------------------------------------------+--------------------------+------------------+----------------+
-|     Clock Signal     |                 Enable Signal                 |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+----------------------+-----------------------------------------------+--------------------------+------------------+----------------+
-|  sys_clock_IBUF_BUFG | I2C_Component/beforeSwitches_reg[3]           | I2C_Component/wroteItSig |                1 |              1 |
-|  sys_clock_IBUF_BUFG | I2C_Component/scl                             | I2C_Component/scl0       |                1 |              1 |
-|  sys_clock_IBUF_BUFG | I2C_Component/FSM_sequential_state[3]_i_1_n_0 |                          |                2 |              4 |
-|  sys_clock_IBUF_BUFG | clear                                         |                          |                1 |              4 |
-|  sys_clock_IBUF_BUFG |                                               | clear                    |                6 |             21 |
-|  sys_clock_IBUF_BUFG |                                               |                          |               14 |             27 |
-+----------------------+-----------------------------------------------+--------------------------+------------------+----------------+
++----------------------+---------------------------------------------------+--------------------+------------------+----------------+
+|     Clock Signal     |                   Enable Signal                   |  Set/Reset Signal  | Slice Load Count | Bel Load Count |
++----------------------+---------------------------------------------------+--------------------+------------------+----------------+
+|  sys_clock_IBUF_BUFG | I2C_Component/scl                                 | I2C_Component/scl0 |                1 |              1 |
+|  sys_clock_IBUF_BUFG | I2C_Component/FSM_sequential_state_reg[3]_i_1_n_0 |                    |                2 |              4 |
+|  sys_clock_IBUF_BUFG |                                                   |                    |               12 |             24 |
++----------------------+---------------------------------------------------+--------------------+------------------+----------------+
 
 

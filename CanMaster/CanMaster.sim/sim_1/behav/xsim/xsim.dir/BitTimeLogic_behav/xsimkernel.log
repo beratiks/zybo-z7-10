@@ -1,7 +1,7 @@
-Running: xsim.dir/BitTimeLogic_behav/xsimk.exe -simmode gui -wdb BitTimeLogic_behav.wdb -simrunnum 0 -socket 60418
+Running: xsim.dir/BitTimeLogic_behav/xsimk.exe -simmode gui -wdb BitTimeLogic_behav.wdb -simrunnum 0 -socket 62716
 Design successfully loaded
-Design Loading Memory Usage: 5048 KB (Peak: 5048 KB)
-Design Loading CPU Usage: 15 ms
+Design Loading Memory Usage: 5064 KB (Peak: 5064 KB)
+Design Loading CPU Usage: 62 ms
 Simulation completed
-Simulation Memory Usage: 5776 KB (Peak: 5776 KB)
-Simulation CPU Usage: 108 ms
+Simulation Memory Usage: 5784 KB (Peak: 5784 KB)
+Simulation CPU Usage: 109 ms

@@ -38,7 +38,8 @@ entity Top_Module is
             cs_pin : out std_logic;
             mosi_pin : out std_logic;
             miso_pin : in std_logic;
-            sw : in std_logic_vector(3 downto 0)
+            sw : in std_logic_vector(3 downto 0);
+            led : out std_logic_vector(3 downto 0)
     );
 end Top_Module;
 
@@ -102,6 +103,7 @@ begin
         
         if(sw /= beforeSwitches) then
            writeEnableSig <= '1';
+           led(0) <= '1';
         end if;
         
         if(writeItSig = '1') then

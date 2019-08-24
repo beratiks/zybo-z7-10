@@ -1,0 +1,1731 @@
+
+*** Running vivado
+    with args -log CanMaster.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source CanMaster.tcl -notrace
+
+
+****** Vivado v2019.1.1 (64-bit)
+  **** SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
+  **** IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source CanMaster.tcl -notrace
+Command: link_design -top CanMaster -part xc7z010clg400-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-454] Reading design checkpoint 'd:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'clk_wiz'
+INFO: [Netlist 29-17] Analyzing 90 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-35] Removing redundant IBUF, clk_wiz/inst/clkin1_ibufg, from the path connected to top-level port: sys_clock 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'clk_wiz/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
+Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
+Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1211.961 ; gain = 567.438
+Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
+Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+Finished Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1212.953 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+10 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1212.953 ; gain = 920.648
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Command: opt_design -verbose
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.719 . Memory (MB): peak = 1212.953 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 130e1f8ba
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1227.727 ; gain = 14.773
+
+Starting Logic Optimization Task
+
+Phase 1 Generate And Synthesize Debug Cores
+INFO: [Chipscope 16-329] Generating Script for core instance : dbg_hub 
+INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_CV.
+INFO: [Chipscope 16-329] Generating Script for core instance : u_ila_0 
+INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_0_CV.
+INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:xsdbm:3.0", from Vivado IP cache entry "9fe1488430b9df02".
+INFO: [Chipscope 16-220] Re-using generated and synthesized IP, "xilinx.com:ip:ila:6.2", from Vivado IP cache entry "6a2056159baaad36".
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Replacing black box 'dbg_hub' with implemented instance
+INFO: [Netlist 29-17] Analyzing 2270 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Replacing black box 'u_ila_0' with implemented instance
+Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/dbg_hub_CV.0/out/xsdbm_cc_early_early.xdc] for cell 'dbg_hub/inst'
+Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/dbg_hub_CV.0/out/xsdbm_cc_early_early.xdc] for cell 'dbg_hub/inst'
+Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/u_ila_0_CV.0/out/ila_early.xdc] for cell 'u_ila_0/inst'
+Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/u_ila_0_CV.0/out/ila_early.xdc] for cell 'u_ila_0/inst'
+Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/u_ila_0_CV.0/out/ila_impl_early.xdc] for cell 'u_ila_0/inst'
+Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/u_ila_0_CV.0/out/ila_impl_early.xdc] for cell 'u_ila_0/inst'
+Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc] for cell 'dbg_hub/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc:6]
+Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/dbg_hub_CV.0/out/xsdbm_cc_late_late.xdc] for cell 'dbg_hub/inst'
+Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/dbg_hub_CV.0/out/xsdbm_gc_late_late.xdc] for cell 'dbg_hub/inst'
+Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/.Xil/Vivado-11832-DESKTOP-254I58R/dbg_hub_CV.0/out/xsdbm_gc_late_late.xdc] for cell 'dbg_hub/inst'
+INFO: [Chipscope 16-324] Core: u_ila_0 UUID: 23e7d65a-79bc-59f7-bc47-406c1714dfae 
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.278 . Memory (MB): peak = 1525.879 ; gain = 0.000
+Phase 1 Generate And Synthesize Debug Cores | Checksum: 115762744
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1525.879 ; gain = 171.172
+
+Phase 2 Retarget
+INFO: [Opt 31-315] Cell of type LUT4 is reduced to LUT3, due to redundant pins: I3, cell: u_ila_0/inst/ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.arm_in_transfer_inst/din_reg_i_1__0
+INFO: [Opt 31-315] Cell of type LUT4 is reduced to LUT3, due to redundant pins: I3, cell: u_ila_0/inst/ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.arm_out_transfer_inst/din_reg_i_1__1
+INFO: [Opt 31-315] Cell of type LUT4 is reduced to LUT3, due to redundant pins: I3, cell: u_ila_0/inst/ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.halt_in_transfer_inst/din_reg_i_1
+INFO: [Opt 31-315] Cell of type LUT4 is reduced to LUT3, due to redundant pins: I3, cell: u_ila_0/inst/ila_core_inst/u_ila_reset_ctrl/asyncrounous_transfer.halt_out_transfer_inst/din_reg_i_1__2
+INFO: [Opt 31-442] LUT Reduction optimized 4 LUTs
+INFO: [Opt 31-47] Cell absorbed into downstream logic: LUT1 cell u_ila_0/inst/ila_core_inst/u_ila_regs/slaveRegDo_mux_0[15]_i_1 driving pin u_ila_0/inst/ila_core_inst/u_ila_regs/slaveRegDo_mux_0[4]_i_7/O of u_ila_0/inst/ila_core_inst/u_ila_regs/slaveRegDo_mux_0[4]_i_7.
+INFO: [Opt 31-47] Cell absorbed into downstream logic: LUT1 cell u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/current_state[0]_i_1__106 driving pin u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/current_state[0]_i_2/O of u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/current_state[0]_i_2.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-309] Cannot retarget SRL instance u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/U_SCE/I_YESLUT6.U_SRLC16E due to DONT_TOUCH and/or timing constraints
+INFO: [Opt 31-309] Cannot retarget SRL instance u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/U_WCE/I_YESLUT6.U_SRLC16E due to DONT_TOUCH and/or timing constraints
+INFO: [Opt 31-309] Cannot retarget SRL instance u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/U_SCE/I_YESLUT6.U_SRLC16E due to DONT_TOUCH and/or timing constraints
+INFO: [Opt 31-309] Cannot retarget SRL instance u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/U_WCE/I_YESLUT6.U_SRLC16E due to DONT_TOUCH and/or timing constraints
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 2 Retarget | Checksum: 388901ff
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:36 . Memory (MB): peak = 1525.879 ; gain = 171.172
+INFO: [Opt 31-389] Phase Retarget created 4 cells and removed 13 cells
+INFO: [Opt 31-1021] In phase Retarget, 74 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Constant propagation
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_9
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_8
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_7
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_6
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_5
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_4
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_3
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_2
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_15
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_14
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_13
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_12
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_11
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_10
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_1
+INFO: [Opt 31-423] A LUT1 is optimized to constant 0 due to input pins: I0, and init string: 2, Cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_0
+INFO: [Opt 31-442] LUT Reduction optimized 0 LUTs
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 3 Constant propagation | Checksum: 87990dd2
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:36 . Memory (MB): peak = 1525.879 ; gain = 171.172
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 16 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 64 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Sweep
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_100_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_100_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_100_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_105_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_105_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_105_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_114_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_114_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_114_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_144_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_144_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_144_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_153_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_153_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_153_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_16_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_16_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_16_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_21_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_21_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_21_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_30_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_30_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_30_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_33_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_33_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_33_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_34_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_34_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_34_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_35_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_35_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_35_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_44_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_44_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_44_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_49_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_49_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_49_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_4_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_4_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_4_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_58_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_58_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_58_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_5_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_63_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_63_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_63_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_72_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_72_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_72_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_77_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_77_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_77_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_7_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_7_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_7_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_86_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_86_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_86_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_91_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_91_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/BitState_reg[1]_i_91_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/receiveFrameEnumPrev_reg[3]_i_4_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/receiveFrameEnumPrev_reg[3]_i_4_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/receiveFrameEnumPrev_reg[3]_i_4_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_14_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_14_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_14_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_23_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_23_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_23_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_5_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_5_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[0]_i_5_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[12]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[12]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[12]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[16]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[16]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[16]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[20]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[20]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[20]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[24]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[24]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[24]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[28]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[28]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[28]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[4]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[4]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[4]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[8]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[8]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/BTL/timeQuantaCounter_reg[8]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[12]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[12]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[12]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[16]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[16]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[16]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[20]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[20]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[20]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[24]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[24]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[24]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[28]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[28]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[28]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[31]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[31]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[4]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[4]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[4]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[8]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[8]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/bitStuffingCounter_reg[8]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[12]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[12]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[12]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[16]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[16]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[16]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[20]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[20]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[20]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[24]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[24]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[24]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[28]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[28]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[28]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[31]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[31]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[4]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[4]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[4]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[8]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[8]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/receiveDataByteCounter_reg[8]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[12]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[12]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[12]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[16]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[16]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[16]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[20]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[20]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[20]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[24]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[24]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[24]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[28]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[28]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[28]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[2]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[2]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[2]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[31]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[31]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[8]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[8]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/receivePackageCounter_reg[8]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[12]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[12]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[12]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[16]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[16]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[16]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[20]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[20]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[20]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[24]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[24]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[24]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[28]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[28]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[28]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[31]_i_11_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[31]_i_11_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[4]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[4]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[4]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[8]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[8]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitBitStuffingCounter_reg[8]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[11]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[11]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[11]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[15]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[15]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[15]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[19]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[19]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[19]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[23]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[23]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[23]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[27]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[27]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[27]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[31]_i_3_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[31]_i_3_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[31]_i_3_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[3]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[3]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[3]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[7]_i_1_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[7]_i_1_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitDataByteCounter_reg[7]_i_1_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[12]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[12]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[12]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[16]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[16]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[16]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[20]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[20]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[20]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[24]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[24]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[24]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[28]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[28]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[28]_i_2_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[31]_i_4_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[31]_i_4_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_16_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_16_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_16_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_26_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_26_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_26_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_7_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_7_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_9_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_9_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[3]_i_9_n_3
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[8]_i_2_n_1
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[8]_i_2_n_2
+INFO: [Opt 31-131] Removed net: BSP/transmitPackageCounter_reg[8]_i_2_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst_n_19
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst_n_23
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst_n_16
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst_n_19
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst_n_23
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[11]_i_1_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[11]_i_1_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[11]_i_1_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[15]_i_1_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[15]_i_1_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[15]_i_1_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[3]_i_1_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[3]_i_1_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[3]_i_1_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[7]_i_1_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[7]_i_1_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_ADDRESS_CONTROLLER/addr_reg[7]_i_1_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[0]_i_2_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[0]_i_2_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[0]_i_2_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[12]_i_1_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[12]_i_1_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[12]_i_1_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[4]_i_1_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[4]_i_1_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[4]_i_1_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[8]_i_1_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[8]_i_1_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_XSDB_BURST_WD_LEN_CONTROLLER/burst_wd_reg[8]_i_1_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[0]_i_3_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[0]_i_3_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[0]_i_3_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[0]_i_4_n_1
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[0]_i_4_n_2
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[0]_i_4_n_3
+INFO: [Opt 31-131] Removed net: dbg_hub/inst/BSCANID.u_xsdbm_id/CAPTURE
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[12]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[12]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[12]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[16]_i_4_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[16]_i_4_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[16]_i_4_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[4]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[4]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[4]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[8]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[8]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[0].U_COUNTER/counter_reg[8]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[12]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[12]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[12]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[16]_i_4_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[16]_i_4_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[16]_i_4_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[4]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[4]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[4]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[8]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[8]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[1].U_COUNTER/counter_reg[8]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[12]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[12]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[12]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[16]_i_4_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[16]_i_4_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[16]_i_4_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[4]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[4]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[4]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[8]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[8]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[2].U_COUNTER/counter_reg[8]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[12]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[12]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[12]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[16]_i_4_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[16]_i_4_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[16]_i_4_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[4]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[4]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[4]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[8]_i_2_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[8]_i_2_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/COUNTER.u_count/G_COUNTER[3].U_COUNTER/counter_reg[8]_i_2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[0]_i_1_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[0]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[0]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[12]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[12]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[4]_i_1_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[4]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[4]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[8]_i_1_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[8]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt_reg[8]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[0]_i_1_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[0]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[0]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[12]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[12]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[4]_i_1_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[4]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[4]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[8]_i_1_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[8]_i_1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt_reg[8]_i_1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_0
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_10
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_11
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_12
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_13
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_14
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_15
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_4
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_5
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_6
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_7
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_8
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/n_0_9
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry__0_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry__0_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry__0_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry__1_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry__1_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry__1_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry__2_n_3
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry_n_1
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry_n_2
+INFO: [Opt 31-131] Removed net: u_ila_0/inst/ila_core_inst/xsdb_memory_read_inst/read_addr0__0_carry_n_3
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_1_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_1_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/icn_cmd_din_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/icn_cmd_en_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_en_1_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_en_1_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_en_2_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_en_2_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[20].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[21].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[22].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[23].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[24].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[25].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[26].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[27].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/ctl_reg_reg[9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/icn_cmd_din_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD4/icn_cmd_en_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_en_1_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_en_1_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_en_2_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_en_2_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/ctl_reg_reg[9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/icn_cmd_din_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD5/icn_cmd_en_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_o_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_1_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_1_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/icn_cmd_din_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/icn_cmd_en_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/rddata_rst_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/wrdata_rst_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/count_flag_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/counter_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/id_state_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/id_state_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_temp_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_temp_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_temp_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_temp_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_temp_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/portno_temp_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[20].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[21].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[22].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[23].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[24].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[25].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[26].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[27].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[28].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[29].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[30].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[31].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/shiftreg_reg[9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/state_temp_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[20].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[21].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[22].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[23].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[24].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[25].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[26].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[27].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[28].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[29].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[30].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[31].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid_reg[9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[20].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[21].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[22].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[23].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[24].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[25].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[26].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[27].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[28].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[29].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[30].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[31].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscanid_reg[9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[0][9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[1][9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/PROBE_PIPE.shift_probes_reg[2][9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ack_reg1_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ack_reg2_reg[0].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[0].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[16].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[17].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[18].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[19].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[20].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[21].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[22].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[23].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[24].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[25].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[26].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[27].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[28].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[29].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[30].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[31].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync1_reg[32].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[0].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[16].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[17].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[18].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[19].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[20].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[21].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[22].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[23].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[24].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[25].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[26].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[27].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[28].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[29].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[30].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[31].
+INFO: [Opt 31-54] Cell has no loads and is removed: FDRE u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/cfg_data_vec_sync2_reg[32].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/icap_wr_en_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.icap_addr_reg[9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[100].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[101].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[102].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[103].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[104].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[105].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[106].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[107].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[108].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[109].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[10].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[110].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[111].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[112].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[113].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[114].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[115].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[116].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[117].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[118].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[119].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[11].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[120].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[121].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[122].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[123].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[124].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[125].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[126].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[127].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[12].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[13].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[14].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[15].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[16].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[17].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[18].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[19].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[1].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[20].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[21].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[22].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[23].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[24].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[25].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[26].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[27].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[28].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[29].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[2].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[30].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[31].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[32].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[33].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[34].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[35].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[36].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[37].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[38].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[39].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[3].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[40].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[41].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[42].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[43].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[44].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[45].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[46].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[47].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[48].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[49].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[4].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[50].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[51].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[52].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[53].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[54].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[55].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[56].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[57].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[58].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[59].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[5].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[60].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[61].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[62].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[63].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[64].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[65].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[66].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[67].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[68].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[69].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[6].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[70].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[71].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[72].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[73].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[74].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[75].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[76].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[77].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[78].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[79].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[7].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[80].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[81].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[82].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[83].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[84].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[85].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[86].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[87].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[88].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[89].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[8].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[90].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[91].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[92].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[93].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[94].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[95].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[96].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[97].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[98].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[99].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/U_XSDB_SLAVE/uuid_stamp_reg[9].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/dummy_temp1_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/u_ila_regs/dummy_temp_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/use_probe_debug_circuit_2_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/ila_core_inst/use_probe_debug_circuit_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/sync_reg1_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/sync_reg2_reg[0].
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/trig_in_reg_reg.
+INFO: [Opt 31-55] Skipping sweep on cell due to DONT_TOUCH property, cell: u_ila_0/inst/trig_out_ack_reg_reg.
+Phase 4 Sweep | Checksum: 930cc1df
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:37 . Memory (MB): peak = 1525.879 ; gain = 171.172
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 36 cells
+INFO: [Opt 31-1021] In phase Sweep, 1021 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 BUFG optimization
+Phase 5 BUFG optimization | Checksum: 930cc1df
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:38 . Memory (MB): peak = 1525.879 ; gain = 171.172
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 6 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 6 Shift Register Optimization | Checksum: 930cc1df
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:38 . Memory (MB): peak = 1525.879 ; gain = 171.172
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 7 Post Processing Netlist
+Phase 7 Post Processing Netlist | Checksum: 930cc1df
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:38 . Memory (MB): peak = 1525.879 ; gain = 171.172
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 57 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               4  |              13  |                                             74  |
+|  Constant propagation         |               0  |              16  |                                             64  |
+|  Sweep                        |               0  |              36  |                                           1021  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                             57  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1525.879 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 142d6e35e
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:38 . Memory (MB): peak = 1525.879 ; gain = 171.172
+
+Starting Power Optimization Task
+Begin power optimizations | Checksum: 142d6e35e
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-50] Optimizing power for module CanMaster ...
+INFO: [Pwropt 34-207] Design is in partially-placed state. Running in partially-placed mode.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Found 3738 new always-off flops by back propagation
+Pre-processing: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1730.875 ; gain = 152.785
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+IDT: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1730.875 ; gain = 0.000
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Pwropt 34-215] Skipped ODC enables for 275 nets in BRAM flops in bus-based analysis.
+INFO: [Pwropt 34-214] Skipped ODC enables for 0 nets in BRAM address flops in bus-based analysis.
+ODC: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.348 . Memory (MB): peak = 1730.875 ; gain = 0.000
+Power optimization passes: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 1730.875 ; gain = 152.785
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-6.981 | TNS=-31.108 |
+PSMgr Creation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 1747.250 ; gain = 169.160
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+INFO: [Pwropt 34-77] Creating clock enable groups ...
+ Done
+Grouping enables: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.443 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-26] Patching clock gating enable signals for design CanMaster ...
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 19 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+
+Number of Slice Registers augmented: 0 newly gated: 0 Total: 7350
+Number of SRLs augmented: 0  newly gated: 0 Total: 3119
+Number of BRAM Ports augmented: 35 newly gated: 0 Total Ports: 38
+Number of Flops added for Enable Generation: 0
+
+Flops dropped: 0/0 RAMS dropped: 0/35 Clusters dropped: 0/35 Enables dropped: 0
+
+Number of LUTs created for enable logic : 
+    LUT1 : 0
+    LUT2 : 0
+    LUT3 : 0
+    LUT4 : 16
+    LUT5 : 0
+    LUT6 : 0
+
+Patching clock gating enables finished successfully.
+Ending PowerOpt Patch Enables Task | Checksum: f34044a2
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.233 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Pwropt 34-30] Power optimization finished successfully.
+End power optimizations | Checksum: f34044a2
+Power optimization: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 1782.129 ; gain = 256.250
+INFO: [Pwropt 34-198] Malloced memory gain at end of power optimization: 0 bytes
+Ending Power Optimization Task | Checksum: f34044a2
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 1782.129 ; gain = 256.250
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_34_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_34.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_26_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_26.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_46_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_46.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_40_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_40.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_32_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_32.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_24_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_24.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_22_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_22.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_50_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__6_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_50.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_30_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[17].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_30.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_48_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__6_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[16].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_48.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_44_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_44.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_38_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_38.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_28_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_28.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_20_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_20.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_42_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_42.
+INFO: [Opt 31-51] Remap created LUT3 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_36_LOPT_REMAP.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/no_softecc_sel_reg.ce_pri.sel_pipe[2]_i_1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT2 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1_duplicateAndRemap.
+INFO: [Opt 31-50]   Mapped from LUT4 cell: u_ila_0/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_REGCEB_cooolgate_en_gate_36.
+INFO: [Opt 31-442] LUT Reduction optimized 0 LUTs
+Ending Logic Optimization Task | Checksum: 124a55769
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Ending Final Cleanup Task | Checksum: 124a55769
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 124a55769
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+1022 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1782.129 ; gain = 569.176
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file CanMaster_drc_opted.rpt -pb CanMaster_drc_opted.pb -rpx CanMaster_drc_opted.rpx
+Command: report_drc -file CanMaster_drc_opted.rpt -pb CanMaster_drc_opted.pb -rpx CanMaster_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Chipscope 16-240] Debug cores have already been implemented
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 7c4d57c4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 10e1e3a7c
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1c694728c
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1c694728c
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1c694728c
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 142e44532
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 2.2 Global Placement Core
+
+Phase 2.2.1 Physical Synthesis In Placer
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for HD net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+----------------------------------------------------------------------------------------------------------------------------------------
+|  Very High Fanout              |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  HD Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                         |            0  |              0  |                     0  |           0  |           5  |  00:00:00  |
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.2.1 Physical Synthesis In Placer | Checksum: 1503d205f
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 2.2 Global Placement Core | Checksum: 1caf33a7c
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:17 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 1caf33a7c
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:17 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 10a2508dc
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:18 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 151233c2b
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 13dba1933
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1b0b4026d
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:21 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 13b28b413
+
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:22 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 135f1a624
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:26 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 16d07191f
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:27 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 22d06cdee
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:27 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 1d68e4a55
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:30 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 1d68e4a55
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:30 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 115616bde
+
+Phase 4.1.1.1 BUFG Insertion
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
+Phase 4.1.1.1 BUFG Insertion | Checksum: 115616bde
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:33 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-6.633. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1a681b62d
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:36 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 1a681b62d
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:36 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1a681b62d
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:36 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 4.3 Placer Reporting
+Phase 4.3 Placer Reporting | Checksum: 1a681b62d
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:36 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 4.4 Final Placement Cleanup | Checksum: 163d70b2c
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:36 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 163d70b2c
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:36 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Ending Placer Task | Checksum: 103865d5a
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:36 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+1054 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:00:54 ; elapsed = 00:00:38 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster_placed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_io -file CanMaster_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file CanMaster_utilization_placed.rpt -pb CanMaster_utilization_placed.pb
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file CanMaster_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.430 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+Checksum: PlaceDB: c6e0600e ConstDB: 0 ShapeSum: 3ca5fd4c RouteDB: 0
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: c22a692d
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Post Restoration Checksum: NetGraph: 91273d26 NumContArr: 31032c07 Constraints: 0 Timing: 0
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: c22a692d
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: c22a692d
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: c22a692d
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 1782.129 ; gain = 0.000
+ Number of Nodes with overlaps = 0
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: eaa706e0
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.607 | TNS=-30.179| WHS=-2.216 | THS=-412.739|
+
+
+Phase 2.5 Update Timing for Bus Skew
+
+Phase 2.5.1 Update Timing
+Phase 2.5.1 Update Timing | Checksum: 70ef9cdc
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.607 | TNS=-30.176| WHS=N/A    | THS=N/A    |
+
+Phase 2.5 Update Timing for Bus Skew | Checksum: 13923ff59
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 1782.129 ; gain = 0.000
+Phase 2 Router Initialization | Checksum: b7fbe9a9
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 1782.129 ; gain = 0.000
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0122466 %
+  Global Horizontal Routing Utilization  = 0.00505515 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 10720
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 10720
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: 1be338de2
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 1782.129 ; gain = 0.000
+INFO: [Route 35-580] Design has 8 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                  sig_transmitITPrev_reg/D|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                   sig_transmitOrder_reg/D|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                                led0_reg/D|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][1][0]/CE|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][3][0]/CE|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 1262
+ Number of Nodes with overlaps = 79
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.447 | TNS=-31.003| WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 57633ec2
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:36 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 21
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.459 | TNS=-32.008| WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 17f37b27a
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:37 . Memory (MB): peak = 1799.805 ; gain = 17.676
+Phase 4 Rip-up And Reroute | Checksum: 17f37b27a
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:37 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 16ca7d4b1
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:37 . Memory (MB): peak = 1799.805 ; gain = 17.676
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.447 | TNS=-31.003| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 5.1 Delay CleanUp | Checksum: 19be8efa1
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:37 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 19be8efa1
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:37 . Memory (MB): peak = 1799.805 ; gain = 17.676
+Phase 5 Delay and Skew Optimization | Checksum: 19be8efa1
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:37 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 2079f8771
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:38 . Memory (MB): peak = 1799.805 ; gain = 17.676
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-6.447 | TNS=-33.003| WHS=-1.916 | THS=-10.915|
+
+Phase 6.1 Hold Fix Iter | Checksum: 1617ca003
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:38 . Memory (MB): peak = 1799.805 ; gain = 17.676
+WARNING: [Route 35-468] The router encountered 9 pins that are both setup-critical and hold-critical and tried to fix hold violations at the expense of setup slack. Such pins are:
+	sig_transmitITPrev_reg/D
+	BSP/sig_transmitOrder_i_1/I3
+	BSP/led0_i_1/I4
+	BSP/sig_transmitPackage[Data][3][0]_i_1/I4
+	sig_transmitPackage_reg[Data][0][0]/CE
+	sig_transmitPackage_reg[Data][1][0]/CE
+	sig_transmitPackage_reg[Data][2][0]/CE
+	sig_transmitPackage_reg[Data][3][0]/CE
+	BSP/sig_transmitOrder_i_1/I1
+
+Phase 6 Post Hold Fix | Checksum: 1003d39fe
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:38 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 8.09333 %
+  Global Horizontal Routing Utilization  = 8.95106 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Congestion Report
+North Dir 1x1 Area, Max Cong = 54.955%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 60.3604%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 54.4118%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 64.7059%, No Congested Regions.
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+
+Phase 7 Route finalize | Checksum: 1a6c922db
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:39 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 1a6c922db
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:39 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 163ec9dec
+
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:40 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Phase 10 Post Router Timing
+
+Phase 10.1 Update Timing
+Phase 10.1 Update Timing | Checksum: ddd10794
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:41 . Memory (MB): peak = 1799.805 ; gain = 17.676
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-6.447 | TNS=-50.515| WHS=0.051  | THS=0.000  |
+
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 10 Post Router Timing | Checksum: ddd10794
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:41 . Memory (MB): peak = 1799.805 ; gain = 17.676
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:41 . Memory (MB): peak = 1799.805 ; gain = 17.676
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+1074 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:58 ; elapsed = 00:00:43 . Memory (MB): peak = 1799.805 ; gain = 17.676
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1799.805 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 1799.805 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster_routed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file CanMaster_drc_routed.rpt -pb CanMaster_drc_routed.pb -rpx CanMaster_drc_routed.rpx
+Command: report_drc -file CanMaster_drc_routed.rpt -pb CanMaster_drc_routed.pb -rpx CanMaster_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file CanMaster_methodology_drc_routed.rpt -pb CanMaster_methodology_drc_routed.pb -rpx CanMaster_methodology_drc_routed.rpx
+Command: report_methodology -file CanMaster_methodology_drc_routed.rpt -pb CanMaster_methodology_drc_routed.pb -rpx CanMaster_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 1808.492 ; gain = 8.688
+INFO: [runtcl-4] Executing : report_power -file CanMaster_power_routed.rpt -pb CanMaster_power_summary_routed.pb -rpx CanMaster_power_routed.rpx
+Command: report_power -file CanMaster_power_routed.rpt -pb CanMaster_power_summary_routed.pb -rpx CanMaster_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+1086 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1808.492 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_route_status -file CanMaster_route_status.rpt -pb CanMaster_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file CanMaster_timing_summary_routed.rpt -pb CanMaster_timing_summary_routed.pb -rpx CanMaster_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+INFO: [runtcl-4] Executing : report_incremental_reuse -file CanMaster_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file CanMaster_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file CanMaster_bus_skew_routed.rpt -pb CanMaster_bus_skew_routed.pb -rpx CanMaster_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+Command: write_bitstream -force CanMaster.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC RTSTAT-10] No routable loads: 21 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, u_ila_0/inst/trig_in_reg, u_ila_0/inst/trig_out_ack_reg... and (the first 15 of 19 listed).
+WARNING: [DRC ZPS7-1] PS7 block required: The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 2 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./CanMaster.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+1105 Infos, 7 Warnings, 1 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:23 ; elapsed = 00:00:18 . Memory (MB): peak = 2230.254 ; gain = 421.762
+INFO: [Common 17-206] Exiting Vivado at Sun Aug 25 01:46:47 2019...

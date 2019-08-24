@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.1 (64-bit)
+# SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
+# IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+# Start of session at: Sun Aug 25 00:16:34 2019
+# Process ID: 5952
+# Current directory: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1
+# Command line: vivado.exe -log CanMaster.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source CanMaster.tcl -notrace
+# Log file: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster.vdi
+# Journal file: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source CanMaster.tcl -notrace

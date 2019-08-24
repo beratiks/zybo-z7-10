@@ -43,14 +43,13 @@ package CanTypes is
   constant SIZE_OF_IFS              : integer   := 3;   
   
   constant SIZE_OF_MIN_CRC_FIELD    : integer   := SIZE_OF_SOF + SIZE_OF_STD_ID + SIZE_OF_RTR + SIZE_OF_RESERVED + SIZE_OF_IDE + SIZE_OF_DLC;
-  constant SIZE_OF_MAX_CRC_FIELD    : integer   := SIZE_OF_SOF + SIZE_OF_STD_ID + SIZE_OF_RTR + SIZE_OF_RESERVED + SIZE_OF_IDE + SIZE_OF_DLC + SIZE_OF_MAX_DATA;
+  constant SIZE_OF_MAX_CRC_FIELD    : integer   := SIZE_OF_SOF + SIZE_OF_STD_ID + SIZE_OF_RTR + SIZE_OF_RESERVED + SIZE_OF_IDE + SIZE_OF_DLC + SIZE_OF_MAX_DATA*8;
   
   constant SIZE_OF_BIT_STUFFING_FIELD     : integer   := SIZE_OF_SOF + SIZE_OF_STD_ID + SIZE_OF_RTR + SIZE_OF_RESERVED + SIZE_OF_IDE + SIZE_OF_DLC + SIZE_OF_MAX_DATA + SIZE_OF_CRC + 10;
   
 type Data is array (SIZE_OF_MAX_DATA - 1 downto 0) of std_logic_vector(7 downto 0);
 
 type CanPackage is record
-
     StdId   :   std_logic_vector(SIZE_OF_STD_ID - 1 downto 0);
     Rtr     :   std_logic;
     IDE     :   std_logic;

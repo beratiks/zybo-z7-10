@@ -17,6 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param tcl.collectionResultDisplayLimit 0
+set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7z010clg400-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -33,7 +36,8 @@ set_property ip_output_repo d:/github_repository/zybo-z7-10/CanMaster/CanMaster.
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanTypes.vhd
-  D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanClockGenerator.vhd
+  D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd
+  D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd
   D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd
 }
 read_ip -quiet D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
@@ -52,8 +56,6 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
 set_property used_in_implementation false [get_files D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
 
-read_xdc dont_touch.xdc
-set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

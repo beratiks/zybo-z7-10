@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1560807831">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1566408935">
   <File Type="PA-TCL" Name="I2CTopModule.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="I2CTopModule_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="I2CTopModule_reports.tcl"/>
@@ -33,7 +33,7 @@
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../Zybo-Z7-Master.xdc"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../zybo-z10_workspace/Zybo-Z7-Master.xdc"/>
         <Attr Name="ImportTime" Val="1552324744"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

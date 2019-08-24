@@ -1,8 +1,8 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Jun 18 00:45:09 2019
-| Host         : BERAT running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2019.1.1 (win64) Build 2580384 Sat Jun 29 08:12:21 MDT 2019
+| Date         : Wed Aug 21 20:37:12 2019
+| Host         : DESKTOP-254I58R running 64-bit major release  (build 9200)
 | Command      : report_methodology -file I2CTopModule_methodology_drc_routed.rpt -pb I2CTopModule_methodology_drc_routed.pb -rpx I2CTopModule_methodology_drc_routed.rpx
 | Design       : I2CTopModule
 | Device       : xc7z010clg400-1
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 10
+             Violations found: 6
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
-| TIMING-18 | Warning  | Missing input or output delay | 10         |
+| TIMING-18 | Warning  | Missing input or output delay | 6          |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -58,26 +58,6 @@ An input delay is missing on sw[3] relative to clock(s) sys_clock
 Related violations: <none>
 
 TIMING-18#6 Warning
-Missing input or output delay  
-An output delay is missing on led[0] relative to clock(s) sys_clock
-Related violations: <none>
-
-TIMING-18#7 Warning
-Missing input or output delay  
-An output delay is missing on led[1] relative to clock(s) sys_clock
-Related violations: <none>
-
-TIMING-18#8 Warning
-Missing input or output delay  
-An output delay is missing on led[2] relative to clock(s) sys_clock
-Related violations: <none>
-
-TIMING-18#9 Warning
-Missing input or output delay  
-An output delay is missing on led[3] relative to clock(s) sys_clock
-Related violations: <none>
-
-TIMING-18#10 Warning
 Missing input or output delay  
 An output delay is missing on sclPin relative to clock(s) sys_clock
 Related violations: <none>

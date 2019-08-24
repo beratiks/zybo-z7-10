@@ -1,1 +1,0 @@
--wto "7d67abebf766473d9d50a0a067a61b3d" --incr --debug "typical" --relax --mt "2" -L "lib_cdc_v1_0_2" -L "blk_mem_gen_v8_4_3" -L "lib_bmg_v1_0_12" -L "can_v5_0_22" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "AxiController_behav" "xil_defaultlib.AxiController" "xil_defaultlib.glbl" -log "elaborate.log" 

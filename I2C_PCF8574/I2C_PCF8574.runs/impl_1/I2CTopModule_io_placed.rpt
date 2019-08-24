@@ -1,8 +1,8 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
--------------------------------------------------------------------------------------------------
-| Tool Version              : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date                      : Tue Jun 18 00:44:53 2019
-| Host                      : BERAT running 64-bit major release  (build 9200)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------
+| Tool Version              : Vivado v.2019.1.1 (win64) Build 2580384 Sat Jun 29 08:12:21 MDT 2019
+| Date                      : Wed Aug 21 20:36:56 2019
+| Host                      : DESKTOP-254I58R running 64-bit major release  (build 9200)
 | Command                   : report_io -file I2CTopModule_io_placed.rpt
 | Design                    : I2CTopModule
 | Device                    : xc7z010
@@ -10,7 +10,7 @@ Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 | Package                   : clg400
 | Package Version           : FINAL 2012-10-23
 | Package Pin Delay Version : VERS. 2.0 2012-10-23
--------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 IO Information
 

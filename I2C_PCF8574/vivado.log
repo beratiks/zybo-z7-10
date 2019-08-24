@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.1 (64-bit)
+# SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
+# IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+# Start of session at: Wed Aug 21 20:46:47 2019
+# Process ID: 3100
+# Current directory: D:/github_repository/zybo-z7-10/I2C_PCF8574
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4816 D:\github_repository\zybo-z7-10\I2C_PCF8574\I2C_PCF8574.xpr
+# Log file: D:/github_repository/zybo-z7-10/I2C_PCF8574/vivado.log
+# Journal file: D:/github_repository/zybo-z7-10/I2C_PCF8574\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z7-10/I2C_PCF8574/I2C_PCF8574.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:23 ; elapsed = 00:00:08 . Memory (MB): peak = 711.402 ; gain = 71.395
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 21 20:47:50 2019...

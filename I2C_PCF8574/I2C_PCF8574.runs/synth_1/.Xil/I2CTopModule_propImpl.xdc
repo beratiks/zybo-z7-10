@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/zybo-z10_workspace/I2C_PCF8574/I2C_PCF8574.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc rfile:../../../I2C_PCF8574.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:D:/github_repository/zybo-z7-10/I2C_PCF8574/I2C_PCF8574.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc rfile:../../../I2C_PCF8574.srcs/constrs_1/imports/zybo-z10_workspace/Zybo-Z7-Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports { sys_clock }]; #IO_L12P_T1_MRCC_35 Sch=sysclk
 set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
