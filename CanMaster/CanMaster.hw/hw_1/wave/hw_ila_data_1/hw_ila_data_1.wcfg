@@ -9,15 +9,17 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="10681fs"></ZoomEndTime>
-      <Cursor1Time time="12486000fs"></Cursor1Time>
+      <ZoomStartTime time="17885000fs"></ZoomStartTime>
+      <ZoomEndTime time="19371001fs"></ZoomEndTime>
+      <Cursor1Time time="19074000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="291"></NameColumnWidth>
-      <ValueColumnWidth column_width="203"></ValueColumnWidth>
+      <ValueColumnWidth column_width="199"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="8" />
+   <wave_markers>
+   </wave_markers>
    <wvobject fp_name="BSP/BTL/sig_read_valid" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">BSP/BTL/sig_read_valid</obj_property>
@@ -32,31 +34,10 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="BSP/BTL/sig_TxPin" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">BSP/BTL/sig_TxPin</obj_property>
-      <obj_property name="ObjectShortName">sig_TxPin</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
    <wvobject fp_name="rx_IBUF" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">rx_IBUF</obj_property>
       <obj_property name="ObjectShortName">rx_IBUF</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="BSP/startTransmit_reg_n_0" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">BSP/startTransmit_reg_n_0</obj_property>
-      <obj_property name="ObjectShortName">startTransmit_reg_n_0</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="BSP/startTransmit" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">BSP/startTransmit</obj_property>
-      <obj_property name="ObjectShortName">startTransmit</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
@@ -67,31 +48,10 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="BSP/sig_TxBitTransmit_reg_n_0" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">BSP/sig_TxBitTransmit_reg_n_0</obj_property>
-      <obj_property name="ObjectShortName">sig_TxBitTransmit_reg_n_0</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="BSP/receiving" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">BSP/receiving</obj_property>
-      <obj_property name="ObjectShortName">receiving</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
    <wvobject fp_name="tx_OBUF" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">tx_OBUF</obj_property>
       <obj_property name="ObjectShortName">tx_OBUF</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="BSP/sig_TxBitTransmit_reg_n_0" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">BSP/sig_TxBitTransmit_reg_n_0</obj_property>
-      <obj_property name="ObjectShortName">sig_TxBitTransmit_reg_n_0</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
@@ -109,26 +69,9 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="transmitOrder" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">transmitOrder</obj_property>
-      <obj_property name="ObjectShortName">transmitOrder</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="BSP/startTransmit" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">BSP/startTransmit</obj_property>
-      <obj_property name="ObjectShortName">startTransmit</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject fp_name="led_OBUF" type="array">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">led_OBUF[3:0]</obj_property>
-      <obj_property name="ObjectShortName">led_OBUF[3:0]</obj_property>
+   <wvobject fp_name="BSP/leds" type="array">
+      <obj_property name="ElementShortName">BSP/leds[3:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
 </wave_config>

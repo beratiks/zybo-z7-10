@@ -105,9 +105,6 @@ end process;
 bitStateProcess : process(clk_in,timeQuantaCounter)
 begin
   if(rising_edge(clk_in)) then  
---     if((sig_startSample = '0' and sig_write_order = '0') and timeQuantaCounter = 0 ) then -- if sample is cancel wait for end of segment_2
---        bitState <= IDLE;   
---      elsif(bitState /= IDLE) then
             
         if(timeQuantaCounter >= 0 and timeQuantaCounter < TIME_SYNC_SEGMENT) then
         
@@ -121,18 +118,6 @@ begin
         
             bitState <= PHASE_SEGMENT_2;
             
-
---        else
-        
---        bitState <= IDLE;
-        
---        end if;
-        
-
---     elsif((sig_startSample = '1' or sig_write_order = '1') and bitState = IDLE) then
-        
---         bitState <= SYNC_SEGMENT;    
-         
       end if;
  end if;
 end process;
@@ -210,16 +195,9 @@ begin
             
                 if(sig_write_order = '1') then
                     sig_write_valid <= '0';
---                    if(sig_txBit = '1' and sig_RxPinPrev_transmit = '1' and sig_rxPin = '0' and check_arbitration = '1') then        -- arbitration lose when rx change recessive to dominant
-                        
---                        sig_bitArbitrationLose <= '1';
---                        sig_txPin <= '0';
-                        
---                    else
                     
                         sig_txPin <= sig_txBit;  
-                       
---                    end if;     
+  
                  else
                  
                      sig_txPin <= '1';

@@ -97,6 +97,10 @@
       signal    sig_transmitting            : std_logic := '0';
       signal    transmitError               : std_logic := '0';
       
+      signal    arbitrationLost             : std_logic := '0';
+      signal    txBitPrevForArbitration     : std_logic;
+      signal    stuffingTransmitForAbitration : std_logic := '0';
+      
       signal led : std_logic;
       
        
@@ -159,11 +163,11 @@
 
                 sig_receiveIT <= '1';           
                 sig_receiving <= '0';                    
-               sig_start_sampleReceive <= '0';
+                sig_start_sampleReceive <= '0';
+                arbitrationLost <= '0';
+                if(sig_rxPin = '0') then
                 
-                if(sig_rxPin = '0' and sig_transmitting = '0') then
-                    sig_receiving <= '1';          
-                               
+                    sig_receiving <= '1';                         
                     receiveFrameEnum <= SOF;
                     receiveFrameEnumPrev <= SOF;
                     sig_start_sampleReceive <= '1';
@@ -190,7 +194,7 @@
                         if (CrcNextBit = '1') then
                               var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
                         end if;
-                    
+                        
                         receiveFrameEnum <= ID;         --  change state to recieve std id
                         sig_check_arbitration <= '1';   -- frame enter to arbitration stage. Arbitration stage consist only std id and rtr stages
                         receivePackageCounter <= SIZE_OF_STD_ID - 1;     -- receivePackageCounter reset to collect std id bits
@@ -229,6 +233,11 @@
                     -- check bit stuffing
                     receiveFrameEnumPrev <= receiveFrameEnum;       
                     
+                    if(sig_RxBit = '0' and txBitPrevForArbitration = '1' and stuffingTransmitForAbitration = '0') then
+                    
+                        arbitrationLost <= '1';
+                    
+                    end if;
                     
                     if(sig_RxBit = sig_rxPinPrev) then
                     
@@ -567,9 +576,15 @@
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
 
                   --  tx_Pin <= '0';
-                    sig_write_orderReceive <= '1';
-                    sig_TxBitReceive <= '0';
-                    receiveFrameEnum <= ACK;
+                    if(sig_transmitting = '0') then 
+                        sig_write_orderReceive <= '1';
+                        sig_TxBitReceive <= '0';
+                        receiveFrameEnum <= ACK;
+                    else
+                    
+                        receiveFrameEnum <= ACK;
+                    
+                    end if;
 
                 end if;
                 sig_read_validPrevReceive := sig_read_valid;  
@@ -577,9 +592,18 @@
                  
                    if(sig_write_valid_prev = '0' and sig_write_valid = '1') then
                    
-                    sig_write_orderReceive <= '1';
-                    sig_TxBitReceive <= '1';
-                    receiveFrameEnum <= ACK_DELIMITER;
+                    if(sig_transmitting = '0') then
+                        sig_write_orderReceive <= '1';
+                        sig_TxBitReceive <= '1';
+                        receiveFrameEnum <= ACK_DELIMITER;
+                   else
+                   
+                        receiveFrameEnum <= ACK_DELIMITER;
+                   
+                   end if;     
+                        
+                        
+                        
 
                    end if;
                  sig_write_valid_prev := sig_write_valid;
@@ -748,8 +772,10 @@
                 
                     transmitNextBit := not sig_TxBitPrev;
                     transmitBitStuffingCounter := 1;
+                    stuffingTransmitForAbitration <= '1';
                     
                 else
+                    stuffingTransmitForAbitration <= '0';
                     transmitPackageCounter := SIZE_OF_STD_ID - 1;
                     transmitNextBit := transmitFrame.StdId(transmitPackageCounter);
                     transmitFrameEnum <= ID;
@@ -771,8 +797,7 @@
                     if (CrcNextBit = '1') then
                         var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
                     end if;
-  
-                
+                    txBitPrevForArbitration <= transmitNextBit;
                 end if;
                 -- end of bit stuffing control
                 sig_TxBitTransmit <= transmitNextBit;
@@ -785,12 +810,21 @@
             leds <= "0100";
             if(sig_write_validPrev = '0' and sig_write_valid = '1') then
                 
+                if(arbitrationLost = '1') then
+                                             
+                   startTransmit <= '1';
+                   sig_TxBitTransmit <= '1';
+                   transmitFrameEnum <= IDLE;
+                
+                end if;
                 -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
                 
                     transmitNextBit := not sig_TxBitPrev;
                     transmitBitStuffingCounter := 1;
+                    stuffingTransmitForAbitration <= '1';
                 else
+                    stuffingTransmitForAbitration <= '0';
                     if(transmitPackageCounter = 0) then
                         
                         transmitNextBit := transmitFrame.Rtr;
@@ -819,7 +853,7 @@
                         if (CrcNextBit = '1') then
                             var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
                         end if;
-                     
+                        txBitPrevForArbitration <= transmitNextBit;
                 end if;
                 -- end of bit stuffing control
              sig_TxBitPrev <= transmitNextBit;
@@ -830,7 +864,15 @@
          when RTR =>
             leds <= "1000";
             if(sig_write_validPrev = '0' and sig_write_valid = '1') then
-
+          
+                if(arbitrationLost = '1') then
+                                             
+                   startTransmit <= '1';
+                   sig_TxBitTransmit <= '1';
+                   transmitFrameEnum <= IDLE;
+                
+                end if;
+                
                 -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
                 
