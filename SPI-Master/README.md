@@ -1,4 +1,4 @@
-# Spi Master Example Last Version
+# Spi Master Example
 
 - 10Mhz baudrate
 - Write 8 bits
