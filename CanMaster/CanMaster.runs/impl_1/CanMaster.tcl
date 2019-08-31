@@ -61,15 +61,103 @@ proc step_failed { step } {
 }
 
 
+start_step init_design
+set ACTIVE_STEP init_design
+set rc [catch {
+  create_msg_db init_design.pb
+  set_param chipscope.maxJobs 2
+  set_param xicom.use_bs_reader 1
+  create_project -in_memory -part xc7z010clg400-1
+  set_property board_part digilentinc.com:zybo-z7-10:part0:1.0 [current_project]
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir D:/github_repository/zybo-z7-10/CanMaster/CanMaster.cache/wt [current_project]
+  set_property parent.project_path D:/github_repository/zybo-z7-10/CanMaster/CanMaster.xpr [current_project]
+  set_property ip_output_repo D:/github_repository/zybo-z7-10/CanMaster/CanMaster.cache/ip [current_project]
+  set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  add_files -quiet D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/CanMaster.dcp
+  read_ip -quiet D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_xdc D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
+  link_design -top CanMaster -part xc7z010clg400-1
+  close_msg_db -file init_design.pb
+} RESULT]
+if {$rc} {
+  step_failed init_design
+  return -code error $RESULT
+} else {
+  end_step init_design
+  unset ACTIVE_STEP 
+}
+
+start_step opt_design
+set ACTIVE_STEP opt_design
+set rc [catch {
+  create_msg_db opt_design.pb
+  opt_design -verbose
+  write_checkpoint -force CanMaster_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file CanMaster_drc_opted.rpt -pb CanMaster_drc_opted.pb -rpx CanMaster_drc_opted.rpx"
+  close_msg_db -file opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed opt_design
+  return -code error $RESULT
+} else {
+  end_step opt_design
+  unset ACTIVE_STEP 
+}
+
+start_step place_design
+set ACTIVE_STEP place_design
+set rc [catch {
+  create_msg_db place_design.pb
+  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
+    implement_debug_core 
+  } 
+  place_design 
+  write_checkpoint -force CanMaster_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file CanMaster_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file CanMaster_utilization_placed.rpt -pb CanMaster_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file CanMaster_control_sets_placed.rpt"
+  close_msg_db -file place_design.pb
+} RESULT]
+if {$rc} {
+  step_failed place_design
+  return -code error $RESULT
+} else {
+  end_step place_design
+  unset ACTIVE_STEP 
+}
+
+start_step route_design
+set ACTIVE_STEP route_design
+set rc [catch {
+  create_msg_db route_design.pb
+  route_design 
+  write_checkpoint -force CanMaster_routed.dcp
+  create_report "impl_1_route_report_drc_0" "report_drc -file CanMaster_drc_routed.rpt -pb CanMaster_drc_routed.pb -rpx CanMaster_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file CanMaster_methodology_drc_routed.rpt -pb CanMaster_methodology_drc_routed.pb -rpx CanMaster_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file CanMaster_power_routed.rpt -pb CanMaster_power_summary_routed.pb -rpx CanMaster_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file CanMaster_route_status.rpt -pb CanMaster_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file CanMaster_timing_summary_routed.rpt -pb CanMaster_timing_summary_routed.pb -rpx CanMaster_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file CanMaster_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file CanMaster_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file CanMaster_bus_skew_routed.rpt -pb CanMaster_bus_skew_routed.pb -rpx CanMaster_bus_skew_routed.rpx"
+  close_msg_db -file route_design.pb
+} RESULT]
+if {$rc} {
+  write_checkpoint -force CanMaster_routed_error.dcp
+  step_failed route_design
+  return -code error $RESULT
+} else {
+  end_step route_design
+  unset ACTIVE_STEP 
+}
+
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param tcl.collectionResultDisplayLimit 0
-  set_param chipscope.maxJobs 2
-  set_param xicom.use_bs_reader 1
-  open_checkpoint CanMaster_routed.dcp
-  set_property webtalk.parent_dir D:/github_repository/zybo-z7-10/CanMaster/CanMaster.cache/wt [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
   catch { write_mem_info -force CanMaster.mmi }
   write_bitstream -force CanMaster.bit 

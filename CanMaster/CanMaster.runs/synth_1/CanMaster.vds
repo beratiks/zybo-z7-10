@@ -2,8 +2,8 @@
 # Vivado v2019.1.1 (64-bit)
 # SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
 # IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
-# Start of session at: Mon Aug 26 00:29:10 2019
-# Process ID: 16360
+# Start of session at: Sat Aug 31 21:17:07 2019
+# Process ID: 9900
 # Current directory: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1
 # Command line: vivado.exe -log CanMaster.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CanMaster.tcl
 # Log file: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/CanMaster.vds
@@ -16,44 +16,39 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6836 
+INFO: Helper process launched with PID 6452 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 691.094 ; gain = 177.289
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 689.895 ; gain = 178.398
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:140]
-WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:703]
-WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:140]
+WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:135]
+WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:694]
+WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:129]
 INFO: [Synth 8-638] synthesizing module 'CanMaster' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:51]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/.Xil/Vivado-16360-DESKTOP-254I58R/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'clk_wiz' of component 'clk_wiz_0' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:112]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/.Xil/Vivado-16360-DESKTOP-254I58R/realtime/clk_wiz_0_stub.vhdl:13]
-INFO: [Synth 8-3491] module 'BitStreamProcessor' declared at 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:29' bound to instance 'BSP' of component 'BitStreamProcessor' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:119]
-INFO: [Synth 8-638] synthesizing module 'BitStreamProcessor' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:47]
-INFO: [Synth 8-3491] module 'BitTimeLogic' declared at 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:26' bound to instance 'BTL' of component 'BitTimeLogic' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:109]
-INFO: [Synth 8-638] synthesizing module 'BitTimeLogic' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:41]
-INFO: [Synth 8-226] default block is never used [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:145]
-INFO: [Synth 8-226] default block is never used [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:203]
-WARNING: [Synth 8-6014] Unused sequential element sig_RxPinPrev_receive_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:192]
-WARNING: [Synth 8-6014] Unused sequential element sig_bitArbitrationLose_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:247]
-WARNING: [Synth 8-6014] Unused sequential element sig_RxPinPrev_transmit_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:261]
-INFO: [Synth 8-256] done synthesizing module 'BitTimeLogic' (1#1) [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:41]
-WARNING: [Synth 8-6014] Unused sequential element CrcNextBit_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:190]
-WARNING: [Synth 8-6014] Unused sequential element receiveFrame_reg[Sof] was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:201]
-WARNING: [Synth 8-6014] Unused sequential element receiveFrame_reg[Reserved] was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:201]
-WARNING: [Synth 8-6014] Unused sequential element receiveFrame_reg[IDE] was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:201]
-WARNING: [Synth 8-6014] Unused sequential element receveDataByteSize_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:421]
-WARNING: [Synth 8-6014] Unused sequential element transmitNextBit_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:745]
-WARNING: [Synth 8-6014] Unused sequential element CrcNextBit_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:754]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/.Xil/Vivado-9900-DESKTOP-254I58R/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'clk_wiz' of component 'clk_wiz_0' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/.Xil/Vivado-9900-DESKTOP-254I58R/realtime/clk_wiz_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'BitStreamProcessor' declared at 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:29' bound to instance 'BSP' of component 'BitStreamProcessor' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:110]
+INFO: [Synth 8-638] synthesizing module 'BitStreamProcessor' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:44]
+INFO: [Synth 8-3491] module 'BitTimeLogic' declared at 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:26' bound to instance 'BTL' of component 'BitTimeLogic' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:105]
+INFO: [Synth 8-638] synthesizing module 'BitTimeLogic' [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'BitTimeLogic' (1#1) [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitTimeLogic.vhd:40]
+WARNING: [Synth 8-6014] Unused sequential element CrcNextBit_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:183]
+WARNING: [Synth 8-6014] Unused sequential element sig_check_arbitration_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:192]
+WARNING: [Synth 8-6014] Unused sequential element receiveFrame_reg[Sof] was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:194]
+WARNING: [Synth 8-6014] Unused sequential element receiveFrame_reg[Reserved] was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:194]
+WARNING: [Synth 8-6014] Unused sequential element receiveFrame_reg[IDE] was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:194]
+WARNING: [Synth 8-6014] Unused sequential element receveDataByteSize_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:414]
+WARNING: [Synth 8-6014] Unused sequential element transmitNextBit_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:737]
+WARNING: [Synth 8-6014] Unused sequential element CrcNextBit_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:746]
+WARNING: [Synth 8-6014] Unused sequential element stuffingTransmitForAbitration_reg was removed.  [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:769]
 WARNING: [Synth 8-3848] Net receivePackage[IDE] in module/entity BitStreamProcessor does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:33]
 WARNING: [Synth 8-3848] Net error in module/entity BitStreamProcessor does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:38]
-WARNING: [Synth 8-3848] Net bitstuffTrigger in module/entity BitStreamProcessor does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:41]
-INFO: [Synth 8-256] done synthesizing module 'BitStreamProcessor' (2#1) [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:47]
-WARNING: [Synth 8-3848] Net sig_transmitPackage[IDE] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:84]
-WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][7] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:84]
-WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][6] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:84]
-WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][5] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:84]
-WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][4] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:84]
+INFO: [Synth 8-256] done synthesizing module 'BitStreamProcessor' (2#1) [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/BitStreamProcessor.vhd:44]
+WARNING: [Synth 8-3848] Net sig_transmitPackage[IDE] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:82]
+WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][7] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:82]
+WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][6] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:82]
+WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][5] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:82]
+WARNING: [Synth 8-3848] Net sig_transmitPackage[Data][4] in module/entity CanMaster does not have driver. [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:82]
 INFO: [Synth 8-256] done synthesizing module 'CanMaster' (3#1) [D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/new/CanMaster.vhd:51]
-WARNING: [Synth 8-3331] design BitTimeLogic has unconnected port check_arbitration
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port receivePackage[IDE]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[6]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[5]
@@ -62,7 +57,6 @@ WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[3]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[2]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[1]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[0]
-WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port bitstuffTrigger
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port transmitPackage[IDE]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port startReceive
 WARNING: [Synth 8-3331] design CanMaster has unconnected port btn[3]
@@ -70,7 +64,7 @@ WARNING: [Synth 8-3331] design CanMaster has unconnected port btn[2]
 WARNING: [Synth 8-3331] design CanMaster has unconnected port btn[1]
 WARNING: [Synth 8-3331] design CanMaster has unconnected port btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 752.477 ; gain = 238.672
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 752.000 ; gain = 240.504
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -83,10 +77,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 764.535 ; gain = 250.730
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 766.305 ; gain = 254.809
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 764.535 ; gain = 250.730
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 766.305 ; gain = 254.809
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -100,20 +94,20 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/CanMaster_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 902.254 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 904.625 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 902.254 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 904.625 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 902.254 ; gain = 388.449
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 902.254 ; gain = 388.449
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -122,12 +116,10 @@ Applied set_property IO_BUFFER_TYPE = NONE for sys_clock. (constraint file  d:/g
 Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clock. (constraint file  d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for clk_wiz. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 902.254 ; gain = 388.449
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'transmitFrameEnum_reg' in module 'BitStreamProcessor'
-INFO: [Synth 8-5544] ROM "leds" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "sig_transmitting" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "sig_write_validPrev" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "sig_read_validPrevTransmit" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -149,7 +141,7 @@ INFO: [Synth 8-5544] ROM "sig_read_validPrevTransmit" won't be mapped to Block R
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'transmitFrameEnum_reg' using encoding 'sequential' in module 'BitStreamProcessor'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 902.254 ; gain = 388.449
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -162,24 +154,23 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 6     
+	   2 Input     32 Bit       Adders := 7     
 	   2 Input      5 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     15 Bit         XORs := 2     
-	   2 Input      1 Bit         XORs := 6     
+	   2 Input      1 Bit         XORs := 7     
 +---Registers : 
-	               32 Bit    Registers := 6     
+	               32 Bit    Registers := 7     
 	               15 Bit    Registers := 3     
 	               11 Bit    Registers := 3     
 	                8 Bit    Registers := 24    
 	                4 Bit    Registers := 8     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 37    
+	                1 Bit    Registers := 38    
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 26    
+	   2 Input     32 Bit        Muxes := 34    
 	  16 Input     32 Bit        Muxes := 1     
 	  14 Input     32 Bit        Muxes := 3     
-	   2 Input     15 Bit        Muxes := 9     
+	   2 Input     15 Bit        Muxes := 11    
 	  16 Input     15 Bit        Muxes := 2     
 	  14 Input     15 Bit        Muxes := 1     
 	  16 Input     11 Bit        Muxes := 1     
@@ -188,17 +179,15 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit        Muxes := 11    
 	   2 Input      5 Bit        Muxes := 3     
 	  16 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 11    
+	   2 Input      4 Bit        Muxes := 15    
 	   3 Input      4 Bit        Muxes := 6     
-	   4 Input      4 Bit        Muxes := 1     
-	  14 Input      4 Bit        Muxes := 2     
-	   2 Input      2 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 36    
-	   3 Input      1 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 5     
-	  16 Input      1 Bit        Muxes := 17    
+	   4 Input      4 Bit        Muxes := 3     
+	  14 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 51    
+	  16 Input      1 Bit        Muxes := 16    
 	  15 Input      1 Bit        Muxes := 6     
-	  14 Input      1 Bit        Muxes := 26    
+	  14 Input      1 Bit        Muxes := 22    
 	  13 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -210,18 +199,22 @@ Hierarchical RTL Component report
 Module CanMaster 
 Detailed RTL Component Info : 
 +---Registers : 
-	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 7     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   4 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 10    
 Module BitTimeLogic 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 4     
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
 +---Muxes : 
-	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 5     
-	   3 Input      1 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 5     
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 9     
 Module BitStreamProcessor 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -229,19 +222,19 @@ Detailed RTL Component Info :
 	   2 Input      5 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     15 Bit         XORs := 2     
-	   2 Input      1 Bit         XORs := 6     
+	   2 Input      1 Bit         XORs := 7     
 +---Registers : 
 	               32 Bit    Registers := 6     
 	               15 Bit    Registers := 3     
 	               11 Bit    Registers := 3     
 	                8 Bit    Registers := 24    
-	                4 Bit    Registers := 7     
-	                1 Bit    Registers := 26    
+	                4 Bit    Registers := 6     
+	                1 Bit    Registers := 24    
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 26    
+	   2 Input     32 Bit        Muxes := 31    
 	  16 Input     32 Bit        Muxes := 1     
 	  14 Input     32 Bit        Muxes := 3     
-	   2 Input     15 Bit        Muxes := 9     
+	   2 Input     15 Bit        Muxes := 11    
 	  16 Input     15 Bit        Muxes := 2     
 	  14 Input     15 Bit        Muxes := 1     
 	  16 Input     11 Bit        Muxes := 1     
@@ -253,12 +246,12 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 11    
 	   3 Input      4 Bit        Muxes := 6     
 	   4 Input      4 Bit        Muxes := 1     
-	  14 Input      4 Bit        Muxes := 2     
+	  14 Input      4 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	  16 Input      1 Bit        Muxes := 17    
-	   2 Input      1 Bit        Muxes := 31    
+	  16 Input      1 Bit        Muxes := 16    
+	   2 Input      1 Bit        Muxes := 32    
 	  15 Input      1 Bit        Muxes := 6     
-	  14 Input      1 Bit        Muxes := 26    
+	  14 Input      1 Bit        Muxes := 22    
 	  13 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -276,7 +269,6 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3331] design BitTimeLogic has unconnected port check_arbitration
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port receivePackage[IDE]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[6]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[5]
@@ -285,7 +277,6 @@ WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[3]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[2]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[1]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port error[0]
-WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port bitstuffTrigger
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port transmitPackage[IDE]
 WARNING: [Synth 8-3331] design BitStreamProcessor has unconnected port startReceive
 WARNING: [Synth 8-3331] design CanMaster has unconnected port btn[3]
@@ -369,7 +360,7 @@ INFO: [Synth 8-3886] merging instance 'BSP/transmitFrame_reg[StdId][1]' (FDE) to
 INFO: [Synth 8-3886] merging instance 'BSP/transmitFrame_reg[StdId][0]' (FDE) to 'BSP/transmitFrame_reg[StdId][10]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (BSP/\transmitFrame_reg[StdId][10] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 902.254 ; gain = 388.449
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -383,13 +374,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk_wiz/clk_out1' to pin 'clk_wiz/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 902.254 ; gain = 388.449
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 902.254 ; gain = 388.449
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -401,7 +392,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 903.398 ; gain = 389.594
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -425,7 +416,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -438,7 +429,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -450,25 +441,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -486,54 +477,51 @@ Report Cell Usage:
 |      |Cell             |Count |
 +------+-----------------+------+
 |1     |clk_wiz_0_bbox_0 |     1|
-|2     |CARRY4           |    89|
-|3     |LUT1             |    64|
-|4     |LUT2             |   220|
-|5     |LUT3             |    48|
-|6     |LUT4             |   105|
-|7     |LUT5             |   134|
-|8     |LUT6             |   184|
-|9     |MUXF7            |     2|
-|10    |MUXF8            |     1|
-|11    |FDRE             |   331|
-|12    |FDSE             |     1|
-|13    |IBUF             |     5|
-|14    |OBUF             |     6|
+|2     |CARRY4           |    73|
+|3     |LUT1             |    62|
+|4     |LUT2             |    49|
+|5     |LUT3             |    94|
+|6     |LUT4             |   165|
+|7     |LUT5             |   151|
+|8     |LUT6             |   319|
+|9     |MUXF7            |     1|
+|10    |FDRE             |   407|
+|11    |FDSE             |    12|
+|12    |IBUF             |     5|
+|13    |OBUF             |     6|
 +------+-----------------+------+
 
 Report Instance Areas: 
 +------+---------+-------------------+------+
 |      |Instance |Module             |Cells |
 +------+---------+-------------------+------+
-|1     |top      |                   |  1191|
-|2     |  BSP    |BitStreamProcessor |  1167|
-|3     |    BTL  |BitTimeLogic       |   481|
+|1     |top      |                   |  1345|
+|2     |  BSP    |BitStreamProcessor |  1316|
+|3     |    BTL  |BitTimeLogic       |   437|
 +------+---------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 16 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:36 . Memory (MB): peak = 909.176 ; gain = 257.652
-Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 909.176 ; gain = 395.371
+Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 904.625 ; gain = 254.809
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 904.625 ; gain = 393.129
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 92 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 74 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 924.238 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 916.914 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-109 Infos, 53 Warnings, 0 Critical Warnings and 0 Errors encountered.
+105 Infos, 47 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 924.238 ; gain = 632.043
-INFO: [Common 17-600] The following parameters have non-default value.
-tcl.collectionResultDisplayLimit
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 924.238 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 916.914 ; gain = 625.004
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 916.914 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/CanMaster.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file CanMaster_utilization_synth.rpt -pb CanMaster_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Aug 26 00:29:58 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Aug 31 21:18:04 2019...

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1.1 (win64) Build 2580384 Sat Jun 29 08:12:21 MDT 2019
-| Date             : Mon Aug 26 00:31:21 2019
+| Date             : Sat Aug 31 21:28:48 2019
 | Host             : DESKTOP-254I58R running 64-bit major release  (build 9200)
 | Command          : report_power -file CanMaster_power_routed.rpt -pb CanMaster_power_summary_routed.pb -rpx CanMaster_power_routed.rpx
 | Design           : CanMaster
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.215        |
+| Total On-Chip Power (W)  | 0.214        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.121        |
+| Dynamic (W)              | 0.120        |
 | Device Static (W)        | 0.094        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 82.5         |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        6 |       --- |             --- |
-| Slice Logic    |    <0.001 |     1187 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      603 |     17600 |            3.43 |
-|   CARRY4       |    <0.001 |       89 |      4400 |            2.02 |
-|   Register     |    <0.001 |      332 |     35200 |            0.94 |
-|   F7/F8 Muxes  |    <0.001 |        3 |     17600 |            0.02 |
+| Slice Logic    |    <0.001 |     1341 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      716 |     17600 |            4.07 |
+|   CARRY4       |    <0.001 |       73 |      4400 |            1.66 |
+|   Register     |    <0.001 |      419 |     35200 |            1.19 |
+|   F7/F8 Muxes  |    <0.001 |        1 |     17600 |           <0.01 |
 |   Others       |     0.000 |        8 |       --- |             --- |
-| Signals        |    <0.001 |      857 |       --- |             --- |
+| Signals        |    <0.001 |     1073 |       --- |             --- |
 | MMCM           |     0.118 |        1 |         2 |           50.00 |
-| I/O            |     0.002 |       12 |       100 |           12.00 |
+| I/O            |    <0.001 |       12 |       100 |           12.00 |
 | Static Power   |     0.094 |          |           |                 |
-| Total          |     0.215 |          |           |                 |
+| Total          |     0.214 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -152,7 +152,7 @@ Table of Contents
 +-----------+-----------+
 | Name      | Power (W) |
 +-----------+-----------+
-| CanMaster |     0.121 |
+| CanMaster |     0.120 |
 |   clk_wiz |     0.118 |
 |     inst  |     0.118 |
 +-----------+-----------+

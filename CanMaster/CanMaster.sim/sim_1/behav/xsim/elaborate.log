@@ -14,6 +14,5 @@ Compiling package ieee.numeric_std
 Compiling package xil_defaultlib.cantypes
 Compiling module xil_defaultlib.glbl
 Compiling architecture behavioral of entity xil_defaultlib.BitTimeLogic [bittimelogic_default]
-Compiling architecture behavioral of entity xil_defaultlib.Crc15 [crc15_default]
 Compiling architecture behavioral of entity xil_defaultlib.bitstreamprocessor
 Built simulation snapshot BitStreamProcessor_behav

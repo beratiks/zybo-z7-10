@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.1 (win64) Build 2580384 Sat Jun 29 08:12:21 MDT 2019
-| Date         : Mon Aug 26 00:31:19 2019
+| Date         : Sat Aug 31 21:28:47 2019
 | Host         : DESKTOP-254I58R running 64-bit major release  (build 9200)
 | Command      : report_drc -file CanMaster_drc_routed.rpt -pb CanMaster_drc_routed.pb -rpx CanMaster_drc_routed.rpx
 | Design       : CanMaster

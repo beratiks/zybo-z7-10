@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
+-- Company: none
+-- Engineer: Berat YILDIZ
+-- e-mail : yildizberat@gmail.com
 -- Create Date: 07/10/2019 12:17:01 AM
 -- Design Name: 
 -- Module Name: CanMaster - Behavioral
@@ -25,14 +25,6 @@ use IEEE.NUMERIC_STD.ALL;
 library work;
 use work.canTypes.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity CanMaster is
     Port 
@@ -71,9 +63,7 @@ Port (
     transmitIT           : out STD_LOGIC;
     error                : out STD_LOGIC_VECTOR(SIZE_OF_ERRORS - 1 downto 0);
     transmitOrder        : in STD_LOGIC;
-    startReceive         : in std_logic;
-    bitstuffTrigger      : out std_logic;
-    leds                 : out std_logic_vector(3 downto 0)
+    startReceive         : in std_logic
     );
     
 end component BitStreamProcessor;
@@ -88,22 +78,15 @@ end component BitStreamProcessor;
     signal sig_error                : STD_LOGIC_VECTOR(SIZE_OF_ERRORS - 1 downto 0);
     signal sig_transmitOrder        : STD_LOGIC;
     
-    signal btn0             : std_logic;
-    signal btn0_prev        : std_logic;
-    
     signal led0             : std_logic;
     
     signal toggle           : boolean := false;    
     
     signal sig_startReceive : std_logic := '0';   
-    
-    signal sig_bitstuffTrigger  : std_logic;
-    
+
     signal beforeSw : std_logic_vector(3 downto 0);
     
     signal sig_transmitITPrev : std_logic;
-    
-
     
 begin
 
@@ -128,9 +111,7 @@ BSP : BitStreamProcessor port map
     transmitIT           => sig_transmitIT,
     error                => sig_error,
     transmitOrder        => sig_transmitOrder,
-    startReceive         => sig_startReceive,
-    bitstuffTrigger      => sig_bitstuffTrigger,
-    leds                  => led
+    startReceive         => sig_startReceive
 );
 
      sig_transmitPackage.StdId <= "00100000000";
@@ -198,69 +179,69 @@ begin
         
         if(sig_transmitITPrev = '0' and sig_transmitIT = '1') then
         
-            sig_transmitOrder <= '0'; 
+                sig_transmitOrder <= '0'; 
         
         end if;
         
         sig_transmitITPrev <= sig_transmitIT;
         
         
-----        -- parse                        
---        if(sig_receiveITPrev = '0' and sig_receiveIT = '1') then
+--        -- parse                        
+        if(sig_receiveITPrev = '0' and sig_receiveIT = '1') then
         
---            if(to_integer(unsigned(sig_receivePackage.StdId)) = 513) then
+            if(to_integer(unsigned(sig_receivePackage.StdId)) = 513) then
             
---                if(to_integer(unsigned(sig_receivePackage.Data(1))) = 1) then
+                if(to_integer(unsigned(sig_receivePackage.Data(1))) = 1) then
                 
---                    led(0) <= '1';
+                    led(0) <= '1';
                 
---                elsif(to_integer(unsigned(sig_receivePackage.Data(1))) = 0) then
+                elsif(to_integer(unsigned(sig_receivePackage.Data(1))) = 0) then
                 
---                    led(0) <= '0';
+                    led(0) <= '0';
                 
---                end if;
+                end if;
             
---            elsif(to_integer(unsigned(sig_receivePackage.StdId)) = 514) then
+            elsif(to_integer(unsigned(sig_receivePackage.StdId)) = 514) then
             
---               if(to_integer(unsigned(sig_receivePackage.Data(2))) = 1) then
+               if(to_integer(unsigned(sig_receivePackage.Data(2))) = 1) then
                 
---                    led(1) <= '1';
+                    led(1) <= '1';
                 
---                elsif(to_integer(unsigned(sig_receivePackage.Data(2))) = 0) then
+                elsif(to_integer(unsigned(sig_receivePackage.Data(2))) = 0) then
                 
---                    led(1) <= '0';
+                    led(1) <= '0';
                 
---                end if;
+                end if;
             
---            elsif(to_integer(unsigned(sig_receivePackage.StdId)) = 515) then
+            elsif(to_integer(unsigned(sig_receivePackage.StdId)) = 515) then
             
---                if(to_integer(unsigned(sig_receivePackage.Data(3))) = 1) then
+                if(to_integer(unsigned(sig_receivePackage.Data(3))) = 1) then
                 
---                    led(2) <= '1';
+                    led(2) <= '1';
                 
---                elsif(to_integer(unsigned(sig_receivePackage.Data(3))) = 0) then
+                elsif(to_integer(unsigned(sig_receivePackage.Data(3))) = 0) then
                 
---                    led(2) <= '0';
+                    led(2) <= '0';
                 
---                end if;
+                end if;
             
---            elsif(to_integer(unsigned(sig_receivePackage.StdId)) = 516) then
+            elsif(to_integer(unsigned(sig_receivePackage.StdId)) = 516) then
             
---                if(to_integer(unsigned(sig_receivePackage.Data(4))) = 1) then
+                if(to_integer(unsigned(sig_receivePackage.Data(4))) = 1) then
                 
---                    led(3) <= '1';
+                    led(3) <= '1';
                 
---                elsif(to_integer(unsigned(sig_receivePackage.Data(4))) = 0) then
+                elsif(to_integer(unsigned(sig_receivePackage.Data(4))) = 0) then
                 
---                    led(3) <= '0';
+                    led(3) <= '0';
                 
---                end if;
+                end if;
             
---            end if;
+            end if;
         
---        end if;
+        end if;
         
---        sig_receiveITPrev := sig_receiveIT;
+        sig_receiveITPrev := sig_receiveIT;
         
      end if;
  

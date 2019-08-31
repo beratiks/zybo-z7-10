@@ -37,10 +37,7 @@
                transmitIT           : out STD_LOGIC;
                error                : out STD_LOGIC_VECTOR(SIZE_OF_ERRORS - 1 downto 0);
                transmitOrder        : in STD_LOGIC;
-               startReceive         : in std_logic := '0';
-               bitstuffTrigger      : out std_logic;
-               leds                 : out std_logic_vector(3 downto 0)
-              
+               startReceive         : in std_logic := '0'
                );
     end BitStreamProcessor;
     
@@ -55,7 +52,6 @@
                write_order : in STD_LOGIC;          -- order of write.
                write_valid : out STD_LOGIC;         -- write is complete.  Accept falling edge
                read_valid : out STD_LOGIC;          -- read is complete.   Accept rising edge
-               check_arbitration : in std_logic;    -- bit stream processor set, because arbitration must check only message identifier phase
                sample_start      :  in std_logic    -- BSP check starf of frame and set sample start 
                ); 
       end component BitTimeLogic;
@@ -96,14 +92,14 @@
       signal    sig_TxBitTransmit           : std_logic := '1';
       signal    sig_transmitting            : std_logic := '0';
       signal    transmitError               : std_logic := '0';
+      signal    sig_read_validPrevTransmit  : std_logic;
       
       signal    arbitrationLost             : std_logic := '0';
       signal    txBitPrevForArbitration     : std_logic;
       signal    stuffingTransmitForAbitration : std_logic := '0';
       
-      signal led : std_logic;
-      
-       
+      signal    sig_write_valid_previous : std_logic;
+                  
     begin
     
     BTL : BitTimeLogic port map
@@ -116,7 +112,6 @@
         write_order =>          sig_write_order,        
         write_valid =>          sig_write_valid,         
         read_valid =>           sig_read_valid,          
-        check_arbitration =>    sig_check_arbitration,  
         sample_start     =>     sig_start_sample
     );
     
@@ -134,7 +129,7 @@
     receiving <= sig_receiving;   
     
     receiveIT <= sig_receiveIT;
-            
+    
        
     --receive process to parse frame
     receiveProcess : process
@@ -151,8 +146,6 @@
     variable    sig_read_validPrevReceive  : std_logic;
     variable    sig_write_valid_prev        : std_logic;
     
-    
-    
     begin
     
     if(rising_edge(clk_in) ) then
@@ -160,7 +153,7 @@
         case(receiveFrameEnum) is
     
             when IDLE =>
-
+                
                 sig_receiveIT <= '1';           
                 sig_receiving <= '0';                    
                 sig_start_sampleReceive <= '0';
@@ -171,7 +164,7 @@
                     receiveFrameEnum <= SOF;
                     receiveFrameEnumPrev <= SOF;
                     sig_start_sampleReceive <= '1';
-                    bitStuffingCounter <= 0;
+                    bitStuffingCounter <= 1;
                     var_CalculatedCrc := (others => '0');
                     
                 end if;
@@ -180,7 +173,7 @@
             
             
             when SOF =>      
-                    
+                
                   --  start of frame must be '0'
                    --sig_read_validPrev = '0' and 
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then    -- BTL finished to sample receive bit
@@ -213,7 +206,7 @@
             sig_read_validPrevReceive := sig_read_valid;
             when ID =>   
                                       -- Std id enum
-               
+              
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
                      
                         CrcNextBit :=  sig_RxBit xor var_CalculatedCrc(14);
@@ -228,12 +221,13 @@
                     if(receivePackageCounter = 0) then             -- if counter reach to size of std set enum to rtr
                       
                       receiveFrameEnum <= RTR;
+                      
                     end if;
                     
                     -- check bit stuffing
                     receiveFrameEnumPrev <= receiveFrameEnum;       
                     
-                    if(sig_RxBit = '0' and txBitPrevForArbitration = '1' and stuffingTransmitForAbitration = '0') then
+                    if(sig_RxBit = '0' and txBitPrevForArbitration = '1') then
                     
                         arbitrationLost <= '1';
                     
@@ -348,7 +342,7 @@
              sig_read_validPrevReceive := sig_read_valid;   
              
              when RESERVE =>
-              
+           
                if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
 
                     CrcNextBit :=  sig_rxBit xor var_CalculatedCrc(14);
@@ -401,7 +395,7 @@
             sig_read_validPrevReceive := sig_read_valid;
             
             when DLC => 
-              
+            
                    -- collect data bits to receive enum. 
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then  
 
@@ -412,8 +406,7 @@
                     if (CrcNextBit = '1') then
                           var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
                     end if;
-                                        
-                    
+                                         
                     dlcIterator(receivePackageCounter) := sig_RxBit;
                     receivePackageCounter <= receivePackageCounter - 1;
                     if(receivePackageCounter = 0) then
@@ -462,7 +455,7 @@
             sig_read_validPrevReceive := sig_read_valid;
             
             when DATA =>            -- collect data bits until received bits size reach to dlc size
-              
+            
               if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
 
                     CrcNextBit :=  sig_rxBit xor var_CalculatedCrc(14);
@@ -520,7 +513,7 @@
             
             
             when CRC =>                         -- crc stage to collect crc bits
-              
+               
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
                  
                     receivePackageCounter <= receivePackageCounter - 1;
@@ -572,10 +565,9 @@
             sig_read_validPrevReceive := sig_read_valid;
             
             when CRC_DELIMITER =>           -- for crc delimeter send dominant bit to transmitter.
-              
+            
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
 
-                  --  tx_Pin <= '0';
                     if(sig_transmitting = '0') then 
                         sig_write_orderReceive <= '1';
                         sig_TxBitReceive <= '0';
@@ -588,8 +580,9 @@
 
                 end if;
                 sig_read_validPrevReceive := sig_read_valid;  
+                sig_write_valid_prev := sig_write_valid;
             when ACK =>                 
-                 
+                
                    if(sig_write_valid_prev = '0' and sig_write_valid = '1') then
                    
                     if(sig_transmitting = '0') then
@@ -602,13 +595,11 @@
                    
                    end if;     
                         
-                        
-                        
-
                    end if;
-                 sig_write_valid_prev := sig_write_valid;
+                   sig_write_valid_prev := sig_write_valid;
+                 sig_read_validPrevReceive := sig_write_valid;
             when ACK_DELIMITER =>               -- send ack and go to eof enum
-               
+            
                 sig_write_orderReceive <= '0';
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
 
@@ -619,7 +610,7 @@
                sig_read_validPrevReceive := sig_read_valid; 
                  
             when EOF =>                                                     -- collect all eof bits check all bits if equal to recessive bit.
-                
+              
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
                     
                    if(sig_rxBit = '1') then     
@@ -640,7 +631,7 @@
                 end if; 
            sig_read_validPrevReceive := sig_read_valid;     
            when IFS =>                                      -- collect all ifs bits check all bits if equal to recessive bit.
-               
+             
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
                 
                   if(sig_rxBit = '1') then 
@@ -669,7 +660,7 @@
           sig_read_validPrevReceive := sig_read_valid;      
           
           when STUFFING =>
-            
+           
             if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
                 if(sig_RxBit = bitStuffingWillWaitBit) then
                     
@@ -711,8 +702,10 @@
     variable    var_CalculatedCrc          :  std_logic_vector(14 downto 0) := "000000000000000";
     
     variable sig_read_validPrevTransmit : std_logic;
-    variable    sig_write_validPrev : std_logic;
+
     variable transmitOrderPrev : std_logic := '0';
+    
+
 
     begin
     if(rising_edge(clk_in) ) then
@@ -720,8 +713,7 @@
         case(transmitFrameEnum) is
         
         when IDLE =>
-           
-           leds <= "0001";
+
            
            if(transmitOrder = '1') then
         
@@ -760,11 +752,10 @@
                 end if;
                 
             end if;   
-             sig_write_validPrev := sig_write_valid; 
              
         when SOF =>     
-            leds <= "0010";
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
                 
                 -- start of bit stuffing control
@@ -772,9 +763,9 @@
                 
                     transmitNextBit := not sig_TxBitPrev;
                     transmitBitStuffingCounter := 1;
-                    stuffingTransmitForAbitration <= '1';
-                    
+
                 else
+                
                     stuffingTransmitForAbitration <= '0';
                     transmitPackageCounter := SIZE_OF_STD_ID - 1;
                     transmitNextBit := transmitFrame.StdId(transmitPackageCounter);
@@ -797,45 +788,45 @@
                     if (CrcNextBit = '1') then
                         var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
                     end if;
-                    txBitPrevForArbitration <= transmitNextBit;
+                   
                 end if;
                 -- end of bit stuffing control
                 sig_TxBitTransmit <= transmitNextBit;
                 sig_TxBitPrev <= transmitNextBit;
-                
+                txBitPrevForArbitration <= transmitNextBit;
             end if;
-        sig_write_validPrev := sig_write_valid;
         
         when ID =>
-            leds <= "0100";
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
+                                
                 if(arbitrationLost = '1') then
                                              
                    startTransmit <= '1';
                    sig_TxBitTransmit <= '1';
                    transmitFrameEnum <= IDLE;
-                
+                   
                 end if;
-                -- start of bit stuffing control
+
                 if(transmitBitStuffingCounter = 5) then
                 
                     transmitNextBit := not sig_TxBitPrev;
                     transmitBitStuffingCounter := 1;
-                    stuffingTransmitForAbitration <= '1';
+                                  
                 else
-                    stuffingTransmitForAbitration <= '0';
+
                     if(transmitPackageCounter = 0) then
                         
                         transmitNextBit := transmitFrame.Rtr;
                         transmitFrameEnum <= RTR;
-                        
-                        
                     else
+                    
                         transmitPackageCounter := transmitPackageCounter - 1;
                         transmitNextBit := transmitFrame.StdId(transmitPackageCounter);
 
                     end if;
+                    
                     if(sig_TxBitPrev = transmitNextBit) then
                         
                         transmitBitStuffingCounter := transmitBitStuffingCounter + 1;
@@ -853,17 +844,18 @@
                         if (CrcNextBit = '1') then
                             var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
                         end if;
-                        txBitPrevForArbitration <= transmitNextBit;
+--                        txBitPrevForArbitration <= transmitNextBit;
                 end if;
                 -- end of bit stuffing control
-             sig_TxBitPrev <= transmitNextBit;
+                
+             
              sig_TxBitTransmit <= transmitNextBit;
+             sig_TxBitPrev <= transmitNextBit;
              end if;
-         sig_write_validPrev := sig_write_valid;    
-         
+              
          when RTR =>
-            leds <= "1000";
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
           
                 if(arbitrationLost = '1') then
                                              
@@ -906,12 +898,12 @@
                 sig_TxBitPrev <= transmitNextBit;
                 sig_TxBitTransmit <= transmitNextBit;
             end if;
-          sig_write_validPrev := sig_write_valid;  
+
           
           when IDE =>
           
-            leds <= "0011";
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
                 -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
@@ -948,13 +940,11 @@
                               
             
             end if;
-            
-                        
-          sig_write_validPrev := sig_write_valid;
+                     
             
           when RESERVE =>
-            leds <= "0101";  
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                             
                 -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
@@ -990,11 +980,10 @@
                 sig_TxBitPrev <= transmitNextBit;
                 
             end if;
-        sig_write_validPrev := sig_write_valid;
          
           when DLC =>
-            leds <= "1001";
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
                 -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
@@ -1003,11 +992,19 @@
                     transmitBitStuffingCounter := 1;
                 else    
                     if(transmitPackageCounter = 0) then
-                        if(transmitFrame.Rtr = '0') then
+                        if(transmitFrame.Rtr = '0' and transmitFrame.Dlc /= "0000") then
                             transmitPackageCounter := 7;
                             transmitDataByteCounter := 0;
                             transmitNextBit := transmitFrame.Data(transmitDataByteCounter)(transmitPackageCounter);
                             transmitFrameEnum <= DATA;
+                            
+                            CrcNextBit :=  transmitNextBit xor var_CalculatedCrc(14);
+                            var_CalculatedCrc(14 downto 1) := var_CalculatedCrc(13 downto 0);
+                            var_CalculatedCrc(0) := '0';        
+                            if (CrcNextBit = '1') then
+                                 var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
+                            end if;
+                            
                         else
                         
                             transmitPackageCounter := SIZE_OF_CRC - 1;
@@ -1018,7 +1015,13 @@
                     else
                         transmitPackageCounter := transmitPackageCounter - 1;
                         transmitNextBit := transmitFrame.Dlc(transmitPackageCounter); 
-                     
+                        
+                        CrcNextBit :=  transmitNextBit xor var_CalculatedCrc(14);
+                        var_CalculatedCrc(14 downto 1) := var_CalculatedCrc(13 downto 0);
+                        var_CalculatedCrc(0) := '0';        
+                        if (CrcNextBit = '1') then
+                             var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
+                        end if;
 
                      end if;
                   
@@ -1031,24 +1034,17 @@
                         transmitBitStuffingCounter := 1;
                         
                      end if; 
-                     
-                     CrcNextBit :=  transmitNextBit xor var_CalculatedCrc(14);
-                     var_CalculatedCrc(14 downto 1) := var_CalculatedCrc(13 downto 0);
-                     var_CalculatedCrc(0) := '0';
-                             
-                     if (CrcNextBit = '1') then
-                         var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
-                      end if;
+
                 end if;
                 -- end of bit stuffing control
              sig_TxBitPrev <= transmitNextBit;
              sig_TxBitTransmit <= transmitNextBit;
              end if;
-         sig_write_validPrev := sig_write_valid;    
+              
          
           when DATA =>
-            leds <= "0110";
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
                 -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
@@ -1099,13 +1095,12 @@
                 -- end of bit stuffing control
              sig_TxBitPrev <= transmitNextBit;
              sig_TxBitTransmit <= transmitNextBit;
-             end if;
-         sig_write_validPrev := sig_write_valid;  
+             end if; 
          
            
          when CRC =>
-               leds <= "1010";
-                if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+                if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
                 -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
@@ -1135,23 +1130,21 @@
                 -- end of bit stuffing control
              sig_TxBitPrev <= transmitNextBit;
              sig_TxBitTransmit <= transmitNextBit;
-             end if;
-         sig_write_validPrev := sig_write_valid;    
+             end if;   
 
 
          when CRC_DELIMITER =>
-            leds <= "1100";
-            if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+            if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
 
                 transmitNextBit := '1';
                 transmitFrameEnum <= ACK;
                 sig_start_sampleTransmit <= '1';
 
-            end if;
-            sig_write_validPrev := sig_write_valid;   
-            
+            end if; 
+            sig_read_validPrevTransmit := sig_read_valid;
            when ACK =>
-            leds <= "0111";  
+
             if(sig_read_validPrevTransmit = '0' and sig_read_valid = '1') then
                 
                 if(sig_RxBit = '0') then
@@ -1169,23 +1162,21 @@
                 end if;
                 
             end if;
-           
             sig_read_validPrevTransmit := sig_read_valid; 
         
               when ACK_DELIMITER =>
-              leds <= "1101";
-               if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+               if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                     
                     transmitPackageCounter := SIZE_OF_EOF - 1;
                     sig_TxBitTransmit <= '1';
                     transmitFrameEnum <= EOF;
                                     
                end if;
-              sig_write_validPrev := sig_write_valid;      
               
               when EOF =>
-                  leds <= "1011";
-                    if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+                    if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
 
                         if(transmitPackageCounter = 0) then
                         
@@ -1201,10 +1192,10 @@
                         end if;
                     
                     end if;
-              sig_write_validPrev := sig_write_valid;      
+             
               when IFS =>
-                        leds <= "1110";
-                        if(sig_write_validPrev = '0' and sig_write_valid = '1') then
+
+                        if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
 
                         if(transmitPackageCounter = 0) then
                         
@@ -1232,7 +1223,7 @@
                         end if;
                       
                     end if;
-              sig_write_validPrev := sig_write_valid;
+              
       
         when STUFFING =>
         
@@ -1242,7 +1233,9 @@
         
               
         end case;
+        sig_write_valid_previous <= sig_write_valid;
     end if;                
     end process;
     
+        
     end Behavioral;

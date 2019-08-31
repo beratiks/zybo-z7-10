@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../CanMaster.srcs/sources_1/new/CanTypes.vhd" \
+"../../../../CanMaster.srcs/sources_1/new/BitTimeLogic.vhd" \
+
+# Do not sort compile order
+nosort

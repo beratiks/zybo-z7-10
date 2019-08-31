@@ -1,7 +1,7 @@
-Running: xsim.dir/BitStreamProcessor_behav/xsimk.exe -simmode gui -wdb BitStreamProcessor_behav.wdb -simrunnum 0 -socket 52421
+Running: xsim.dir/BitStreamProcessor_behav/xsimk.exe -simmode gui -wdb BitStreamProcessor_behav.wdb -simrunnum 0 -socket 59662
 Design successfully loaded
-Design Loading Memory Usage: 5600 KB (Peak: 5600 KB)
-Design Loading CPU Usage: 15 ms
+Design Loading Memory Usage: 5416 KB (Peak: 5416 KB)
+Design Loading CPU Usage: 109 ms
 Simulation completed
-Simulation Memory Usage: 6288 KB (Peak: 6288 KB)
-Simulation CPU Usage: 1315515 ms
+Simulation Memory Usage: 6088 KB (Peak: 6088 KB)
+Simulation CPU Usage: 1282390 ms

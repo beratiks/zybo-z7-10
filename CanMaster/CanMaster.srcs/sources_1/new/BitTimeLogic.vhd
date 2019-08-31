@@ -32,7 +32,6 @@ entity BitTimeLogic is
            write_order : in STD_LOGIC;          -- order of write.
            write_valid : out STD_LOGIC;         -- write is complete.  Accept falling edge
            read_valid : out STD_LOGIC;          -- read is complete.   Accept rising edge
-           check_arbitration : in std_logic;    -- bit stream processor set, because arbitration must check only message identifier phase
            sample_start      :  in std_logic    -- BSP check starf of frame and set sample start
            ); 
            
@@ -56,15 +55,14 @@ signal sig_read_valid   : STD_LOGIC := '0';
 signal sig_startSample  : STD_LOGIC := '0';  
 
 signal oneBitQuantaTime : integer := TIME_SEGMENT_1 + TIME_SEGMENT_2 + TIME_SYNC_SEGMENT;  -- one bit time
-signal timeQuantaCounter : integer := 0;                                                    -- time quanta counter to detect bit states
-
+                                                 -- time quanta counter to detect bit states
 type BitStateType is (IDLE,SYNC_SEGMENT,PHASE_SEGMENT_1,PHASE_SEGMENT_2);                   -- bit state enum type definition
 signal BitState : BitStateType := IDLE;                                                     --  bit state enum
 
-signal sig_bitArbitrationLose : std_logic := '0';
-
 signal sig_RxPinPrev_receive       : STD_LOGIC;       
 signal sig_RxPinPrev_transmit      : STD_LOGIC;      
+
+signal sig_write_order_prev        : std_logic;
 
 begin
 -- conneect ports to signals to R-W
@@ -78,167 +76,111 @@ read_valid <= sig_read_valid;
 sig_startSample <= sample_start;
 
 -- calculate time quanta on every bit time
-timeQuantaProcess : process(clk_in,sig_write_valid)
+timeQuantaProcess : process(clk_in)
+
+variable timeQuantaCounter : integer := 0;   
+
 begin
  
     if(rising_edge(clk_in)) then
+    
+    
+        if(sig_write_order_prev = '0' and sig_write_order = '1') then
+        
+            timeQuantaCounter := 0;
+            sig_txPin <= '0';
+            
+        end if;
+        
+        sig_write_order_prev <= sig_write_order;
+    
         if(sig_startSample = '1' or sig_write_order = '1') then
+        
             if(timeQuantaCounter >= oneBitQuantaTime - 1) then
             
-                timeQuantaCounter <= 0;
+                timeQuantaCounter := 0;
                
             else
             
-                timeQuantaCounter <= timeQuantaCounter + 1;
+                timeQuantaCounter := timeQuantaCounter + 1;
             
             end if;
         else
         
-        timeQuantaCounter <= 0;
+        timeQuantaCounter := 0;
         
         end if;
-    end if;
-
-end process;
-
--- set BitState state depends on time quanta
-bitStateProcess : process(clk_in,timeQuantaCounter)
-begin
-  if(rising_edge(clk_in)) then  
-            
-        if(timeQuantaCounter >= 0 and timeQuantaCounter < TIME_SYNC_SEGMENT) then
         
-            bitState <= SYNC_SEGMENT;
+        if(timeQuantaCounter = TIME_SYNC_SEGMENT - 1) then
         
-        elsif(timeQuantaCounter >= TIME_SYNC_SEGMENT and timeQuantaCounter < TIME_SYNC_SEGMENT+ sig_time_segment_1) then
-        
-            bitState <= PHASE_SEGMENT_1;
-        
-        elsif(timeQuantaCounter >= TIME_SYNC_SEGMENT + sig_time_segment_1 and timeQuantaCounter < oneBitQuantaTime) then
-        
-            bitState <= PHASE_SEGMENT_2;
+            sig_read_valid <= '0'; 
+            sig_write_valid <= '0';
             
-      end if;
- end if;
-end process;
-
--- listen Rx process
-receiveProcess : process(bitState,clk_in,timeQuantaCounter)
-begin
-    if(rising_edge(clk_in)) then
-    
-        case(bitState) is
-        
-            when IDLE =>    
-            
-
-            
+            if(sig_write_order = '1') then
                 
-            when SYNC_SEGMENT =>
-            
-                sig_read_valid <= '0'; 
-                             
-                
-            when PHASE_SEGMENT_1 =>
-            
-                if(timeQuantaCounter = (TIME_SYNC_SEGMENT + sig_time_segment_1 -1)) then   -- sample point where end of the time_segment_1
-                    
-                            sig_rxBit <= sig_rxPin;
-                            sig_read_valid <= '1';
-                            
-                
-                 end if;
-                 
---                if(sig_RxPinPrev_receive = '1' and sig_rxPin = '0' ) then        -- check if change rx recessive to dominant for re-synchronisaton. this is interpreted as a late edge
-                
---                    sig_time_segment_1 <= sig_time_segment_1 + (timeQuantaCounter - TIME_SYNC_SEGMENT);
---                    oneBitQuantaTime <= TIME_SYNC_SEGMENT + sig_time_segment_1 + sig_time_segment_2;
-                    
---                end if;
-                
-
-                
-            
-            when PHASE_SEGMENT_2 => 
-            
---                if(sig_RxPinPrev_receive = '1' and sig_rxPin = '0' ) then         -- check if change rx recessive to dominant for re-synchronisaton. this is interpreted as an early bit
-                
---                    sig_time_segment_2 <= sig_time_segment_2 - (timeQuantaCounter - (TIME_SYNC_SEGMENT + time_segment_1));
---                    oneBitQuantaTime <= TIME_SYNC_SEGMENT + sig_time_segment_1 + sig_time_segment_2;
-                
---                end if;
-            
-                sig_read_valid <= '0';          -- send info to Bit Stream Processor
-                
-            when others =>
-           
-        
-        end case;
-        sig_RxPinPrev_receive <= sig_rxPin;
-  end if;
-
-end process;
-
--- transmit process
-transmitBitProcess : process(clk_in)
-begin
-
-   if(rising_edge(clk_in)) then
-    
-        case(bitState) is
-        
-            when IDLE =>       
-            
-                sig_TxPin <= '1';
-                
-            when SYNC_SEGMENT =>
-            
-                if(sig_write_order = '1') then
-                    sig_write_valid <= '0';
-                    
-                        sig_txPin <= sig_txBit;  
+                sig_txPin <= sig_txBit;  
   
-                 else
+            else
                  
-                     sig_txPin <= '1';
+                sig_txPin <= '1';
                      
+            end if;
+        elsif(timeQuantaCounter >= 1 and timeQuantaCounter < TIME_SYNC_SEGMENT + sig_time_segment_1) then
+        
+               if(sig_RxPinPrev_receive = '1' and sig_rxPin = '0' and sig_write_order = '0' ) then        -- check if change rx recessive to dominant for re-synchronisaton. this is interpreted as a late edge
+                
+                    timeQuantaCounter := 1;
+                    
+                end if;
+
+            if(timeQuantaCounter = TIME_SYNC_SEGMENT + sig_time_segment_1 - 1) then
+            
+                sig_rxBit <= sig_rxPin;
+                sig_read_valid <= '1';
+                
+                if(sig_write_order = '1') then                 
+                        
+                    sig_write_valid <= '1';
+                    
+                else
+              
+                    sig_txPin <= '1';
+                    sig_write_valid <= '0';
+               
                 end if;
                 
-                
-            when PHASE_SEGMENT_1 =>
             
-               if(sig_write_order = '1') then                 
-                    if(timeQuantaCounter = (TIME_SYNC_SEGMENT + time_segment_1 - 1)) then
-                        
-                        sig_write_valid <= '1';
-                    
-                    end if;
-               else
-               
-                    sig_txPin <= '1';
-               
-               end if;
-            
-            when PHASE_SEGMENT_2 => 
-            
-                if(sig_write_order = '1') then
-                    sig_bitArbitrationLose <= '0';
-
-                        sig_write_valid <= '0';
-                    
-               else
-               
-                  sig_txPin <= '1';  
-               
-               end if;
-                
-            when others =>
-           
+            end if;
         
-        end case;
-        sig_RxPinPrev_transmit <= sig_rxPin;
-  end if;
+        else
+          
+          if(sig_RxPinPrev_receive = '1' and sig_rxPin = '0' and sig_write_order = '0' ) then         -- check if change rx recessive to dominant for re-synchronisaton. this is interpreted as an early bit
 
+                timeQuantaCounter := 1;
+                              
+            end if;
+            
+            sig_read_valid <= '0';
+            
+
+                if(sig_write_order = '1') then    
+                    
+                    sig_write_valid <= '0';
+                    
+                else
+                
+                    sig_write_valid <= '0';
+                    sig_txPin <= '1';
+                    
+                end if;    
+            
+        
+        end if;
+        
+        
+        
+     sig_RxPinPrev_receive <= sig_rxPin;   
+    end if;
 
 end process;
 
