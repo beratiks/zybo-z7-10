@@ -1,4 +1,4 @@
-# Fpga Vhdl I2C example.
+# Fpga Vhdl I2C example. Last Version
 
 I used PCF8574 as port expander.
 
