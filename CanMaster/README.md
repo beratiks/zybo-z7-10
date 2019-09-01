@@ -15,12 +15,11 @@
 
 # Design : 
 
-- There is 4 module : 
--- Clock wizard (Xilinx IP) : for get 8 Mhz main can clock
--- Bit Time Logic           : for bit timing and resynhronization
--- Bit Stream Processor     : for serialization packages, crc, bit stuffing, receive and transmit packages.
--- Can Master               : Top module for send and parse packages.
--- CanTypes.vhd             : for storage some defines. (prescaler, time segments, data size ...)
+- Clock wizard (Xilinx IP) : for get 8 Mhz main can clock
+- Bit Time Logic           : for bit timing and resynhronization
+- Bit Stream Processor     : for serialization packages, crc, bit stuffing, receive and transmit packages.
+- Can Master               : Top module for send and parse packages.
+- CanTypes.vhd             : for storage some defines. (prescaler, time segments, data size ...)
 
 - Baudrate Generation : 
 
