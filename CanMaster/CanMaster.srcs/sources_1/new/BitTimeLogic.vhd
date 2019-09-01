@@ -39,8 +39,8 @@ end BitTimeLogic;
 
 architecture Behavioral of BitTimeLogic is
 
-signal sig_time_segment_1 : integer := TIME_SEGMENT_1;
-signal sig_time_segment_2 : integer := TIME_SEGMENT_2;
+signal sig_time_segment_1 : integer := TIME_SEGMENT_1;          -- time segment bit get from canTypes lib
+signal sig_time_segment_2 : integer := TIME_SEGMENT_2;          -- time segment bit get from canTypes lib
 
 -- signal of ports
 signal sig_TxPin        : STD_LOGIC;     
@@ -64,6 +64,10 @@ signal sig_RxPinPrev_transmit      : STD_LOGIC;
 
 signal sig_write_order_prev        : std_logic;
 
+signal canClock                    : std_logic := '0';
+signal canClockCounter             : integer := 0;
+signal canClockCounterLimit        : integer := BAUDRATE_PRESCALER - 1;
+
 begin
 -- conneect ports to signals to R-W
 TxPin <= sig_TxPin;
@@ -75,17 +79,44 @@ write_valid <= sig_write_valid;
 read_valid <= sig_read_valid;
 sig_startSample <= sample_start;
 
+canClockProcess : process(clk_in)
+
+begin
+
+    if(canClockCounterLimit = 0) then
+    
+        canClock <= clk_in;
+    
+    else
+
+        if(rising_edge(clk_in)) then
+            if(canClockCounter = canClockCounterLimit - 1) then
+            
+                canClock <= not canClock;
+                canClockCounter <= 0;
+            
+            else
+            
+                canClockCounter <= canClockCounter + 1;
+            
+            end if;
+        end if;
+    end if;
+
+end process;
+
 -- calculate time quanta on every bit time
-timeQuantaProcess : process(clk_in)
+-- set valid for write and read depends on bit timing and resynchronisation  
+timeQuantaProcess : process(canClock)
 
 variable timeQuantaCounter : integer := 0;   
 
 begin
  
-    if(rising_edge(clk_in)) then
+    if(rising_edge(canClock)) then
     
     
-        if(sig_write_order_prev = '0' and sig_write_order = '1') then
+        if(sig_write_order_prev = '0' and sig_write_order = '1' and sig_startSample = '0') then
         
             timeQuantaCounter := 0;
             sig_txPin <= '0';

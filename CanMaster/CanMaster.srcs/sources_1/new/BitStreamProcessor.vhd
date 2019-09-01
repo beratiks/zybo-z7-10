@@ -27,17 +27,17 @@
 
 
     entity BitStreamProcessor is
-        Port ( Tx_Pin               : out STD_LOGIC := '1';
-               Rx_Pin               : in STD_LOGIC;
-               clk_in               : in STD_LOGIC;
-               receivePackage       : out CanPackage;
-               transmitPackage      : in CanPackage;
-               receiving            : out STD_LOGIC;
-               receiveIT            : out STD_LOGIC;
-               transmitIT           : out STD_LOGIC;
-               error                : out STD_LOGIC_VECTOR(SIZE_OF_ERRORS - 1 downto 0);
-               transmitOrder        : in STD_LOGIC;
-               startReceive         : in std_logic := '0'
+        Port ( Tx_Pin               : out STD_LOGIC := '1';         -- tx phy pin start with high
+               Rx_Pin               : in STD_LOGIC;                 -- rx phy pin
+               clk_in               : in STD_LOGIC;                 -- can bus clock come from clock wizard as 24 Mhz
+               receivePackage       : out CanPackage;               -- received package to inform top module
+               transmitPackage      : in CanPackage;                -- transmit package come from top module to send
+               receiving            : out STD_LOGIC;                -- when receiving this signal high
+               receiveIT            : out STD_LOGIC;                -- end of receiving interrupt signal at rising edge
+               transmitIT           : out STD_LOGIC;                -- end of transmit ,nterrupt at rising edge
+               error                : out STD_LOGIC_VECTOR(SIZE_OF_ERRORS - 1 downto 0);    -- can bus error inform to top module
+               transmitOrder        : in STD_LOGIC;                 -- transmit start at rising edge this signal
+               errorOccured         : out STD_LOGIC                 -- error occur at rising edge
                );
     end BitStreamProcessor;
     
@@ -58,67 +58,69 @@
       
       type FrameEnumType is (IDLE,SOF,ID,RTR,IDE,DLC,RESERVE,DATA,CRC,CRC_DELIMITER,ACK,ACK_DELIMITER,EOF,IFS,STUFFING,LOCK);  -- enum types for parse and transmit frame
 
-
-      signal    sig_RxBit                   :   std_logic;
-      signal    sig_read_valid              :   std_logic;
-      signal    sig_check_arbitration       :   std_logic   :=  '0';    
+      signal    error_receive               :   std_logic_vector(SIZE_OF_ERRORS - 1 downto 0);  -- error buffer to inform top module
+      signal    sig_errorOccured_receive    :   std_logic;          -- error signal valid at rising edge
+      signal    sig_RxBit                   :   std_logic;          -- received rx Bit
+      signal    sig_read_valid              :   std_logic;          -- received valid every rising edge
+      signal    sig_check_arbitration       :   std_logic   :=  '0';       -- check arbitration state
       signal    receiveFrameEnum            :   FrameEnumType  := Idle;         -- receive enum 
       signal    receiveFrameEnumPrev        :   FrameEnumType  := Idle;         -- receive enum
       signal    sig_start_sample            :   std_logic := '0';   -- check rx pin falling edge and set start sample to BTL
       signal    receiveFrame                :   CanFrame;                   -- receive frame for collection all received bits
       signal    receivePackageCounter       :   integer := 0;      -- counter to get all bits of stage frame
       signal    receiveDataByteCounter      :   integer := 0;     -- counter to get all bits data stage
-      signal    sig_receiving               :   std_logic   := '0';       
-      signal    sig_receiveIT               :   std_logic;
-      signal    startSample_receive         :   std_logic := '0';     
-      signal    sig_rxPin                   :   std_logic       := '1';
-      signal    sig_rxPinPrev               :   std_logic := '1';
-      signal    bitStuffingCounter          :   integer := 0;
-      signal    bitStuffingWillWaitBit      :   std_logic;
-      signal    sig_TxBitReceive            :   std_logic := '1';
-      signal    sig_write_orderReceive      :   std_logic   := '0';
-      signal    sig_start_sampleReceive     :   std_logic := '0';
+      signal    sig_receiving               :   std_logic   := '0';         -- set high during receiving
+      signal    sig_receiveIT               :   std_logic;              -- end of receiving at rising edge
+      signal    startSample_receive         :   std_logic := '0';       -- start receiving signal at receive process
+      signal    sig_rxPin                   :   std_logic       := '1'; -- rx phy pin signal
+      signal    sig_rxPinPrev               :   std_logic := '1';       -- previous rx Pin detect rising or falling
+      signal    bitStuffingCounter          :   integer := 0;           -- bit stuffing counter to detect bit stuff
+      signal    bitStuffingWillWaitBit      :   std_logic;              -- when  bit stuff occur wait bit stuff bit
+      signal    sig_TxBitReceive            :   std_logic := '1';       -- signal tx bit for using receive process
+      signal    sig_write_orderReceive      :   std_logic   := '0';     -- write order for use at receive process
+      signal    sig_start_sampleReceive     :   std_logic := '0';       -- start receive signal for using at receive process 
              
-      signal    sig_start_sampleTransmit    :   std_logic := '0';
-      signal    sig_write_order             :   std_logic   := '0';
-      signal    sig_write_orderTransmit     :   std_logic   := '0';
-      signal    sig_write_valid             :   std_logic;   
-      signal    sig_TxBit                   :   std_logic;
-      signal    sig_TxBitPrev               :   std_logic;
+      signal    sig_start_sampleTransmit    :   std_logic := '0';       -- start receive signal for using at transmit process
+      signal    sig_write_order             :   std_logic   := '0';     -- write order
+      signal    sig_write_orderTransmit     :   std_logic   := '0';     -- write order for usinbg transmit process
+      signal    sig_write_valid             :   std_logic;              -- write valid at rising edge
+      signal    sig_TxBit                   :   std_logic;              -- transmit bit to send
+      signal    sig_TxBitPrev               :   std_logic;              -- transmit prev bit detect rising or falling
       signal    transmitFrameEnum           :   FrameEnumType  := Idle;         -- receive enum 
       signal    transmitFrame               :   CanFrame;                   -- receive frame for collection all received bits
-      signal    sig_transmitIT              :   std_logic;
-      signal    startTransmit               : std_logic := '1';
-      signal    sig_TxBitTransmit           : std_logic := '1';
-      signal    sig_transmitting            : std_logic := '0';
-      signal    transmitError               : std_logic := '0';
-      signal    sig_read_validPrevTransmit  : std_logic;
+      signal    sig_transmitIT              :   std_logic;                  -- end of transmit at rising edge
+      signal    startTransmit               : std_logic := '1';             -- start transmit to send
+      signal    sig_TxBitTransmit           : std_logic := '1';             -- start transmit to send for using at transmit process
+      signal    sig_transmitting            : std_logic := '0';             -- transmitting signal high during transmitting
+      signal    transmitError               : std_logic := '0';             --transmit error signal to resend
+      signal    sig_read_validPrevTransmit  : std_logic;                    -- signal read valid for use at transmit process
+      signal    arbitrationLost             : std_logic := '0';             -- arbitration lost signal to cancel transmit
+      signal    txBitPrevForArbitration     : std_logic;                    -- tx bit for check lost arbitration
+      signal    sig_write_valid_previous    : std_logic;                    -- write valid prev for detect rising edge 
+      signal    sig_errorOccured_transmsit  :   std_logic;                  -- error signal valid at rising edge
+      signal    error_transmit              :   std_logic_vector(SIZE_OF_ERRORS - 1 downto 0);  -- error buffer to inform top module
       
-      signal    arbitrationLost             : std_logic := '0';
-      signal    txBitPrevForArbitration     : std_logic;
-      signal    stuffingTransmitForAbitration : std_logic := '0';
-      
-      signal    sig_write_valid_previous : std_logic;
-                  
     begin
     
     BTL : BitTimeLogic port map
     (
-        TxPin =>                Tx_Pin,             
-        RxPin =>                Rx_Pin,                    
-        TxBit =>                sig_TxBit,               
-        RxBit =>                sig_RxBit,             
-        clk_in =>               clk_in,              
-        write_order =>          sig_write_order,        
-        write_valid =>          sig_write_valid,         
-        read_valid =>           sig_read_valid,          
-        sample_start     =>     sig_start_sample
+        TxPin            =>          Tx_Pin,             
+        RxPin            =>          Rx_Pin,                    
+        TxBit            =>          sig_TxBit,               
+        RxBit            =>          sig_RxBit,             
+        clk_in           =>          clk_in,              
+        write_order      =>          sig_write_order,        
+        write_valid      =>          sig_write_valid,         
+        read_valid       =>          sig_read_valid,          
+        sample_start     =>          sig_start_sample
     );
     
     
-    sig_rxPin <= Rx_Pin;
+    sig_rxPin <= Rx_Pin;                    
     
-    sig_TxBit <= sig_TxBitTransmit and sig_TxBitReceive;
+    -- for receive and transmit process set tx bit together
+    
+    sig_TxBit <= sig_TxBitTransmit and sig_TxBitReceive;            
     
     sig_write_order <= sig_write_orderReceive or sig_write_orderTransmit;
     
@@ -130,19 +132,22 @@
     
     receiveIT <= sig_receiveIT;
     
+    errorOccured <= sig_errorOccured_transmsit or sig_errorOccured_receive;
+    error        <= error_receive or error_transmit;
        
     --receive process to parse frame
     receiveProcess : process
     
     
-    variable    dlcIterator             :   std_logic_vector(SIZE_OF_DLC - 1 downto 0);
+    variable    dlcIterator             :   std_logic_vector(SIZE_OF_DLC - 1 downto 0);             -- dlc iterator to storage dlc
     variable    receveDataByteSize      : integer := 0;     -- stroge to received dlc as integer format
-    variable    receivedCrc             : std_logic_vector(14 downto 0);
+    variable    receivedCrc             : std_logic_vector(14 downto 0);        -- received crc to check crc
     
-    
-    variable    CrcNextBit                 :  std_logic;
-    variable    var_CalculatedCrc          :  std_logic_vector(14 downto 0) := "000000000000000";
+    -- for calculate crc
+    variable    CrcNextBit                 :  std_logic;                        
+    variable    var_CalculatedCrc          :  std_logic_vector(14 downto 0) := "000000000000000";   
      
+    -- detect write or read for rising or falling
     variable    sig_read_validPrevReceive  : std_logic;
     variable    sig_write_valid_prev        : std_logic;
     
@@ -154,11 +159,13 @@
     
             when IDLE =>
                 
-                sig_receiveIT <= '1';           
+                sig_receiveIT <= '1';               -- idle state to empty bus
                 sig_receiving <= '0';                    
                 sig_start_sampleReceive <= '0';
                 arbitrationLost <= '0';
-                if(sig_rxPin = '0') then
+                error_receive <= (others => '0');
+                sig_errorOccured_receive <= '0';
+                if(sig_rxPin = '0') then            -- bus change recessive to dominant start receive
                 
                     sig_receiving <= '1';                         
                     receiveFrameEnum <= SOF;
@@ -198,17 +205,18 @@
                     else
                     
                         receiveFrameEnum <= IDLE;   
-                     
+                        sig_errorOccured_receive <= '1';
+                        error_receive(Location_Error_Sof) <= '1';
                     end if;
                     ------------------------
 
                 end if;
             sig_read_validPrevReceive := sig_read_valid;
             when ID =>   
-                                      -- Std id enum
               
-                if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
+                if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then       
                      
+                     -- calculate crc sequance
                         CrcNextBit :=  sig_RxBit xor var_CalculatedCrc(14);
                         var_CalculatedCrc(14 downto 1) := var_CalculatedCrc(13 downto 0);
                         var_CalculatedCrc(0) := '0';                    
@@ -220,7 +228,7 @@
                     receivePackageCounter <= receivePackageCounter - 1;
                     if(receivePackageCounter = 0) then             -- if counter reach to size of std set enum to rtr
                       
-                      receiveFrameEnum <= RTR;
+                      receiveFrameEnum <= RTR;                  
                       
                     end if;
                     
@@ -387,6 +395,8 @@
                     else
                        
                         receiveFrameEnum <= IDLE;
+                        sig_errorOccured_receive <= '1';
+                        error_receive(Location_Error_Reserve) <= '1';
                         -- then check ; if rxBit not '0' add error because reserve bit must be 0 
                     
                     end if;
@@ -528,8 +538,8 @@
                          else
 
                                   receiveFrameEnum <= IDLE;
-                                  
-                                  
+                                  sig_errorOccured_receive <= '1';
+                                  error_receive(Location_Error_Crc) <= '1';
                          end if;
                     else
                     
@@ -575,13 +585,13 @@
                     else
                     
                         receiveFrameEnum <= ACK;
-                    
+                        
                     end if;
 
                 end if;
                 sig_read_validPrevReceive := sig_read_valid;  
                 sig_write_valid_prev := sig_write_valid;
-            when ACK =>                 
+            when ACK =>                 -- send dominant bit at ack
                 
                    if(sig_write_valid_prev = '0' and sig_write_valid = '1') then
                    
@@ -598,7 +608,7 @@
                    end if;
                    sig_write_valid_prev := sig_write_valid;
                  sig_read_validPrevReceive := sig_write_valid;
-            when ACK_DELIMITER =>               -- send ack and go to eof enum
+            when ACK_DELIMITER =>               
             
                 sig_write_orderReceive <= '0';
                 if(sig_read_validPrevReceive = '0' and sig_read_valid = '1') then
@@ -624,8 +634,8 @@
                     else
                     
                         receiveFrameEnum <= IDLE;
-                       
-                            
+                        sig_errorOccured_receive <= '1';
+                        error_receive(Location_Error_EOF) <= '1';    
                         
                   end if; 
                 end if; 
@@ -651,10 +661,11 @@
                     end if;
                   else
                 
-                        -- TODO error
-                                            
+                        -- TODO error                  
                         receiveFrameEnum <= IDLE;
-                     
+                        sig_errorOccured_receive <= '1';
+                        error_receive(Location_Error_IFS) <= '1'; 
+                        
                   end if;
                 end if;
           sig_read_validPrevReceive := sig_read_valid;      
@@ -670,7 +681,7 @@
                 else
                 
                     receiveFrameEnum <= IDLE;
-                  
+                    error_receive(Location_Error_BitStuffing) <= '1';
                     -- TODO add bit stuffing error.
                 end if;
                 
@@ -693,11 +704,11 @@
     --transmit process to stream to BTL
     transmitProcess : process
     
-    variable transmitPackageCounter : integer := 0;
-    variable transmitDataByteCounter : integer := 0;
-    variable transmitBitStuffingCounter : integer := 0;
-    variable transmitNextBit            : std_logic;
-
+    variable transmitPackageCounter : integer := 0;         -- for check transmit bits
+    variable transmitDataByteCounter : integer := 0;        -- for check transmit data counter
+    variable transmitBitStuffingCounter : integer := 0;     -- check bit stuffing counter
+    variable transmitNextBit            : std_logic;        -- next bit to send
+    -- for calculate crc
     variable    CrcNextBit                 :  std_logic;
     variable    var_CalculatedCrc          :  std_logic_vector(14 downto 0) := "000000000000000";
     
@@ -715,38 +726,38 @@
         when IDLE =>
 
            
-           if(transmitOrder = '1') then
+           if(transmitOrderPrev = '0' and transmitOrder = '1') then     -- start transmit order rising edge
         
               startTransmit <= '1';
                
             end if;
-     --       transmitOrderPrev := transmitOrder;
+            transmitOrderPrev := transmitOrder;
             
             sig_write_orderTransmit <= '0';
             sig_transmitting <= '0'; 
             sig_transmitIT <= '1';
+            sig_errorOccured_transmsit <= '0';
             if(startTransmit = '1' and sig_receiving = '0') then 
-                
+                -- reset all signals to start
                 startTransmit <= '0';
                 sig_transmitting <= '1';
                 sig_TxBitTransmit <= '0';
                 sig_TxBitPrev <= '0';
                 sig_write_orderTransmit <= '1';
-                transmitFrameEnum <= SOF;                 
+                transmitFrameEnum <= SOF;                 -- send sof bit to start transmit
                 transmitBitStuffingCounter := 1;
                 transmitNextBit := '0';
                 var_CalculatedCrc := (others => '0');
                 
-                transmitFrame.StdId <= transmitPackage.StdId;
+                transmitFrame.StdId <= transmitPackage.StdId;       -- get top module's package to send
                 transmitFrame.Dlc <= transmitPackage.Dlc;
                 transmitFrame.Rtr <= transmitPackage.Rtr;
                 transmitFrame.Data <= transmitPackage.Data;
                 
-          
+                -- calculate crc sequance to send crc at crc field
                 CrcNextBit :=  transmitNextBit xor var_CalculatedCrc(14);
                 var_CalculatedCrc(14 downto 1) := var_CalculatedCrc(13 downto 0);
                 var_CalculatedCrc(0) := '0';
-               
                 if (CrcNextBit = '1') then
                     var_CalculatedCrc(14 downto 0) := var_CalculatedCrc(14 downto 0) xor b"100010110011001"; --! CRC-15-CAN: x"4599"
                 end if;
@@ -759,19 +770,18 @@
                 
                 
                 -- start of bit stuffing control
-                if(transmitBitStuffingCounter = 5) then
+                if(transmitBitStuffingCounter = 5) then         -- if previous 5 bit same send not bit
                 
                     transmitNextBit := not sig_TxBitPrev;
                     transmitBitStuffingCounter := 1;
 
                 else
                 
-                    stuffingTransmitForAbitration <= '0';
-                    transmitPackageCounter := SIZE_OF_STD_ID - 1;
+                    transmitPackageCounter := SIZE_OF_STD_ID - 1;                   -- set package counter with std bit size
                     transmitNextBit := transmitFrame.StdId(transmitPackageCounter);
                     transmitFrameEnum <= ID;
  
-                    if(sig_TxBitPrev = transmitNextBit) then
+                    if(sig_TxBitPrev = transmitNextBit) then            -- if transmit next bit same with prev increase counter
                     
                         transmitBitStuffingCounter := transmitBitStuffingCounter + 1;
                     
@@ -801,7 +811,7 @@
             if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
                                 
-                if(arbitrationLost = '1') then
+                if(arbitrationLost = '1') then      -- if arbitration lost wait to resend at end of receive
                                              
                    startTransmit <= '1';
                    sig_TxBitTransmit <= '1';
@@ -905,7 +915,7 @@
 
             if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
-                -- start of bit stuffing control
+             
                 if(transmitBitStuffingCounter = 5) then
                 
                     transmitNextBit := not sig_TxBitPrev;
@@ -946,7 +956,7 @@
 
             if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                             
-                -- start of bit stuffing control
+              
                 if(transmitBitStuffingCounter = 5) then
                 
                     transmitNextBit := not sig_TxBitPrev;
@@ -975,7 +985,7 @@
                    end if;
                 
                 end if;
-                -- end of bit stuffing control
+
                 sig_TxBitTransmit <= transmitNextBit;
                 sig_TxBitPrev <= transmitNextBit;
                 
@@ -985,7 +995,6 @@
 
             if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
-                -- start of bit stuffing control
                 if(transmitBitStuffingCounter = 5) then
                 
                     transmitNextBit := not sig_TxBitPrev;
@@ -1045,8 +1054,7 @@
           when DATA =>
 
             if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
-                
-                -- start of bit stuffing control
+
                 if(transmitBitStuffingCounter = 5) then
                 
                     transmitNextBit := not sig_TxBitPrev;
@@ -1092,7 +1100,7 @@
                         
                         end if;
                 end if;
-                -- end of bit stuffing control
+
              sig_TxBitPrev <= transmitNextBit;
              sig_TxBitTransmit <= transmitNextBit;
              end if; 
@@ -1102,7 +1110,7 @@
 
                 if(sig_write_valid_previous = '0' and sig_write_valid = '1') then
                 
-                -- start of bit stuffing control
+
                 if(transmitBitStuffingCounter = 5) then
                 
                     transmitNextBit := not sig_TxBitPrev;
@@ -1127,7 +1135,7 @@
                         end if;
                     end if;
                 end if;
-                -- end of bit stuffing control
+
              sig_TxBitPrev <= transmitNextBit;
              sig_TxBitTransmit <= transmitNextBit;
              end if;   
@@ -1158,7 +1166,9 @@
                     transmitFrameEnum <= ACK_DELIMITER;
                     sig_start_sampleTransmit <= '0';
                     transmitError <= '1';
-                    
+                    error_transmit(Location_Error_Ack) <= '1';
+                    sig_errorOccured_transmsit <= '1';
+                       
                 end if;
                 
             end if;
@@ -1225,10 +1235,10 @@
                     end if;
               
       
-        when STUFFING =>
+        when STUFFING =>        -- not necessary change state. because stuff bit send at avaible state
         
         
-        when LOCK =>
+        when LOCK =>        -- for test
         
         
               

@@ -29,20 +29,20 @@ use work.canTypes.ALL;
 entity CanMaster is
     Port 
     (
-        sys_clock : in std_logic;                           -- fpga oscillator 
-        rx     : in std_logic;
-        tx     : out std_logic;
-        led    : out std_logic_vector(3 downto 0);
-        btn    : in  std_logic_vector(3 downto 0);
-        sw    : in  std_logic_vector(3 downto 0);
-        led6_r : out std_logic
+        sys_clock : in std_logic;                           -- fpga osc clock as 125 mhz 
+        rx     : in std_logic;                  -- can rx phy pin
+        tx     : out std_logic;                 -- can tx phy pin
+        led    : out std_logic_vector(3 downto 0);  -- led for demo
+        btn    : in  std_logic_vector(3 downto 0);  -- buttons for test
+        sw    : in  std_logic_vector(3 downto 0);   -- switchs for input to send
+        led6_r : out std_logic                      -- led rgb led's red pin to toggle every transmit
      );
 
 end CanMaster;
 
 architecture Behavioral of CanMaster is
 
- component clk_wiz_0 is
+ component clk_wiz_0 is                         -- clock wizard for create can bus clock as 24 Mhz
  port
  (
   clk_out1 : out std_logic;
@@ -63,7 +63,7 @@ Port (
     transmitIT           : out STD_LOGIC;
     error                : out STD_LOGIC_VECTOR(SIZE_OF_ERRORS - 1 downto 0);
     transmitOrder        : in STD_LOGIC;
-    startReceive         : in std_logic
+    errorOccured         : out STD_LOGIC 
     );
     
 end component BitStreamProcessor;
@@ -88,6 +88,8 @@ end component BitStreamProcessor;
     
     signal sig_transmitITPrev : std_logic;
     
+    signal sig_error_Occured    : std_logic;
+    
 begin
 
     led6_r <= led0;
@@ -111,13 +113,17 @@ BSP : BitStreamProcessor port map
     transmitIT           => sig_transmitIT,
     error                => sig_error,
     transmitOrder        => sig_transmitOrder,
-    startReceive         => sig_startReceive
+    errorOccured         => sig_error_Occured
 );
 
      sig_transmitPackage.StdId <= "00100000000";
      sig_transmitPackage.Dlc   <= "1000";
      sig_transmitPackage.Rtr   <= '0';
   
+  -- main process 
+  -- receive and transmit demo
+  -- when switches state's send switches state to canbus
+  -- when 0x201, 0x202, 0x203 and 0x204 can bus package set led state depends on data
 proc : process
 
     variable sig_receiveITPRev : std_logic;

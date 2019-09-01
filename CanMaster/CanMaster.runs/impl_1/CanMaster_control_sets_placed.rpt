@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1.1 (win64) Build 2580384 Sat Jun 29 08:12:21 MDT 2019
-| Date         : Sat Aug 31 21:18:57 2019
+| Date         : Sun Sep  1 21:48:51 2019
 | Host         : DESKTOP-254I58R running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file CanMaster_control_sets_placed.rpt
 | Design       : CanMaster
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    25 |
-|    Minimum number of control sets                        |    25 |
+| Total control sets                                       |    27 |
+|    Minimum number of control sets                        |    27 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    85 |
+| Unused register locations in slices containing registers |    91 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    25 |
-| >= 0 to < 4        |     6 |
+| Total control sets |    27 |
+| >= 0 to < 4        |     7 |
 | >= 4 to < 6        |     6 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     2 |
 | >= 10 to < 12      |     0 |
-| >= 12 to < 14      |     0 |
-| >= 14 to < 16      |     1 |
-| >= 16              |     9 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    10 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,46 +58,48 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             100 |           47 |
+| No           | No                    | No                     |             103 |           46 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              31 |            8 |
-| Yes          | No                    | No                     |             123 |           58 |
+| No           | Yes                   | No                     |              62 |           16 |
+| Yes          | No                    | No                     |             148 |           71 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             165 |           52 |
+| Yes          | Yes                   | No                     |             140 |           41 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------------+------------------------------------------------------+---------------------------------------------------+------------------+----------------+
-|      Clock Signal      |                     Enable Signal                    |                  Set/Reset Signal                 | Slice Load Count | Bel Load Count |
-+------------------------+------------------------------------------------------+---------------------------------------------------+------------------+----------------+
-|  clk_wiz/inst/clk_out1 | BSP/BTL/sig_RxBit_0                                  |                                                   |                1 |              1 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/sig_TxPin                                    |                                                   |                1 |              1 |
-|  sys_clock_IBUF        | BSP/receivePackage_reg[Data][4][0]_0                 | BSP/SS[3]                                         |                1 |              1 |
-|  sys_clock_IBUF        | BSP/receivePackage_reg[Data][3][1]_0                 | BSP/SS[2]                                         |                1 |              1 |
-|  sys_clock_IBUF        | BSP/receivePackage_reg[StdId][0]_0                   | BSP/SS[0]                                         |                1 |              1 |
-|  sys_clock_IBUF        | BSP/receivePackage_reg[StdId][1]_0                   | BSP/SS[1]                                         |                1 |              1 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[0]_0    |                                                   |                4 |              4 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[1]_1[0] |                                                   |                2 |              4 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/receiveFrameEnum_reg[2][0]                   |                                                   |                3 |              4 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/sig_read_validPrevReceive_reg_0[0]           |                                                   |                2 |              4 |
-|  clk_wiz/inst/clk_out1 | BSP/transmitFrame[Data][0][0]_i_1_n_0                |                                                   |                3 |              4 |
-|  sys_clock_IBUF        | BSP/sig_transmitPackage_reg[Data][3]0                |                                                   |                3 |              4 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[1]_0    |                                                   |                3 |              7 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[1]_0    | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[0]_1 |                2 |              8 |
-|  sys_clock_IBUF        |                                                      |                                                   |                4 |              8 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/E[0]                                         |                                                   |                6 |             15 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[0]_0    | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[0]   |               15 |             28 |
-|  clk_wiz/inst/clk_out1 |                                                      | BSP/BTL/timeQuantaCounter[31]_i_1_n_0             |                8 |             31 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[2]      | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[1]   |                7 |             31 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/receiveFrameEnum_reg[3]                      | BSP/BTL/receiveFrameEnum_reg[1]                   |                8 |             31 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/sig_read_validPrevReceive_reg                | BSP/BTL/sig_rxPinPrev_reg                         |                8 |             31 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[0]_2    | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[2]_0 |                8 |             32 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/receiveFrameEnum_reg[0]_0                    |                                                   |               20 |             32 |
-|  clk_wiz/inst/clk_out1 | BSP/BTL/sig_RxBit_reg_46[0]                          |                                                   |               10 |             43 |
-|  clk_wiz/inst/clk_out1 |                                                      |                                                   |               43 |             92 |
-+------------------------+------------------------------------------------------+---------------------------------------------------+------------------+----------------+
++-----------------------------------+---------------------------------------------------+---------------------------------------------------+------------------+----------------+
+|            Clock Signal           |                   Enable Signal                   |                  Set/Reset Signal                 | Slice Load Count | Bel Load Count |
++-----------------------------------+---------------------------------------------------+---------------------------------------------------+------------------+----------------+
+|  sig_write_order_prev_reg_i_2_n_0 | BSP/BTL/sig_RxBit_0                               |                                                   |                1 |              1 |
+|  sig_write_order_prev_reg_i_2_n_0 | BSP/BTL/sig_TxPin                                 |                                                   |                1 |              1 |
+|  sys_clock_IBUF                   | BSP/receivePackage_reg[Data][3][1]_0              | BSP/SS[2]                                         |                1 |              1 |
+|  sys_clock_IBUF                   | BSP/receivePackage_reg[Data][4][0]_0              | BSP/SS[3]                                         |                1 |              1 |
+|  sys_clock_IBUF                   | BSP/receivePackage_reg[StdId][0]_0                | BSP/SS[0]                                         |                1 |              1 |
+|  sys_clock_IBUF                   | BSP/receivePackage_reg[StdId][1]_0                | BSP/SS[1]                                         |                1 |              1 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/receiveFrameEnum_reg[3]                   | BSP/BTL/receiveFrameEnum_reg[0]                   |                1 |              3 |
+|  clk_wiz/inst/clk_out1            | BSP/transmitFrame[Data][0][0]_i_1_n_0             |                                                   |                4 |              4 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/receiveFrameEnum_reg[3]_1[0]              |                                                   |                4 |              4 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/receiveFrameEnum_reg[3]_2[0]              |                                                   |                3 |              4 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/E[0]                                      |                                                   |                2 |              4 |
+|  sys_clock_IBUF                   | BSP/sig_transmitPackage_reg[Data][3]0             |                                                   |                4 |              4 |
+|  sig_write_order_prev_reg_i_2_n_0 |                                                   |                                                   |                3 |              5 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[2]_1 |                                                   |                3 |              7 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[2]_1 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[2]   |                2 |              8 |
+|  sys_clock_IBUF                   |                                                   |                                                   |                4 |              8 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/receiveFrameEnum_reg[3]                   |                                                   |                6 |             12 |
+|  clk_wiz/inst/clk_out1            |                                                   | BSP/BTL/canClock                                  |                8 |             31 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[3]_0 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[3]   |               10 |             31 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/receiveFrameEnum_reg[3]_3                 | BSP/BTL/receiveFrameEnum_reg[1]                   |                8 |             31 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/sig_read_validPrevReceive_reg             | BSP/BTL/sig_RxBit_reg_0                           |                8 |             31 |
+|  sig_write_order_prev_reg_i_2_n_0 |                                                   | BSP/BTL/timeQuantaCounter[31]_i_1_n_0             |                8 |             31 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[0]_0 | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[2]_0 |                8 |             32 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/FSM_sequential_transmitFrameEnum_reg[0]_1 |                                                   |               15 |             32 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/receiveFrameEnum_reg[3]_5                 |                                                   |               19 |             32 |
+|  clk_wiz/inst/clk_out1            | BSP/BTL/sig_RxBit_reg_45[0]                       |                                                   |                9 |             43 |
+|  clk_wiz/inst/clk_out1            |                                                   |                                                   |               39 |             90 |
++-----------------------------------+---------------------------------------------------+---------------------------------------------------+------------------+----------------+
 
 

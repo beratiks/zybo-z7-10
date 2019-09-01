@@ -65,21 +65,16 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param tcl.collectionResultDisplayLimit 0
   set_param chipscope.maxJobs 2
   set_param xicom.use_bs_reader 1
-  create_project -in_memory -part xc7z010clg400-1
-  set_property board_part digilentinc.com:zybo-z7-10:part0:1.0 [current_project]
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
+  reset_param project.defaultXPMLibraries 
+  open_checkpoint D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/CanMaster.dcp
   set_property webtalk.parent_dir D:/github_repository/zybo-z7-10/CanMaster/CanMaster.cache/wt [current_project]
   set_property parent.project_path D:/github_repository/zybo-z7-10/CanMaster/CanMaster.xpr [current_project]
   set_property ip_output_repo D:/github_repository/zybo-z7-10/CanMaster/CanMaster.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/CanMaster.dcp
-  read_ip -quiet D:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  read_xdc D:/zybo-z10_workspace/Zybo-Z7-Master.xdc
-  link_design -top CanMaster -part xc7z010clg400-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

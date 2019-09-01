@@ -2,8 +2,8 @@
 # Vivado v2019.1.1 (64-bit)
 # SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
 # IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
-# Start of session at: Sat Aug 31 21:17:07 2019
-# Process ID: 9900
+# Start of session at: Sun Sep  1 21:45:29 2019
+# Process ID: 11896
 # Current directory: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1
 # Command line: vivado.exe -log CanMaster.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CanMaster.tcl
 # Log file: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/CanMaster.vds

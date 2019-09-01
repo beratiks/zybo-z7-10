@@ -2,13 +2,13 @@
 # Webtalk v2019.1.1 (64-bit)
 # SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
 # IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
-# Start of session at: Sat Aug 31 06:12:13 2019
-# Process ID: 11324
+# Start of session at: Sun Sep  1 19:06:47 2019
+# Process ID: 7952
 # Current directory: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim/xsim.dir/BitStreamProcessor_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim/xsim.dir/BitTimeLogic_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim/xsim.dir/BitStreamProcessor_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim/xsim.dir/BitStreamProcessor_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sat Aug 31 06:12:18 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2019.1/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Sat Aug 31 06:12:18 2019...
+source D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim/xsim.dir/BitTimeLogic_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/github_repository/zybo-z7-10/CanMaster/CanMaster.sim/sim_1/behav/xsim/xsim.dir/BitTimeLogic_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sun Sep  1 19:06:50 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2019.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sun Sep  1 19:06:50 2019...

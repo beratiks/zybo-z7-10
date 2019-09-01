@@ -2,20 +2,21 @@
 |       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
 |              sys_clk_pin |       clk_out1_clk_wiz_0 |                                                                                   BSP/startTransmit_reg/D|
+|              sys_clk_pin |       clk_out1_clk_wiz_0 |                                                                               BSP/transmitOrderPrev_reg/D|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                              led_reg[0]/S|
-|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                             led_reg[0]/CE|
-|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                              led_reg[2]/S|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                              led_reg[3]/S|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                              led_reg[1]/S|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                             led_reg[0]/CE|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                             led_reg[1]/CE|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                              led_reg[2]/S|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                             led_reg[2]/CE|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                             led_reg[3]/CE|
-|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                             led_reg[1]/CE|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                   sig_transmitOrder_reg/D|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                                led0_reg/D|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                   sig_receiveITPRev_reg/D|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                                  sig_transmitITPrev_reg/D|
-|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][3][0]/CE|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][0][0]/CE|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][1][0]/CE|
 |       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][2][0]/CE|
+|       clk_out1_clk_wiz_0 |              sys_clk_pin |                                                                    sig_transmitPackage_reg[Data][3][0]/CE|
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

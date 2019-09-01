@@ -52,7 +52,6 @@ extern void execute_6(char*, char *);
 extern void execute_7(char*, char *);
 extern void execute_8(char*, char *);
 extern void execute_9(char*, char *);
-extern void execute_18(char*, char *);
 extern void execute_19(char*, char *);
 extern void execute_20(char*, char *);
 extern void execute_21(char*, char *);
@@ -61,17 +60,20 @@ extern void execute_23(char*, char *);
 extern void execute_24(char*, char *);
 extern void execute_25(char*, char *);
 extern void execute_26(char*, char *);
+extern void execute_27(char*, char *);
+extern void execute_28(char*, char *);
 extern void vlog_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
 extern void vhdl_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
 extern void transaction_36(char*, char*, unsigned, unsigned, unsigned);
-funcp funcTab[20] = {(funcp)execute_2, (funcp)execute_3, (funcp)execute_4, (funcp)execute_5, (funcp)execute_6, (funcp)execute_7, (funcp)execute_8, (funcp)execute_9, (funcp)execute_18, (funcp)execute_19, (funcp)execute_20, (funcp)execute_21, (funcp)execute_22, (funcp)execute_23, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)vlog_transfunc_eventcallback, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_36};
-const int NumRelocateId= 20;
+extern void transaction_56(char*, char*, unsigned, unsigned, unsigned);
+funcp funcTab[22] = {(funcp)execute_2, (funcp)execute_3, (funcp)execute_4, (funcp)execute_5, (funcp)execute_6, (funcp)execute_7, (funcp)execute_8, (funcp)execute_9, (funcp)execute_19, (funcp)execute_20, (funcp)execute_21, (funcp)execute_22, (funcp)execute_23, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)execute_27, (funcp)execute_28, (funcp)vlog_transfunc_eventcallback, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_36, (funcp)transaction_56};
+const int NumRelocateId= 22;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/BitTimeLogic_behav/xsim.reloc",  (void **)funcTab, 20);
-	iki_vhdl_file_variable_register(dp + 12448);
-	iki_vhdl_file_variable_register(dp + 12504);
+	iki_relocate(dp, "xsim.dir/BitTimeLogic_behav/xsim.reloc",  (void **)funcTab, 22);
+	iki_vhdl_file_variable_register(dp + 12440);
+	iki_vhdl_file_variable_register(dp + 12496);
 
 
 	/*Populate the transaction function pointer field in the whole net structure */

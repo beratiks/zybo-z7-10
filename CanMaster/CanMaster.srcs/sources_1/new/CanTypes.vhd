@@ -24,8 +24,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 package CanTypes is
 
-  constant  CLOCK_WIZARD_FREQUENCY  : integer   :=  24e6;
-  constant  BAUDRATE_PRESCALER      : integer   :=  3;
+  constant  CLOCK_WIZARD_FREQUENCY  : integer   :=  8e6;
+  constant  BAUDRATE_PRESCALER      : integer   :=  2;
   constant  TIME_SEGMENT_1          : integer   :=  13;
   constant  TIME_SEGMENT_2          : integer   :=  2;
   constant  TIME_SYNC_SEGMENT       : integer   :=  1;
