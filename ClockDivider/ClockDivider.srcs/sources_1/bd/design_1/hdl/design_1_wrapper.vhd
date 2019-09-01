@@ -21,7 +21,7 @@ end design_1_wrapper;
 architecture STRUCTURE of design_1_wrapper is
   component design_1 is
   port (
-    sys_clock : in STD_LOGIC;
+    sys_clock : in STD_LOGIC;                       
     led : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component design_1;

@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
--- 
+-- Engineer: Berat YILDIZ
+-- e-mail : yildizberat@gmail.com
 -- Create Date: 06/24/2019 12:48:49 AM
 -- Design Name: 
 -- Module Name: Top_Module - Behavioral
@@ -33,13 +33,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Top_Module is
     Port (
-            sysclk : in std_logic;
-            sck_pin : out std_logic;
-            cs_pin : out std_logic;
-            mosi_pin : out std_logic;
-            miso_pin : in std_logic;
-            sw : in std_logic_vector(3 downto 0);
-            led : out std_logic_vector(3 downto 0)
+            sysclk : in std_logic;			-- system clock as 125 mhz
+            sck_pin : out std_logic;		-- sck phy pin
+            cs_pin : out std_logic;			-- cs phy pin
+            mosi_pin : out std_logic;		-- mosi pin phy
+            miso_pin : in std_logic;		-- miso pin phy
+            sw : in std_logic_vector(3 downto 0);	--switches for input
+            led : out std_logic_vector(3 downto 0)	--leds for output
     );
 end Top_Module;
 
@@ -49,9 +49,9 @@ architecture Behavioral of Top_Module is
 
 component SPIMaster is
   generic(
-    SYS_CLOCK : integer := 125000000;
-    BUS_SPEED : integer := 10000000;
-    Bits    : integer := 8  
+    SYS_CLOCK : integer := 125000000;			-- osc clock
+    BUS_SPEED : integer := 10000000;			-- spi bus speed
+    Bits    : integer := 8  					-- com bit size
   );
   Port ( 
         sysclk : in std_logic;
@@ -86,7 +86,7 @@ spi_component : SPIMaster port map
         writing => writingSig
 );
 
-
+-- when change switches state send sw states to spi
 
 proc : process(sysclk,sw)
 variable beforeSwitches : std_logic_vector(3 downto 0);

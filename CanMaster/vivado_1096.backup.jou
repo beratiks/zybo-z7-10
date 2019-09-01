@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.1 (64-bit)
+# SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
+# IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+# Start of session at: Sun Aug 25 20:52:35 2019
+# Process ID: 1096
+# Current directory: D:/github_repository/zybo-z7-10/CanMaster
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14688 D:\github_repository\zybo-z7-10\CanMaster\CanMaster.xpr
+# Log file: D:/github_repository/zybo-z7-10/CanMaster/vivado.log
+# Journal file: D:/github_repository/zybo-z7-10/CanMaster\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/github_repository/zybo-z7-10/CanMaster/CanMaster.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+open_run synth_1 -name synth_1
+delete_debug_core [get_debug_cores {u_ila_0 }]
+refresh_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_design
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target

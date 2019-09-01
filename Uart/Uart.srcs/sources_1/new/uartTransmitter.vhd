@@ -33,14 +33,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity uartTransmitter is
-    generic ( clock_counter_per_bit : integer := 125000000/9600
+    generic ( clock_counter_per_bit : integer := 125000000/9600			-- uart bus speed
     );
-    Port ( txPin : out STD_LOGIC;
-           sys_clock : in STD_LOGIC;
-           sendByte : in std_logic;
-           txData : in std_logic_vector(7 downto 0);
-           transmitting : out std_logic;
-           transmitInterrupt : out std_logic
+    Port ( txPin : out STD_LOGIC;						-- tx phy pin
+           sys_clock : in STD_LOGIC;					-- osc clock as 125 mhz
+           sendByte : in std_logic;						-- transmit order signal at rising edge
+           txData : in std_logic_vector(7 downto 0);	-- data buffer to send uart	
+           transmitting : out std_logic;				-- set high during transmitting
+           transmitInterrupt : out std_logic			-- end of transmit at rising edge
            );
 end uartTransmitter;
 
@@ -125,14 +125,6 @@ begin
  
  end case;
  
--- if(sw /= beforeSw) then
-
---sendByte <= '1';
-
---end if;
-
---beforeSw <= sw;
---txData(3 downto 0) <= sw;
 
  end if;
  

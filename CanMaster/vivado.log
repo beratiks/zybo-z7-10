@@ -2,10 +2,10 @@
 # Vivado v2019.1.1 (64-bit)
 # SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
 # IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
-# Start of session at: Sun Aug 25 20:52:35 2019
-# Process ID: 1096
+# Start of session at: Sat Aug 31 21:47:21 2019
+# Process ID: 13812
 # Current directory: D:/github_repository/zybo-z7-10/CanMaster
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14688 D:\github_repository\zybo-z7-10\CanMaster\CanMaster.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13800 D:\github_repository\zybo-z7-10\CanMaster\CanMaster.xpr
 # Log file: D:/github_repository/zybo-z7-10/CanMaster/vivado.log
 # Journal file: D:/github_repository/zybo-z7-10/CanMaster\vivado.jou
 #-----------------------------------------------------------
@@ -16,92 +16,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
-open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:05 . Memory (MB): peak = 715.836 ; gain = 92.000
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 683.418 ; gain = 91.105
 update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs synth_1 -jobs 4
-[Sun Aug 25 21:21:40 2019] Launched synth_1...
-Run output will be captured here: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/runme.log
-launch_runs impl_1 -jobs 4
-[Sun Aug 25 21:23:04 2019] Launched impl_1...
-Run output will be captured here: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/runme.log
-open_run synth_1 -name synth_1
-Design is defaulting to impl run constrset: constrs_1
-Design is defaulting to synth run part: xc7z010clg400-1
-INFO: [Device 21-403] Loading part xc7z010clg400-1
-INFO: [Project 1-454] Reading design checkpoint 'd:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'clk_wiz'
-INFO: [Netlist 29-17] Analyzing 94 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-WARNING: [Opt 31-35] Removing redundant IBUF, clk_wiz/inst/clkin1_ibufg, from the path connected to top-level port: sys_clock 
-Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
-WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'clk_wiz/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
-Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
-Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
-Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
-INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
-INFO: [Timing 38-2] Deriving generated clocks [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1678.164 ; gain = 555.941
-Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
-Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
-WARNING: [Vivado 12-507] No nets matched 'BSP/sig_receiving0'. [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc:264]
-CRITICAL WARNING: [Common 17-162] Invalid option value specified for '-nets'. [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc:264]
-Finished Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1678.164 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:44 ; elapsed = 00:00:32 . Memory (MB): peak = 1687.543 ; gain = 814.949
-delete_debug_core [get_debug_cores {u_ila_0 }]
-refresh_design
-INFO: [Project 1-454] Reading design checkpoint 'd:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'clk_wiz'
-INFO: [Netlist 29-17] Analyzing 94 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-WARNING: [Opt 31-35] Removing redundant IBUF, clk_wiz/inst/clkin1_ibufg, from the path connected to top-level port: sys_clock 
-Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
-WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'clk_wiz/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
-Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
-Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clk_wiz/inst'
-Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
-INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
-INFO: [Timing 38-2] Deriving generated clocks [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
-Finished Parsing XDC File [d:/github_repository/zybo-z7-10/CanMaster/CanMaster.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clk_wiz/inst'
-Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
-Finished Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-refresh_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:07 . Memory (MB): peak = 1748.125 ; gain = 60.582
-reset_run synth_1
-launch_runs synth_1 -jobs 4
-[Sun Aug 25 21:31:12 2019] Launched synth_1...
-Run output will be captured here: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/synth_1/runme.log
-close_design
-launch_runs impl_1 -jobs 4
-[Sun Aug 25 21:32:41 2019] Launched impl_1...
-Run output will be captured here: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/runme.log
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-[Sun Aug 25 21:36:01 2019] Launched impl_1...
-Run output will be captured here: D:/github_repository/zybo-z7-10/CanMaster/CanMaster.runs/impl_1/runme.log
-open_hw
-connect_hw_server
-INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-INFO: [Labtools 27-2222] Launching hw_server...
-INFO: [Labtools 27-2221] Launch Output:
-
-****** Xilinx hw_server v2019.1.1
-  **** Build date : Jun 29 2019 at 08:55:25
-    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-
-
-connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1748.125 ; gain = 0.000
-open_hw_target
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
-open_hw_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 2681.887 ; gain = 933.762
-ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210351A81A07A
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351A81A07A
-WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun Aug 25 22:06:26 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Aug 31 23:36:57 2019...

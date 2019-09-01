@@ -29,7 +29,7 @@ use work.canTypes.ALL;
 entity CanMaster is
     Port 
     (
-        sys_clock : in std_logic;
+        sys_clock : in std_logic;                           -- fpga oscillator 
         rx     : in std_logic;
         tx     : out std_logic;
         led    : out std_logic_vector(3 downto 0);

@@ -40,12 +40,12 @@ generic(
     clock_counter_per_bit : integer := 125000000/9600  -- clocks_per_bit = clock / baudrate
 );
     Port (
-           sys_clock : in std_logic;
-           led : out std_logic_vector(3 downto 0);
-           rxPin : in std_logic;
-           receiving : out std_logic;
-           receiveInterrupt : out std_logic;
-           rxData   : out std_logic_vector(7 downto 0)
+           sys_clock : in std_logic;					-- osc clock 125 mhz
+           led : out std_logic_vector(3 downto 0);		-- led for output
+           rxPin : in std_logic;						-- phy rx pin
+           receiving : out std_logic;					-- receiving signal is high during receiving
+           receiveInterrupt : out std_logic;			-- end of receive interrupt at rising edge
+           rxData   : out std_logic_vector(7 downto 0)	-- received Data buffer
     );
 end UartReceiver;
 
@@ -60,6 +60,8 @@ architecture Behavioral of UartReceiver is
 
 begin
 
+-- receive process 
+-- storage receive bits depends on uart bus speed.
 receiveproc : process(sys_clock)
 begin
 if(rising_edge(sys_clock)) then

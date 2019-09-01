@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1557086597">
   <File Type="PA-TCL" Name="Mydesign_wrapper.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Mydesign_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Mydesign_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="Mydesign_wrapper.vds"/>
   <File Type="RDS-UTIL" Name="Mydesign_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Mydesign_wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Mydesign_wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Mydesign_wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Mydesign_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ledController.vhd">
@@ -73,8 +70,8 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="Mydesign_proc_sys_reset_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Mydesign_proc_sys_reset_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_buttonController_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_ledController_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mydesign_clk_wiz_0_0"/>

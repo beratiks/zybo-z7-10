@@ -1,13 +1,14 @@
 {
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port sys_clock -pg 1 -y -210 -defaultsOSRD
-preplace portBus led -pg 1 -y -210 -defaultsOSRD
-preplace inst clockDivider_0 -pg 1 -lvl 1 -y -210 -defaultsOSRD
-preplace netloc sys_clock_1 1 0 1 N
-preplace netloc clockDivider_0_led 1 1 1 N
-levelinfo -pg 1 0 330 470 -top -480 -bot 40
+preplace port sys_clock -pg 1 -lvl 0 -x 0 -y -210 -defaultsOSRD
+preplace portBus led -pg 1 -lvl 2 -x 470 -y -210 -defaultsOSRD
+preplace inst clockDivider_0 -pg 1 -lvl 1 -x 330 -y -210 -defaultsOSRD
+preplace netloc sys_clock_1 1 0 1 N -210
+preplace netloc clockDivider_0_led 1 1 1 N -210
+levelinfo -pg 1 0 330 470
+pagesize -pg 1 -db -bbox -sgen -120 -480 570 40
 "
 }
 {

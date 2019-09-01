@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
--- 
+-- Engineer: Berat YILDIZ
+-- e-mail : yildizberat@gmail.com
 -- Create Date: 05/28/2019 11:18:04 PM
 -- Design Name: 
 -- Module Name: AdcModule - Behavioral
@@ -32,9 +32,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity AdcModule is
-    Port ( led : out STD_LOGIC_VECTOR (3 downto 0);
-           ja : in STD_LOGIC_VECTOR (1 downto 0);
-           sys_clock : in STD_LOGIC);
+    Port ( led : out STD_LOGIC_VECTOR (3 downto 0);         -- led for see adc value
+           ja : in STD_LOGIC_VECTOR (1 downto 0);           -- adc pins    
+           sys_clock : in STD_LOGIC);                       -- system clock 125 mhz
 end AdcModule;
 
 architecture Behavioral of AdcModule is
@@ -78,17 +78,18 @@ port map
     do_out(7 downto 0)    => ADCNonValidData,  -- non valid data with dummy vector
     drdy_out        => open,                    
     dclk_in         => sys_clock,           -- 125 Mhz system clock wires to drp
-    vauxp14         => ja(0),                        
-    vauxn14         => ja(1),
+    vauxp14         => ja(0),               -- xadc positive pin                                      
+    vauxn14         => ja(1),               -- xadc negative pin
     busy_out        => open,                   
     channel_out    => open,    
-    eoc_out         => EnableInt,                       
+    eoc_out         => EnableInt,          -- enable int                   
     eos_out         => open,                      
     alarm_out       => open,                         
     vp_in           => '0',                        
     vn_in           => '0'
 );
 
+---main process is set led depends on adc value
 ledProcess : process(ADCValidData)
 begin
 

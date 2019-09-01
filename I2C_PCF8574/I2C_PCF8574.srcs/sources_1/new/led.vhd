@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
--- 
+-- Engineer: Berat YILDIZ
+-- e-mail : yildizberat@gmail.com
 -- Create Date: 06/13/2019 10:37:19 PM
 -- Design Name: 
 -- Module Name: I2CTopModule - Behavioral
@@ -33,11 +33,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity I2CTopModule is
   Port (
-        sys_clock : in std_logic;
-        led       : out std_logic_vector(3 downto 0);
-        sw        : in std_logic_vector(3 downto 0);
-        sclPin    : out std_logic;
-        sdaPin    : inout std_logic
+        sys_clock : in std_logic;						-- system clock as 125 mhz
+        led       : out std_logic_vector(3 downto 0);	-- leds		 for output
+        sw        : in std_logic_vector(3 downto 0);	--- switches for input to send i2c
+        sclPin    : out std_logic;						-- scl phy pin
+        sdaPin    : inout std_logic						-- sda phy pin
    );
 end I2CTopModule;
 
@@ -81,6 +81,7 @@ I2C_Component : I2CMaster port map
         leds        => led
 );
 
+-- when change switches state send data to i2c 
 proc : process(sw)
 variable beforeSwitches : std_logic_vector(3 downto 0);
 variable counter : integer range 0 to 1250000  := 0;   

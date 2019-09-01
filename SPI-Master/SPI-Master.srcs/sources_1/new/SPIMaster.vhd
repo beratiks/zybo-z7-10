@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
--- 
+-- Engineer: Berat YILDIZ
+-- e-mail : yildizberat@gmail.com
 -- Create Date: 06/21/2019 12:02:57 AM
 -- Design Name: 
 -- Module Name: SPIMaster - Behavioral
@@ -38,15 +38,15 @@ entity SPIMaster is
     Bits    : integer := 8  
   );
   Port ( 
-        sysclk : in std_logic;
+        sysclk : in std_logic;					
         sck_pin : out std_logic;
         cs_pin : out std_logic;
         mosi_pin : out std_logic;
         miso_pin : in std_logic;
-        writeData : in std_logic_vector(7 downto 0);
-        writeEnable : in std_logic;
-        writeIt : out std_logic;
-        writing : out std_logic
+        writeData : in std_logic_vector(7 downto 0);		-- data to send spi
+        writeEnable : in std_logic;							-- write order
+        writeIt : out std_logic;							-- end of transmit interrupt at rising edge	
+        writing : out std_logic								-- set high during transmitting			
   );
 end SPIMaster;
 
@@ -88,6 +88,8 @@ writeEnableSig <= writeEnable;
 writeIt <= writeItSig;
 
 sck_clk_proc : process(sysclk)
+
+-- find clock and where data bit must be set
 
 variable clk_counter  : integer range 0 to clk_divider*4 := 0;
 
@@ -132,7 +134,8 @@ begin
 
 end process;
 
-
+-- spi process with state machine
+-- send just 1 byte to receiver
 spiProc : process(sysclk)
 variable bitIterator : integer range 0 to 7 := 7;
 begin

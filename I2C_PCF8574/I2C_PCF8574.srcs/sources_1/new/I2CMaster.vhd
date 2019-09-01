@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
--- 
+-- Engineer: Berat YILDIZ
+-- e-mail  : yildizberat@gmaiil.com
 -- Create Date: 06/10/2019 11:09:35 PM
 -- Design Name: 
 -- Module Name: I2CMaster - Behavioral
@@ -37,49 +37,49 @@ generic (
     i2c_bus_speed : integer := 100000           -- i2c run normal mode as 100 kHz
 );
     Port ( 
-        sys_clock : in STD_LOGIC;
-        sda_pin   : inout std_logic;
-        scl_pin   : out std_logic;
-        writeEnable : in std_logic;
-        deviceId    : in std_logic_vector(6 downto 0);
-        commandType : in std_logic;
-        writeData   : in std_logic_vector(7 downto 0);
-        writing     : out std_logic;
-        wroteIt     : out std_logic;
-        leds         : out std_logic_vector(3 downto 0)
+        sys_clock : in STD_LOGIC;			-- system clock
+        sda_pin   : inout std_logic;		-- sda pin
+        scl_pin   : out std_logic;			-- scl pin
+        writeEnable : in std_logic;			-- write data order
+        deviceId    : in std_logic_vector(6 downto 0);	-- device id to communicate
+        commandType : in std_logic;						-- command type but now not using this project
+        writeData   : in std_logic_vector(7 downto 0);	-- data array to write	
+        writing     : out std_logic;					-- when writing this signal high
+        wroteIt     : out std_logic;					-- wrote interrupt falling edger
+        leds         : out std_logic_vector(3 downto 0)	-- leds for demo
     );
 end I2CMaster;
 
 architecture Behavioral of I2CMaster is
 
-constant divider : integer := (system_clock_speed/i2c_bus_speed) / 4;
+constant divider : integer := (system_clock_speed/i2c_bus_speed) / 4;	-- set divide from i2c bus speed
 
-type stateMachine is(Idle,Start,SendDeviceId,Command,SlaveAck1,Write,SlaveAck2,MasterAck,Stop,notAck);
-signal state : stateMachine := Idle;
+type stateMachine is(Idle,Start,SendDeviceId,Command,SlaveAck1,Write,SlaveAck2,MasterAck,Stop,notAck);		-- state machines to run communicate
+signal state : stateMachine := Idle;																		-- start state is idle		
 
-signal data_clock : std_logic;
+signal data_clock : std_logic;																				-- data clock for detect when data pin must set
 signal data_clock_prev : std_logic;
-
-signal scl_clock : std_logic;
+	
+signal scl_clock : std_logic;																				-- scl clock for detect when scl pin must set	
 signal scl_clock_prev : std_logic;
  
-signal scl : std_logic := '1';
-signal sda : std_logic := '1';
+signal scl : std_logic := '1';																				-- current using scl signal
+signal sda : std_logic := '1';																				-- current using sda signal				
+	
+signal deviceIdSig : std_logic_vector(6 downto 0) := "0100000";												-- device id signal
 
-signal deviceIdSig : std_logic_vector(6 downto 0) := "0100000";
+signal commandTypeSig : std_logic := '0';																	-- command type but not using this project
 
-signal commandTypeSig : std_logic := '0';
+signal txData : std_logic_vector(7 downto 0) := "10101011";													-- transmit data to send i2c bus	
 
-signal txData : std_logic_vector(7 downto 0) := "10101011";
+signal writeEnableSig : std_logic := '1';																	-- write enable for start com.
 
-signal writeEnableSig : std_logic := '1';
+signal firstSend : std_logic := '0';																		-- for run algorithm
 
-signal firstSend : std_logic := '0';
+signal writingSig : std_logic := '0';																		-- when transmit process run writingSig is high
+signal wroteItSig : std_logic := '0';																		-- end of transmit interrupt at rising edge
 
-signal writingSig : std_logic := '0';
-signal wroteItSig : std_logic := '0';
-
-signal ledSignal : std_logic_vector(3 downto 0);
+signal ledSignal : std_logic_vector(3 downto 0);															-- set led for demo
 
 begin
 
@@ -91,8 +91,10 @@ commandTypeSig <= commandType;
 txData <= writeData;
 writing <= writingSig;
 wroteIt <= wroteItSig;
- leds <= ledSignal;
+leds <= ledSignal;
 
+
+-- process to find when scl and data must be set depends on i2c clock
 clockProcess : process(sys_clock)
 
 variable counter : integer range 0 to divider*4 := 0;
@@ -138,6 +140,10 @@ begin
 
 end process;
 
+-- com process to send every bit true time bit.
+-- data clock's rising edge new data must be set to send. And this time must be before scl_clock rising edge
+-- scl clock is say data sent.
+-- ack state data pin must be set 'Z' and read '0'
 comProcess : process(sys_clock)
 variable txDataIterator : integer range 0 to 7 := 7;
 variable deviceIdIterator : integer range 0 to 6 := 6;

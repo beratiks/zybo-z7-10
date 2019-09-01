@@ -46,10 +46,10 @@ begin
 u0 : process(sys_clk_pin)
 begin
 if(rising_edge(sys_clk_pin)) then
-
-diveder <= diveder + 1;
-if(diveder = 62499999) then 
-    temporary <= not temporary;
+            
+diveder <= diveder + 1;             -- increase divider every rising clock
+if(diveder = 62499999) then         
+    temporary <= not temporary;     
     diveder <= 0;
 end if;
 end if; 
