@@ -1,5 +1,5 @@
-# Zybo-z7-10 projects
+# Zybo-z7-10 Example Projects
 Fpga projects with zybo-z10 kit.
-Ide version : Vivado 2018.3
+Ide version : Vivado
 Language : VHDL
 
