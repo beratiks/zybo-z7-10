@@ -1,4 +1,4 @@
-# Fpga Vhdl I2C example.
+# I2C example.
 
 - I tested PCF8574 as port expander.
 - Fpga is master and send message to Pcf8574.
