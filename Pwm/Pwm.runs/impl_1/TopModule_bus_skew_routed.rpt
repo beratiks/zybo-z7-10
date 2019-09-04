@@ -1,0 +1,15 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1.1 (win64) Build 2580384 Sat Jun 29 08:12:21 MDT 2019
+| Date         : Thu Sep  5 02:26:45 2019
+| Host         : DESKTOP-254I58R running 64-bit major release  (build 9200)
+| Command      : report_bus_skew -warn_on_violation -file TopModule_bus_skew_routed.rpt -pb TopModule_bus_skew_routed.pb -rpx TopModule_bus_skew_routed.rpx
+| Design       : TopModule
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+No bus skew constraints
+

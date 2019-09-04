@@ -1,0 +1,467 @@
+
+*** Running vivado
+    with args -log TopModule.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TopModule.tcl
+
+
+****** Vivado v2019.1.1 (64-bit)
+  **** SW Build 2580384 on Sat Jun 29 08:12:21 MDT 2019
+  **** IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source TopModule.tcl -notrace
+Command: synth_design -top TopModule -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 5408 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 679.168 ; gain = 177.230
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TopModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:36]
+INFO: [Synth 8-3491] module 'buttonDebouncerModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:34' bound to instance 'sw0Debouncer' of component 'buttonDebouncerModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'buttonDebouncerModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'buttonDebouncerModule' (1#1) [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:40]
+INFO: [Synth 8-3491] module 'buttonDebouncerModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:34' bound to instance 'sw1Debouncer' of component 'buttonDebouncerModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:96]
+INFO: [Synth 8-3491] module 'buttonDebouncerModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:34' bound to instance 'sw2Debouncer' of component 'buttonDebouncerModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:103]
+INFO: [Synth 8-3491] module 'buttonDebouncerModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:34' bound to instance 'btn0Debouncer' of component 'buttonDebouncerModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:110]
+INFO: [Synth 8-3491] module 'buttonDebouncerModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:34' bound to instance 'btn1Debouncer' of component 'buttonDebouncerModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:117]
+INFO: [Synth 8-3491] module 'buttonDebouncerModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/buttonDebouncerModule.vhd:34' bound to instance 'btn2Debouncer' of component 'buttonDebouncerModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:124]
+	Parameter SYS_CLOCK_HZ bound to: 125000000 - type: integer 
+INFO: [Synth 8-3491] module 'PwmModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/PwmModule.vhd:34' bound to instance 'led_r_pwm' of component 'PwmModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:131]
+INFO: [Synth 8-638] synthesizing module 'PwmModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/PwmModule.vhd:50]
+	Parameter SYS_CLOCK_HZ bound to: 125000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'PwmModule' (2#1) [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/PwmModule.vhd:50]
+	Parameter SYS_CLOCK_HZ bound to: 125000000 - type: integer 
+INFO: [Synth 8-3491] module 'PwmModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/PwmModule.vhd:34' bound to instance 'led_g_pwm' of component 'PwmModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:141]
+	Parameter SYS_CLOCK_HZ bound to: 125000000 - type: integer 
+INFO: [Synth 8-3491] module 'PwmModule' declared at 'D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/PwmModule.vhd:34' bound to instance 'led_b_pwm' of component 'PwmModule' [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:151]
+INFO: [Synth 8-256] done synthesizing module 'TopModule' (3#1) [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/TopModule.vhd:36]
+WARNING: [Synth 8-3331] design TopModule has unconnected port btn[3]
+WARNING: [Synth 8-3331] design TopModule has unconnected port sw[3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 743.980 ; gain = 242.043
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 743.980 ; gain = 242.043
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 743.980 ; gain = 242.043
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+Finished Parsing XDC File [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/zybo-z10_workspace/Zybo-Z7-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TopModule_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TopModule_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 867.379 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 867.379 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 867.379 ; gain = 365.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 867.379 ; gain = 365.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 867.379 ; gain = 365.441
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/github_repository/zybo-z7-10/Pwm/Pwm.srcs/sources_1/new/PwmModule.vhd:122]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 867.379 ; gain = 365.441
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 6     
+	   2 Input     31 Bit       Adders := 3     
+	   2 Input     27 Bit       Adders := 6     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               27 Bit    Registers := 6     
+	               18 Bit    Registers := 3     
+	                1 Bit    Registers := 39    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input     31 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 18    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module TopModule 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 9     
+Module buttonDebouncerModule 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     27 Bit       Adders := 1     
++---Registers : 
+	               27 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+Module PwmModule 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input     31 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               18 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+DSP Report: Generating DSP sig_pwm_pin5, operation Mode is: A2*B.
+DSP Report: register sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: Generating DSP sig_pwm_pin5, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: Generating DSP sig_pwm_pin5, operation Mode is: A2*B.
+DSP Report: register sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: Generating DSP sig_pwm_pin5, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: Generating DSP sig_pwm_pin5, operation Mode is: A2*B.
+DSP Report: register sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: Generating DSP sig_pwm_pin5, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+DSP Report: operator sig_pwm_pin5 is absorbed into DSP sig_pwm_pin5.
+WARNING: [Synth 8-3331] design TopModule has unconnected port btn[3]
+WARNING: [Synth 8-3331] design TopModule has unconnected port sw[3]
+INFO: [Synth 8-3886] merging instance 'PwmModule:/pwmCounterLimit_reg[27]' (FDR) to 'PwmModule:/pwmCounterLimit_reg[31]'
+INFO: [Synth 8-3886] merging instance 'PwmModule:/pwmCounterLimit_reg[28]' (FDR) to 'PwmModule:/pwmCounterLimit_reg[31]'
+INFO: [Synth 8-3886] merging instance 'PwmModule:/pwmCounterLimit_reg[29]' (FDR) to 'PwmModule:/pwmCounterLimit_reg[31]'
+INFO: [Synth 8-3886] merging instance 'PwmModule:/pwmCounterLimit_reg[30]' (FDR) to 'PwmModule:/pwmCounterLimit_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PwmModule:/\pwmCounterLimit_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_5/\led_b_duty_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_3/\led_g_duty_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\led_r_duty_reg[0] )
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[22]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[23]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[24]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[25]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_b_pwm/\pwmCounterLimit_reg[26] )
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[22]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[23]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[24]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[25]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_g_pwm/\pwmCounterLimit_reg[26] )
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[22]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[23]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[24]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[25]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[26]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_r_pwm/\pwmCounterLimit_reg[26] )
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[14]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[15]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[16]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[17]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[20]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_b_pwm/\pwmCounterLimit_reg[21] )
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[14]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[15]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[16]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[17]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[20]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_g_pwm/\pwmCounterLimit_reg[21] )
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[14]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[15]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[16]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[17]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[20]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[21]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_r_pwm/\pwmCounterLimit_reg[21] )
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[10]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[11]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[12]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[13]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[16]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_b_pwm/\pwmCounterLimit_reg[18] )
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[10]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[11]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[12]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[13]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[16]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_g_pwm/\pwmCounterLimit_reg[18] )
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[10]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[11]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[12]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[13]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[18]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[16]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_r_pwm/\pwmCounterLimit_reg[18] )
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[6]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[7]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[9]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[8]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_b_pwm/\pwmCounterLimit_reg[9] )
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[6]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[7]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[9]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[8]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_g_pwm/\pwmCounterLimit_reg[9] )
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[6]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[7]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[9]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[8]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_r_pwm/\pwmCounterLimit_reg[9] )
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[1]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[4]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[2]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[4]'
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[3]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_b_pwm/\pwmCounterLimit_reg[4] )
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[5]' (FD) to 'led_b_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[1]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[4]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[2]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[4]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[3]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_g_pwm/\pwmCounterLimit_reg[4] )
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[5]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[1]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[4]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[2]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[4]'
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[3]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_r_pwm/\pwmCounterLimit_reg[4] )
+INFO: [Synth 8-3886] merging instance 'led_r_pwm/pwmCounterLimit_reg[5]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_b_pwm/\pwmCounterLimit_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_g_pwm/\pwmCounterLimit_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (led_r_pwm/\pwmCounterLimit_reg[0] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 867.379 ; gain = 365.441
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|PwmModule   | A2*B           | 18     | 8      | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|PwmModule   | (PCIN>>17)+A*B | 15     | 8      | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PwmModule   | A2*B           | 18     | 8      | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|PwmModule   | (PCIN>>17)+A*B | 15     | 8      | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|PwmModule   | A2*B           | 18     | 8      | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|PwmModule   | (PCIN>>17)+A*B | 15     | 8      | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 904.336 ; gain = 402.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 972.473 ; gain = 470.535
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'led_b_pwm/pwmCounterLimit_reg[19]' (FD) to 'led_g_pwm/pwmCounterLimit_reg[19]'
+INFO: [Synth 8-3886] merging instance 'led_g_pwm/pwmCounterLimit_reg[19]' (FD) to 'led_r_pwm/pwmCounterLimit_reg[19]'
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 988.574 ; gain = 486.637
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 996.727 ; gain = 494.789
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 996.727 ; gain = 494.789
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 996.727 ; gain = 494.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 996.727 ; gain = 494.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 996.727 ; gain = 494.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 996.727 ; gain = 494.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |BUFG      |     1|
+|2     |CARRY4    |   381|
+|3     |DSP48E1_2 |     3|
+|4     |DSP48E1_3 |     3|
+|5     |LUT1      |   108|
+|6     |LUT2      |   134|
+|7     |LUT3      |   689|
+|8     |LUT4      |   231|
+|9     |LUT5      |   341|
+|10    |LUT6      |   800|
+|11    |FDRE      |   391|
+|12    |IBUF      |     7|
+|13    |OBUF      |     3|
++------+----------+------+
+
+Report Instance Areas: 
++------+----------------+------------------------+------+
+|      |Instance        |Module                  |Cells |
++------+----------------+------------------------+------+
+|1     |top             |                        |  3092|
+|2     |  btn0Debouncer |buttonDebouncerModule   |    76|
+|3     |  btn1Debouncer |buttonDebouncerModule_0 |    76|
+|4     |  btn2Debouncer |buttonDebouncerModule_1 |    76|
+|5     |  led_b_pwm     |PwmModule               |   650|
+|6     |  led_g_pwm     |PwmModule_2             |   798|
+|7     |  led_r_pwm     |PwmModule_3             |   799|
+|8     |  sw0Debouncer  |buttonDebouncerModule_4 |    75|
+|9     |  sw1Debouncer  |buttonDebouncerModule_5 |    75|
+|10    |  sw2Debouncer  |buttonDebouncerModule_6 |    75|
++------+----------------+------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 996.727 ; gain = 494.789
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 996.727 ; gain = 371.391
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 996.727 ; gain = 494.789
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 387 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 996.727 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+116 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 996.727 ; gain = 706.121
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 996.727 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/github_repository/zybo-z7-10/Pwm/Pwm.runs/synth_1/TopModule.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file TopModule_utilization_synth.rpt -pb TopModule_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Sep  5 02:23:57 2019...
