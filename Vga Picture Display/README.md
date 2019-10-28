@@ -2,3 +2,4 @@
 - You should convert Picture which you want to display on vga to RGB444 binary format and add code.
 - Image rgb444 array added as signal and not locate RAM.
 - Using picture is Mickey Mouse and 128x128 size. 
+- VGA drive build with 1920x1080 resolution.
